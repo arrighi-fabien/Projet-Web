@@ -6,4 +6,13 @@ nav_menu.addEventListener('click', () => {
     document.body.classList.toggle('no-scroll');
     nav_link.classList.toggle('header__nav--open');
     nav__account.classList.toggle('header__account--open');
-})
+});
+
+document.querySelector('.popup-form__close').addEventListener('click', () => {
+    document.querySelector('.popup-background').classList.toggle('popup-background--active');
+});
+
+
+document.querySelector('.header__account').addEventListener('click', () => {
+    document.querySelector('.popup-background').classList.toggle('popup-background--active');
+});

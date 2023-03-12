@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="src/js/script.js" defer></script>
     <title>Document</title>
 </head>
 <body>
     <header class="header">
         <a href="index.html">
-            <img src="logo.webp" alt="logo" class="header__logo">
+            <img src="src/img/logo.webp" alt="logo" class="header__logo">
         </a>
         <nav class="header__nav">
             <ul>
@@ -21,7 +21,7 @@
                 <li class="header__nav__item"><a href="#" class="link-effect">Trouver un stage</a></li>
             </ul>
         </nav>
-        <a href="#" class="header__account btn btn--primary">Se connecter</a>
+        <input type="button" value="Se connecter" class="header__account btn btn--primary">
         <div class="header__menu">
             <span class="header__menu__line--1"></span>
             <span class="header__menu__line--2"></span>
@@ -31,31 +31,60 @@
         </div>
     </header>
 
+    <div class="popup-background">
+        <div class="popup-form">
+            <svg class="popup-form__close">
+                <use href="src/img/sprite.svg#cancel"></use>
+            </svg>
+            <div class="login-form">
+                <h2>Se connecter</h2>
+                <form action="index.html" method="post" class="login-form__content">
+                    <div class="login-form__content__input">
+                        <label for="email">Email :</label>
+                        <input type="email" name="email" id="email" placeholder="Email...">
+                    </div>
+                    <div class="login-form__content__input">
+                        <div class="login-form__content__input__pwd-label">
+                            <label for="password">Mot de passe :</label>
+                            <a href="#" class="link-effect small-text">Mot de passe oublié ?</a>
+                        </div>
+                        <input type="password" name="password" id="password" placeholder="Mot de passe...">
+                    </div>
+                    <div class="login-form__content__checkbox">
+                        <input type="checkbox" name="remember" id="remember">
+                        <label for="remember">Se souvenir de moi</label>
+                    </div>
+                    <input type="submit" value="Se connecter" class="btn btn--primary">
+                </form>
+            </div>
+        </div>
+    </div>
+
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
     <footer class="footer">
         <div class="footer__content">
             <div class="footer__content__img">
-                <img src="logo.webp" alt="logo" class="footer__content__img__logo">
+                <img src="src/img/logo.webp" alt="logo" class="footer__content__img__logo">
                 <div class="footer__content__img__social">
                     <a href="#">
                         <svg>
-                            <use href="sprite.svg#linkedin"></use>
+                            <use href="src/img/sprite.svg#linkedin"></use>
                         </svg>
                     </a>
                     <a href="#">
                         <svg>
-                            <use href="sprite.svg#facebook"></use>
+                            <use href="src/img/sprite.svg#facebook"></use>
                         </svg>
                     </a>
                     <a href="#">
                         <svg>
-                            <use href="sprite.svg#twitter"></use>
+                            <use href="src/img/sprite.svg#twitter"></use>
                         </svg>
                     </a>
                     <a href="#">
                         <svg>
-                            <use href="sprite.svg#instagram"></use>
+                            <use href="src/img/sprite.svg#instagram"></use>
                         </svg>
                     </a>
                 </div>
@@ -83,7 +112,7 @@
                 </div>
             </div>
         </div>
-        <p class="footer__credit">Stage du zero © 2023 - Tous droits réservés.</p>
+        <p class="footer__credit small-text">Stage du zero © 2023 - Tous droits réservés.</p>
     </footer>
 </body>
 </html>
