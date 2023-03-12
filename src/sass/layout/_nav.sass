@@ -78,7 +78,6 @@
 
 @media screen and (max-width: $breakpoint-tablet)
   .header
-    padding: 0 1rem
     grid-template-columns: 1fr 1fr
     &__menu
       display: block
@@ -112,6 +111,10 @@
     &__account--open
       right: 50%
       transform: translateX(50%)
+
+@media screen and (max-width: $breakpoint-phone)
+  .header
+    padding: 0 1rem
 
 @media screen and (max-height: 400px)
   .header

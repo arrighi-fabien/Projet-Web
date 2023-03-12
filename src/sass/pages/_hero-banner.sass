@@ -1,0 +1,29 @@
+.hero-banner
+  height: 25rem
+  display: flex
+  align-items: center
+  padding: 0 6.25rem
+  &__img
+    height: 12vw
+  &__content
+    font-size: 3vw
+    width: 50%
+    margin: 0 0 0 auto
+
+@media screen and (max-width: $breakpoint-tablet)
+  .hero-banner
+    height: 20rem
+    padding: 0 3.125rem
+    &__content
+      font-size: 4vw
+
+@media screen and (max-width: $breakpoint-phone)
+  .hero-banner
+    height: 15rem
+    padding: 0 1.25rem
+    text-align: center
+    &__img
+      display: none
+    &__content
+      width: 100%
+      font-size: 7vw
