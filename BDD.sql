@@ -306,7 +306,7 @@ VALUES
     (2, 5),
     (3, 1);
 
-CREATE TABLE Require(
+CREATE TABLE need(
    id_intership INT,
    id_skill INT,
    PRIMARY KEY(id_intership, id_skill),
@@ -314,7 +314,7 @@ CREATE TABLE Require(
    FOREIGN KEY(id_skill) REFERENCES skill(id_skill)
 );
 
-INSERT INTO `Require`(`id_intership`, `id_skill`)
+INSERT INTO `need`(`id_intership`, `id_skill`)
 VALUES
    (1, 1),
    (1, 2),
