@@ -1,0 +1,58 @@
+.card-background
+  background: $primary-color
+  border-radius: $border-radius
+  border: $boder
+  position: relative
+
+.card-link
+  position: absolute
+  inset: 0
+
+.card-bookmark
+  z-index: 1
+
+.card-company
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 37.5rem
+  height: 9.4rem
+  padding: 0 0.9rem
+  &__content
+    display: flex
+    align-items: center
+    gap: 2rem
+    &__img
+      width: 6.25rem
+      height: 6.25rem
+    &__info
+      display: flex
+      flex-direction: column
+      gap: 0.5rem
+      width: 65%
+      &__title
+        font-size: 1.25rem
+        padding-bottom: 0.1rem
+        font-weight: 400
+      &__job
+        font-size: 1.35rem
+        text-decoration: underline
+        font-weight: 500
+  &__offer
+    width: 15%
+    text-align: right
+
+@media screen and (max-width: $breakpoint-small-tablet)
+  .card-company
+    width: 90%
+    height: 10.4rem
+    padding: 0 1.5rem
+    &__content
+      &__img
+        width: 4rem
+        height: 4rem
+      &__info
+        width: 100%
+        font-size: 0.9rem
+    &__offer
+      display: none
