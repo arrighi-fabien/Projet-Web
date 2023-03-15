@@ -20,7 +20,7 @@
         <nav class="header__nav">
             <ul>
                 <li class="header__nav__item"><a href="" class="link-effect">Accueil</a></li>
-                <li class="header__nav__item"><a href="/search.html" class="link-effect">Trouver une entreprise</a></li>
+                <li class="header__nav__item"><a href="search.html" class="link-effect">Trouver une entreprise</a></li>
                 <li class="header__nav__item"><a href="#" class="link-effect">Trouver un stage</a></li>
             </ul>
         </nav>
@@ -38,328 +38,354 @@
         <img src="src/img/background1.webp" alt="" class="background-form background-form--1">
         <img src="src/img/background2.webp" alt="" class="background-form background-form--2">
 
-        <div class="card-background search-bar p-1">
-            <div class="search-bar__input">
-                <div class="search-bar__input__text">
-                    <div class="search-bar__input__text__line">
-                        <input type="text" placeholder="Rechercher par nom...">
-                        <input type="text" placeholder="Rechercher par lieu...">
-                        <select>
-                            <option value="">Date de l'offre</option>
-                        </select>
-                    </div>
-                    <div class="search-bar__input__text__line">
-                        <input type="text" placeholder="Rechercher par nom...">
-                        <input type="text" placeholder="Rechercher par lieu...">
-                        <select>
-                            <option value="">Compétences</option>
-                        </select>
-                    </div>
+        <div class="search-section m-5-0">
+            <div class="card-background search-bar p-1">
+                <div class="search-bar__input">
+                    <input type="text" placeholder="Rechercher par nom...">
+                    <input type="text" placeholder="Rechercher par lieu...">
+                    <select>
+                        <option value="">Date de l'offre</option>
+                    </select>
+                    <input type="text" placeholder="Rechercher par nom...">
+                    <input type="text" placeholder="Rechercher par lieu...">
+                    <select>
+                        <option value="">Compétences</option>
+                    </select>
+                    <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+                    <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
                 </div>
-                <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
-                <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+                <input type="button" value="Reset" class="btn btn--secondary">
             </div>
-            <input type="button" value="Reset" class="btn btn--secondary">
-        </div>
-        <div class="m-5-0">
-            <div class="card-background">
-                <div class="best-section__content card-display p-2">
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+            <input type="button" value="Afficher les filtres" class="btn btn--secondary filter-btn">
+            <div>
+                <div class="card-background">
+                    <div class="best-section__content card-display">
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
-                    </div>
-                    <div class="card-company card-background">
-                        <a href="#" class="card-link"><span></span></a>
-                        <div class="card-company__content">
-                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
-                            <div class="card-company__content__info">
-                                <h4 class="card-company__content__info__title">Thales</h4>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#building"></use></svg>
-                                    <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
-                                </div>
-                                <div class="text-and-svg">
-                                    <svg><use href="src/img/sprite.svg#map"></use></svg>
-                                    <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="card-company__offer">241 offres</p>
                         </div>
-                        <p class="card-company__offer">241 offres</p>
+                        <div class="card-company card-background">
+                            <a href="#" class="card-link"><span></span></a>
+                            <div class="card-company__content">
+                                <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Thales</h4>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#building"></use></svg>
+                                        <p class="card-company__content__sector">Logiciels, Cybersécurité, Aéronautique / Spatiale</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg><use href="src/img/sprite.svg#map"></use></svg>
+                                        <p class="card-company__content__city">Cannes, Paris, Nantes, Montpellier, Lyon...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-company__offer">241 offres</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card-display__pagination">
-                    <img src="src/img/fade.png" class="fade-scroll">
-                    <p>1234</p>
+                    <div class="card-display__pagination">
+                        <img src="src/img/fade.png" class="fade-scroll">
+                        <p>1234</p>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <div class="popup-background">
+        <div class="popup-form card-background">
+            <svg class="popup-form__close">
+                <use href="src/img/sprite.svg#cancel"></use>
+            </svg>
+            <div class="login-form">
+                <h2>Se connecter</h2>
+                <form action="index.html" method="post" class="login-form__content">
+                    <div class="login-form__content__input">
+                        <label for="email">Email :</label>
+                        <input type="email" name="email" id="email" placeholder="Email...">
+                    </div>
+                    <div class="login-form__content__input">
+                        <div class="login-form__content__input__pwd-label">
+                            <label for="password">Mot de passe :</label>
+                            <a href="#" class="link-effect small-text">Mot de passe oublié ?</a>
+                        </div>
+                        <input type="password" name="password" id="password" placeholder="Mot de passe...">
+                    </div>
+                    <div class="login-form__content__checkbox">
+                        <input type="checkbox" name="remember" id="remember">
+                        <label for="remember">Se souvenir de moi</label>
+                    </div>
+                    <input type="submit" value="Se connecter" class="btn btn--primary">
+                </form>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="footer__content">

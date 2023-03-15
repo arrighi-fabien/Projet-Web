@@ -16,3 +16,16 @@ document.querySelector('.popup-form__close').addEventListener('click', () => {
 document.querySelector('.header__account').addEventListener('click', () => {
     document.querySelector('.popup-background').classList.toggle('popup-background--active');
 });
+
+document.querySelector('.filter-btn').addEventListener('click', () => {
+    document.querySelector('.search-bar').classList.toggle('search-bar--active');
+    //change value of button
+    if (document.querySelector('.filter-btn').value == 'Afficher les filtres') {
+        document.querySelector('.filter-btn').value = 'Fermer les filtres';
+    }
+    else {
+        document.querySelector('.filter-btn').value = 'Afficher les filtres';
+    }
+    // keep to the top of the page
+    window.scrollTo(0, 0);
+});
