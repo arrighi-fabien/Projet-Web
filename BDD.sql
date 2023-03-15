@@ -207,8 +207,8 @@ VALUES
     ('Cesi', "Campus d’enseignement supérieur et de formation professionnelle, CESI poursuit sa mission sociétale en permettant à des étudiants, alternants et salariés de devenir acteurs des transformations des entreprises et de la société, grâce à ses écoles et activités.", false, 'EMAIL', 0, true, 4);
 
 CREATE TABLE internship(
-   id_intership INT AUTO_INCREMENT,
-   intership_name VARCHAR(100) NOT NULL,
+   id_internship INT AUTO_INCREMENT,
+   internship_name VARCHAR(100) NOT NULL,
    description TEXT NOT NULL,
    duration INT NOT NULL,
    salary DECIMAL(15,2) NOT NULL,
@@ -216,12 +216,12 @@ CREATE TABLE internship(
    places_students INT NOT NULL,
    id_city INT NOT NULL,
    id_company INT NOT NULL,
-   PRIMARY KEY(id_intership),
+   PRIMARY KEY(id_internship),
    FOREIGN KEY(id_city) REFERENCES city(id_city),
    FOREIGN KEY(id_company) REFERENCES company(id_company)
 );
 
-INSERT INTO `internship`(`intership_name`, `description`, `duration`, `salary`, `offer_date`, `places_students`, `id_city`, `id_company`)
+INSERT INTO `internship`(`internship_name`, `description`, `duration`, `salary`, `offer_date`, `places_students`, `id_city`, `id_company`)
 VALUES 
     ("Stage de fin d\'étude", 'Description', 15, 1, '2018-01-01', 5, 1, 1),
     ("Stage - Chargé de Communication & Marque Employeur F/H - Paris", "Rejoignez BPCE en tant que Chargé.e de Communication digitale & Marque Employeur pour un stage à partir de Mars ! Les missions c'est important, l'équipe et l'environnement aussi … ! \n\n Vous intégrez une équipe qui vous offrira un accompagnement de proximité : 5 Responsables de projets en charge des sujets : Recrutement, Marque Employeur, Réseaux sociaux, Gestion de carrières, etc", 24, 2, '2018-01-01', 5, 5, 2),
@@ -295,14 +295,14 @@ VALUES
     (3, 1);
 
 CREATE TABLE need(
-   id_intership INT,
+   id_internship INT,
    id_skill INT,
-   PRIMARY KEY(id_intership, id_skill),
-   FOREIGN KEY(id_intership) REFERENCES internship(id_intership),
+   PRIMARY KEY(id_internship, id_skill),
+   FOREIGN KEY(id_internship) REFERENCES internship(id_internship),
    FOREIGN KEY(id_skill) REFERENCES skill(id_skill)
 );
 
-INSERT INTO `need`(`id_intership`, `id_skill`)
+INSERT INTO `need`(`id_internship`, `id_skill`)
 VALUES
    (1, 1),
    (1, 2),
@@ -313,13 +313,13 @@ VALUES
 
 CREATE TABLE concern(
    id_promotion INT,
-   id_intership INT,
-   PRIMARY KEY(id_promotion, id_intership),
+   id_internship INT,
+   PRIMARY KEY(id_promotion, id_internship),
    FOREIGN KEY(id_promotion) REFERENCES promotion(id_promotion),
-   FOREIGN KEY(id_intership) REFERENCES internship(id_intership)
+   FOREIGN KEY(id_internship) REFERENCES internship(id_internship)
 );
 
-INSERT INTO `concern`(`id_promotion`, `id_intership`)
+INSERT INTO `concern`(`id_promotion`, `id_internship`)
 VALUES
     (1, 1),
     (1, 2),
@@ -330,13 +330,13 @@ VALUES
 
 CREATE TABLE wishlist(
    id_user INT,
-   id_intership INT,
-   PRIMARY KEY(id_user, id_intership),
+   id_internship INT,
+   PRIMARY KEY(id_user, id_internship),
    FOREIGN KEY(id_user) REFERENCES users(id_user),
-   FOREIGN KEY(id_intership) REFERENCES internship(id_intership)
+   FOREIGN KEY(id_internship) REFERENCES internship(id_internship)
 );
 
-INSERT INTO `wishlist`(`id_user`, `id_intership`)
+INSERT INTO `wishlist`(`id_user`, `id_internship`)
 VALUES
     (1, 1),
     (1, 2),
@@ -388,13 +388,13 @@ VALUES
 
 CREATE TABLE candidate(
    id_user INT,
-   id_intership INT,
-   PRIMARY KEY(id_user, id_intership),
+   id_internship INT,
+   PRIMARY KEY(id_user, id_internship),
    FOREIGN KEY(id_user) REFERENCES users(id_user),
-   FOREIGN KEY(id_intership) REFERENCES internship(id_intership)
+   FOREIGN KEY(id_internship) REFERENCES internship(id_internship)
 );
 
-INSERT INTO `candidate`(`id_user`, `id_intership`)
+INSERT INTO `candidate`(`id_user`, `id_internship`)
 VALUES
     (1, 1),
     (1, 2),
