@@ -23,3 +23,15 @@ main
 
 .no-scroll
   overflow: hidden
+
+// change scroll bar shape
+::-webkit-scrollbar
+  width: 0.5rem
+  height: 0.5rem
+
+::-webkit-scrollbar-track
+  background: none
+
+::-webkit-scrollbar-thumb
+  background: $secondary-color--hover
+  border-radius: $border-radius
