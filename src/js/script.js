@@ -17,6 +17,14 @@ document.querySelector('.header__account').addEventListener('click', () => {
     document.querySelector('.popup-background').classList.toggle('popup-background--active');
 });
 
+document.querySelector('.card-company').addEventListener('click', () => {
+    document.querySelector('.offer-description').classList.toggle('offer-description--active');
+});
+
+document.querySelector('.offer-preview-close').addEventListener('click', () => {
+    document.querySelector('.offer-description').classList.toggle('offer-description--active');
+});
+
 document.querySelector('.filter-btn').addEventListener('click', () => {
     document.querySelector('.search-bar').classList.toggle('search-bar--active');
     //change value of button

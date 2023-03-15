@@ -45,6 +45,7 @@
 
 .offer-description
   padding: 2rem
+  transition: opacity 0.2s ease-in-out
   &__company, &__detail
     font-size: 1rem
     margin-bottom: 1.5rem
@@ -57,6 +58,9 @@
   position: absolute
   top: 2rem
   right: 2rem
+
+.offer-preview-close
+  display: none
 
 .filter-btn
   display: none
@@ -86,7 +90,33 @@
         & > *:not(:last-child)
           margin-right: 0
 
+  .offer-preview
+    width: fit-content
+    & > .card-background
+      border-radius: $border-radius
+
+  .offer-description
+    position: absolute
+    width: 90%
+    inset: 0
+    opacity: 0
+    left: -100%
+    &--active
+      width: 100%
+      inset: 0
+      opacity: 1
+      overflow-y: scroll
+      background: $primary-color
+      border: $border
+      border-radius: $border-radius
+      z-index: 2
+
   .filter-btn
     display: block
     z-index: 1
     margin-bottom: 2rem
+
+  .offer-preview-close, .apply-btn
+    position: initial
+    display: block
+    margin: 1rem auto
