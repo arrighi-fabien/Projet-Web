@@ -22,6 +22,8 @@ document.querySelector('.card-company').addEventListener('click', () => {
 });
 
 document.querySelector('.offer-preview-close').addEventListener('click', () => {
+    //scroll to the top of the div
+    document.querySelector('.offer-description').scrollTop = 0;
     document.querySelector('.offer-description').classList.toggle('offer-description--active');
 });
 
