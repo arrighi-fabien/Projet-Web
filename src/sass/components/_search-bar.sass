@@ -4,15 +4,59 @@
   justify-content: space-around
   align-items: flex-start
   position: relative
+  &--offer
+    flex-direction: column
+    align-items: center
+    & .search-bar
+      width: 80%
+      margin-bottom: 2rem
+      max-height: 0
+      opacity: 0
+      &--active
+        max-height: 100vh
+        opacity: 1
+    & .filter-btn
+      display: block
+      z-index: 1
+      margin-bottom: 2rem
 
 .search-bar
   width: 20%
   height: fit-content
   max-height: 100vh
-  transition: max-height 1s, opacity 1s
+  transition: max-height 1s, opacity 0.5s
   &__input
     & input, & select
       margin: 1rem 0
+    &--offer
+      display: flex
+      & > *:not(:last-child)
+        margin-right: 1rem
+  & > .btn
+    display: block
+    margin: auto
+
+.offer-preview
+  position: relative
+  width: 90%
+  display: flex
+  & > .card-background
+    border-radius: $border-radius 0 0 $border-radius
+
+.offer-description
+  padding: 2rem
+  &__company, &__detail
+    font-size: 1rem
+    margin-bottom: 1.5rem
+    display: flex
+    flex-direction: column
+    & > *:not(:last-child)
+      margin-bottom: 0.5rem
+
+.apply-btn
+  position: absolute
+  top: 2rem
+  right: 2rem
 
 .filter-btn
   display: none
@@ -36,6 +80,11 @@
     &--active
       max-height: 100vh
       opacity: 1
+    &__input
+      &--offer
+        flex-direction: column
+        & > *:not(:last-child)
+          margin-right: 0
 
   .filter-btn
     display: block
