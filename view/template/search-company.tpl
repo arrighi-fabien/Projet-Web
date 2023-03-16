@@ -45,7 +45,7 @@
                     {/foreach}
                 </div>
                 <div class="card-display__pagination">
-                    <img src="src/img/fade.png" class="fade-scroll">
+                    <img src="src/img/fade.png" alt="" class="fade-scroll">
                     <p>1234</p>
                 </div>
             </div>

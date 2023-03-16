@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="src/js/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Site de recherche de stage">
+    <title>Stage du zero</title>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img src="src/img/logo.webp" alt="logo" class="header__logo">
+        </a>
+        <nav class="header__nav">
+            <ul>
+                <li class="header__nav__item"><a href="index.html" class="link-effect">Accueil</a></li>
+                <li class="header__nav__item"><a href="search.html" class="link-effect">Trouver une entreprise</a></li>
+                <li class="header__nav__item"><a href="search2.html" class="link-effect">Trouver un stage</a></li>
+            </ul>
+        </nav>
+        <input type="button" value="Se connecter" class="header__account btn btn--primary">
+        <div class="header__menu">
+            <span class="header__menu__line--1"></span>
+            <span class="header__menu__line--2"></span>
+            <span class="header__menu__line--3"></span>
+            <span class="header__menu__line--4"></span>
+            <span class="header__menu__line--5"></span>
+        </div>
+    </header>
+
+    <main>
+        <div class="best-section__content">
+            <div class="card-background personal-info p-2">
+                <h2 class="center-title important-title">Informations</h2>
+                <div class="personal-info__line">
+                    <div class="personal-info__element">
+                        <label for="nom">Nom :</label>
+                        <input type="text" id="nom"value="Arrighi" disabled>
+                    </div>
+                    <div class="personal-info__element">
+                        <label for="prenom">Prénom :</label>
+                        <input type="text" id="prenom" value="Fabien" disabled>
+                    </div>
+                </div>
+                <div class="personal-info__element">
+                    <label for="email">Email :</label>
+                    <input type="text" id="email" value="fabien.arrighi@viacesi.fr" disabled>
+                </div>
+                <div class="personal-info__line">
+                    <div class="personal-info__element">
+                        <label for="promotion">Promotion :</label>
+                        <input type="text" id="promotion" value="A2 Informatique" disabled>
+                    </div>
+                    <div class="personal-info__element">
+                        <label for="center">Centre :</label>
+                        <input type="text" id="center" value="Nice" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="card-background p-2">
+                <h2 class="center-title important-title">Candidature</h2>
+                <div class="best-section__content best-section__content--col-1 card-display">
+                    <div class="card-company card-background">
+                        <a href="#" class="card-link"><span></span></a>
+                        <div class="card-company__content">
+                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                            <div class="card-company__content__info">
+                                <h4 class="card-company__content__info__job">Développeur web</h4>
+                                <h5 class="card-company__content__info__title">Thales</h5>
+                                <p class="card-company__content__city">Lyon</p>
+                                <p class="small-text">Il y a 15 heures</p>
+                            </div>
+                        </div>
+                        <a href="##"  class="card-bookmark"class="card-bookmark">
+                            <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                        </a>
+                    </div>
+                    <div class="card-company card-background">
+                        <a href="#" class="card-link"><span></span></a>
+                        <div class="card-company__content">
+                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                            <div class="card-company__content__info">
+                                <h4 class="card-company__content__info__job">Développeur web</h4>
+                                <h5 class="card-company__content__info__title">Thales</h5>
+                                <p class="card-company__content__city">Lyon</p>
+                                <p class="small-text">Il y a 15 heures</p>
+                            </div>
+                        </div>
+                        <a href="##"  class="card-bookmark"class="card-bookmark">
+                            <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                        </a>
+                    </div>
+                    <div class="card-company card-background">
+                        <a href="#" class="card-link"><span></span></a>
+                        <div class="card-company__content">
+                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                            <div class="card-company__content__info">
+                                <h4 class="card-company__content__info__job">Développeur web</h4>
+                                <h5 class="card-company__content__info__title">Thales</h5>
+                                <p class="card-company__content__city">Lyon</p>
+                                <p class="small-text">Il y a 15 heures</p>
+                            </div>
+                        </div>
+                        <a href="##"  class="card-bookmark"class="card-bookmark">
+                            <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                        </a>
+                    </div>
+                    <div class="card-company card-background">
+                        <a href="#" class="card-link"><span></span></a>
+                        <div class="card-company__content">
+                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                            <div class="card-company__content__info">
+                                <h4 class="card-company__content__info__job">Développeur web</h4>
+                                <h5 class="card-company__content__info__title">Thales</h5>
+                                <p class="card-company__content__city">Lyon</p>
+                                <p class="small-text">Il y a 15 heures</p>
+                            </div>
+                        </div>
+                        <a href="##"  class="card-bookmark"class="card-bookmark">
+                            <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                        </a>
+                    </div>
+                    <div class="card-company card-background">
+                        <a href="#" class="card-link"><span></span></a>
+                        <div class="card-company__content">
+                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                            <div class="card-company__content__info">
+                                <h4 class="card-company__content__info__job">Développeur web</h4>
+                                <h5 class="card-company__content__info__title">Thales</h5>
+                                <p class="card-company__content__city">Lyon</p>
+                                <p class="small-text">Il y a 15 heures</p>
+                            </div>
+                        </div>
+                        <a href="##"  class="card-bookmark"class="card-bookmark">
+                            <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                        </a>
+                    </div>
+                    <div class="card-company card-background">
+                        <a href="#" class="card-link"><span></span></a>
+                        <div class="card-company__content">
+                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                            <div class="card-company__content__info">
+                                <h4 class="card-company__content__info__job">Développeur web</h4>
+                                <h5 class="card-company__content__info__title">Thales</h5>
+                                <p class="card-company__content__city">Lyon</p>
+                                <p class="small-text">Il y a 15 heures</p>
+                            </div>
+                        </div>
+                        <a href="##"  class="card-bookmark"class="card-bookmark">
+                            <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                        </a>
+                    </div>
+                    <div class="card-company card-background">
+                        <a href="#" class="card-link"><span></span></a>
+                        <div class="card-company__content">
+                            <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                            <div class="card-company__content__info">
+                                <h4 class="card-company__content__info__job">Développeur web</h4>
+                                <h5 class="card-company__content__info__title">Thales</h5>
+                                <p class="card-company__content__city">Lyon</p>
+                                <p class="small-text">Il y a 15 heures</p>
+                            </div>
+                        </div>
+                        <a href="##"  class="card-bookmark"class="card-bookmark">
+                            <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-display__pagination">
+                    <img src="src/img/fade.png" alt="" class="fade-scroll">
+                    <p>1234</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-background m-0-auto p-2">
+            <h2 class="center-title important-title">Wishlist</h2>
+            <div class="best-section__content card-display">
+                <div class="card-company card-background">
+                    <a href="#" class="card-link"><span></span></a>
+                    <div class="card-company__content">
+                        <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                        <div class="card-company__content__info">
+                            <h4 class="card-company__content__info__job">Développeur web</h4>
+                            <h5 class="card-company__content__info__title">Thales</h5>
+                            <p class="card-company__content__city">Lyon</p>
+                            <p class="small-text">Il y a 15 heures</p>
+                        </div>
+                    </div>
+                    <a href="##"  class="card-bookmark"class="card-bookmark">
+                        <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                    </a>
+                </div>
+                <div class="card-company card-background">
+                    <a href="#" class="card-link"><span></span></a>
+                    <div class="card-company__content">
+                        <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                        <div class="card-company__content__info">
+                            <h4 class="card-company__content__info__job">Développeur web</h4>
+                            <h5 class="card-company__content__info__title">Thales</h5>
+                            <p class="card-company__content__city">Lyon</p>
+                            <p class="small-text">Il y a 15 heures</p>
+                        </div>
+                    </div>
+                    <a href="##"  class="card-bookmark"class="card-bookmark">
+                        <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                    </a>
+                </div>
+                <div class="card-company card-background">
+                    <a href="#" class="card-link"><span></span></a>
+                    <div class="card-company__content">
+                        <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                        <div class="card-company__content__info">
+                            <h4 class="card-company__content__info__job">Développeur web</h4>
+                            <h5 class="card-company__content__info__title">Thales</h5>
+                            <p class="card-company__content__city">Lyon</p>
+                            <p class="small-text">Il y a 15 heures</p>
+                        </div>
+                    </div>
+                    <a href="##"  class="card-bookmark"class="card-bookmark">
+                        <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                    </a>
+                </div>
+                <div class="card-company card-background">
+                    <a href="#" class="card-link"><span></span></a>
+                    <div class="card-company__content">
+                        <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                        <div class="card-company__content__info">
+                            <h4 class="card-company__content__info__job">Développeur web</h4>
+                            <h5 class="card-company__content__info__title">Thales</h5>
+                            <p class="card-company__content__city">Lyon</p>
+                            <p class="small-text">Il y a 15 heures</p>
+                        </div>
+                    </div>
+                    <a href="##"  class="card-bookmark"class="card-bookmark">
+                        <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                    </a>
+                </div>
+                <div class="card-company card-background">
+                    <a href="#" class="card-link"><span></span></a>
+                    <div class="card-company__content">
+                        <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                        <div class="card-company__content__info">
+                            <h4 class="card-company__content__info__job">Développeur web</h4>
+                            <h5 class="card-company__content__info__title">Thales</h5>
+                            <p class="card-company__content__city">Lyon</p>
+                            <p class="small-text">Il y a 15 heures</p>
+                        </div>
+                    </div>
+                    <a href="##"  class="card-bookmark"class="card-bookmark">
+                        <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                    </a>
+                </div>
+                <div class="card-company card-background">
+                    <a href="#" class="card-link"><span></span></a>
+                    <div class="card-company__content">
+                        <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                        <div class="card-company__content__info">
+                            <h4 class="card-company__content__info__job">Développeur web</h4>
+                            <h5 class="card-company__content__info__title">Thales</h5>
+                            <p class="card-company__content__city">Lyon</p>
+                            <p class="small-text">Il y a 15 heures</p>
+                        </div>
+                    </div>
+                    <a href="##"  class="card-bookmark"class="card-bookmark">
+                        <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                    </a>
+                </div>
+                <div class="card-company card-background">
+                    <a href="#" class="card-link"><span></span></a>
+                    <div class="card-company__content">
+                        <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                        <div class="card-company__content__info">
+                            <h4 class="card-company__content__info__job">Développeur web</h4>
+                            <h5 class="card-company__content__info__title">Thales</h5>
+                            <p class="card-company__content__city">Lyon</p>
+                            <p class="small-text">Il y a 15 heures</p>
+                        </div>
+                    </div>
+                    <a href="##"  class="card-bookmark"class="card-bookmark">
+                        <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                    </a>
+                </div>
+                <div class="card-company card-background">
+                    <a href="#" class="card-link"><span></span></a>
+                    <div class="card-company__content">
+                        <img src="src/img/thales.png" alt="thales logo" class="card-company__content__img">
+                        <div class="card-company__content__info">
+                            <h4 class="card-company__content__info__job">Développeur web</h4>
+                            <h5 class="card-company__content__info__title">Thales</h5>
+                            <p class="card-company__content__city">Lyon</p>
+                            <p class="small-text">Il y a 15 heures</p>
+                        </div>
+                    </div>
+                    <a href="##"  class="card-bookmark"class="card-bookmark">
+                        <svg><use href="src/img/sprite.svg#bookmark"></use></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="card-display__pagination">
+                <img src="src/img/fade.png" alt="" class="fade-scroll">
+                <p>1234</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__content__img">
+                <img src="src/img/logo.webp" alt="logo" class="footer__content__img__logo">
+                <div class="footer__content__img__social">
+                    <a href="#">
+                        <svg>
+                            <use href="src/img/sprite.svg#linkedin"></use>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg>
+                            <use href="src/img/sprite.svg#facebook"></use>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg>
+                            <use href="src/img/sprite.svg#twitter"></use>
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <svg>
+                            <use href="src/img/sprite.svg#instagram"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__content__link">
+                <div class="footer__content__link__item">
+                    <h3>À propos</h3>
+                    <a href="#">Concept</a>
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Nous contacter</a>
+                </div>
+                <div class="footer__content__link__item">
+                    <h3>Trouver un stage</h3>
+                    <a href="#">Offres de stage par entreprise</a>
+                    <a href="#">Offres de stage par métier</a>
+                </div>
+                <div class="footer__content__link__item">
+                    <h3>Liens utiles</h3>
+                    <a href="#">Lorem ipsum</a>
+                    <a href="#">Vel dolor</a>
+                    <a href="#">In feuglat eum vero</a>
+                    <a href="#">Kasd</a>
+                    <a href="#">Feugiat diam duis</a>
+                </div>
+            </div>
+        </div>
+        <p class="footer__credit small-text">Stage du zero © 2023 - Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
