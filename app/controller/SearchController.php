@@ -13,6 +13,7 @@ class SearchController {
             $offers = $search_model->searchOffers(20, 1);
             $offers = AppModel::summarize($offers, 40, 'internship_name');
             $offers = AppModel::getEllapsedTime($offers, 'offer_date');
+            $offer_detail = $search_model->getOfferDetails(1);
             require '../app/view/search-offers.php';
         }
         else {

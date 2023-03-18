@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-18 16:04:36
+/* Smarty version 4.3.0, created on 2023-03-18 18:44:30
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\search-offers.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6415e11443f6c0_71513331',
+  'unifunc' => 'content_6416068ec92d28_30923284',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '60989e35354ab9d00579c119a4987850b4c9c505' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\search-offers.tpl',
-      1 => 1679155475,
+      1 => 1679165068,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6415e11443f6c0_71513331 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6416068ec92d28_30923284 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -72,36 +72,37 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </div>
             </div>
             <div class="offer-description">
-                <h1 class="important-title"><?php echo $_smarty_tpl->tpl_vars['offer_preview']->value->name;?>
+                <h1 class="important-title"><?php echo $_smarty_tpl->tpl_vars['offer_detail']->value->internship_name;?>
 </h1>
+                <input type="button" value="Postuler" class="btn btn--primary apply-btn">
+                <input type="button" value="Fermer" class="btn btn--secondary offer-preview-close">
                 <div class="offer-description__company">
-                    <p><?php echo $_smarty_tpl->tpl_vars['offer_preview']->value->company;?>
+                    <p><?php echo $_smarty_tpl->tpl_vars['offer_detail']->value->company_name;?>
 </p>
-                    <p><?php echo $_smarty_tpl->tpl_vars['offer_preview']->value->location;?>
+                    <p><?php echo $_smarty_tpl->tpl_vars['offer_detail']->value->city_name;?>
 </p>
-                    <p><?php echo $_smarty_tpl->tpl_vars['offer_preview']->value->post_date;?>
+                    <p><?php echo $_smarty_tpl->tpl_vars['offer_detail']->value->offer_date;?>
 </p>
                 </div>
                 <div class="offer-description__detail">
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#calendar"></use></svg>
-                        <p class="card-company__content__sector"><?php echo $_smarty_tpl->tpl_vars['offer_preview']->value->duration;?>
-</p>
+                        <p class="card-company__content__sector"><?php echo $_smarty_tpl->tpl_vars['offer_detail']->value->duration;?>
+ semaine<?php if ($_smarty_tpl->tpl_vars['offer_detail']->value->duration > 1) {?>s<?php }?></p>
                     </div>
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#money"></use></svg>
-                        <p class="card-company__content__sector"><?php echo $_smarty_tpl->tpl_vars['offer_preview']->value->salary;?>
- / mois</p>
+                        <p class="card-company__content__sector"><?php echo $_smarty_tpl->tpl_vars['offer_detail']->value->salary;?>
+€ / mois</p>
                     </div>
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#checklist"></use></svg>
-                        <p class="card-company__content__sector"><?php echo $_smarty_tpl->tpl_vars['offer_preview']->value->skill;?>
+                        <p class="card-company__content__sector"><?php echo $_smarty_tpl->tpl_vars['offer_detail']->value->skills;?>
 </p>
                     </div>
                 </div>
-                <p><?php echo $_smarty_tpl->tpl_vars['offer_preview']->value->description;?>
+                <p><?php echo $_smarty_tpl->tpl_vars['offer_detail']->value->description;?>
 </p>
-                <input type="button" value="Postuler" class="btn btn--primary apply-btn">
             </div>
         </div>
     </div>

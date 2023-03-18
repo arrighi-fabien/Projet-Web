@@ -36,28 +36,29 @@
                 </div>
             </div>
             <div class="offer-description">
-                <h1 class="important-title">{$offer_preview->name}</h1>
+                <h1 class="important-title">{$offer_detail->internship_name}</h1>
+                <input type="button" value="Postuler" class="btn btn--primary apply-btn">
+                <input type="button" value="Fermer" class="btn btn--secondary offer-preview-close">
                 <div class="offer-description__company">
-                    <p>{$offer_preview->company}</p>
-                    <p>{$offer_preview->location}</p>
-                    <p>{$offer_preview->post_date}</p>
+                    <p>{$offer_detail->company_name}</p>
+                    <p>{$offer_detail->city_name}</p>
+                    <p>{$offer_detail->offer_date}</p>
                 </div>
                 <div class="offer-description__detail">
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#calendar"></use></svg>
-                        <p class="card-company__content__sector">{$offer_preview->duration}</p>
+                        <p class="card-company__content__sector">{$offer_detail->duration} semaine{if $offer_detail->duration > 1}s{/if}</p>
                     </div>
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#money"></use></svg>
-                        <p class="card-company__content__sector">{$offer_preview->salary} / mois</p>
+                        <p class="card-company__content__sector">{$offer_detail->salary}€ / mois</p>
                     </div>
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#checklist"></use></svg>
-                        <p class="card-company__content__sector">{$offer_preview->skill}</p>
+                        <p class="card-company__content__sector">{$offer_detail->skills}</p>
                     </div>
                 </div>
-                <p>{$offer_preview->description}</p>
-                <input type="button" value="Postuler" class="btn btn--primary apply-btn">
+                <p>{$offer_detail->description}</p>
             </div>
         </div>
     </div>
