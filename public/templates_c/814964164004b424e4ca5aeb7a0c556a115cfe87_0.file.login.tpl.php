@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-18 00:07:30
+/* Smarty version 4.3.0, created on 2023-03-18 16:23:10
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_641500c2922be0_57043111',
+  'unifunc' => 'content_6415e56e500211_93081699',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '814964164004b424e4ca5aeb7a0c556a115cfe87' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\login.tpl',
-      1 => 1679097727,
+      1 => 1679156589,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641500c2922be0_57043111 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6415e56e500211_93081699 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="popup-background">
-    <div class="popup-form card-background">
+    <div class="popup-form card-background hidden">
         <svg class="popup-form__close">
             <use href="/img/sprite.svg#cancel"></use>
         </svg>

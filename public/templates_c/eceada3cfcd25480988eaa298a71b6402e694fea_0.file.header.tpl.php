@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-18 00:07:30
+/* Smarty version 4.3.0, created on 2023-03-18 15:56:38
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_641500c2910418_06283215',
+  'unifunc' => 'content_6415df36115470_37209514',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'eceada3cfcd25480988eaa298a71b6402e694fea' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\header.tpl',
-      1 => 1679096834,
+      1 => 1679151312,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641500c2910418_06283215 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6415df36115470_37209514 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -47,12 +47,12 @@ function content_641500c2910418_06283215 (Smarty_Internal_Template $_smarty_tpl)
         </a>
         <nav class="header__nav">
             <ul>
-                <li class="header__nav__item"><a href="" class="link-effect">Accueil</a></li>
-                <li class="header__nav__item"><a href="/search.html" class="link-effect">Trouver une entreprise</a></li>
-                <li class="header__nav__item"><a href="#" class="link-effect">Trouver un stage</a></li>
+                <li class="header__nav__item"><a href="/" class="link-effect">Accueil</a></li>
+                <li class="header__nav__item"><a href="/search/companies" class="link-effect">Trouver une entreprise</a></li>
+                <li class="header__nav__item"><a href="/search/offers" class="link-effect">Trouver un stage</a></li>
             </ul>
         </nav>
-        <?php if ((isset($_smarty_tpl->tpl_vars['user']->value)) && $_smarty_tpl->tpl_vars['user']->value === '') {?>
+        <?php if ($_smarty_tpl->tpl_vars['user']->value == null) {?>
             <input type="button" value="Se connecter" class="header__account btn btn--primary">
         <?php } else { ?>
             <input type="button" value="Mon compte" class="header__account btn btn--primary">

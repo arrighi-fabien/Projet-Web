@@ -10,10 +10,14 @@ nav_menu.addEventListener('click', () => {
 
 document.querySelector('.popup-form__close').addEventListener('click', () => {
     document.querySelector('.popup-background').classList.toggle('popup-background--active');
+    setTimeout(() => {
+        document.querySelector('.popup-form').classList.toggle('hidden');
+    }, 500);
 });
 
 
 document.querySelector('.header__account').addEventListener('click', () => {
+    document.querySelector('.popup-form').classList.toggle('hidden');
     document.querySelector('.popup-background').classList.toggle('popup-background--active');
 });
 

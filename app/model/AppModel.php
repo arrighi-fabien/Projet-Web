@@ -44,5 +44,4 @@ class AppModel {
         $object = json_decode(json_encode($object));
         return (array)$object;
     }
-
 }

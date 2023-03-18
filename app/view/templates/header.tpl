@@ -20,12 +20,12 @@
         </a>
         <nav class="header__nav">
             <ul>
-                <li class="header__nav__item"><a href="" class="link-effect">Accueil</a></li>
-                <li class="header__nav__item"><a href="/search.html" class="link-effect">Trouver une entreprise</a></li>
-                <li class="header__nav__item"><a href="#" class="link-effect">Trouver un stage</a></li>
+                <li class="header__nav__item"><a href="/" class="link-effect">Accueil</a></li>
+                <li class="header__nav__item"><a href="/search/companies" class="link-effect">Trouver une entreprise</a></li>
+                <li class="header__nav__item"><a href="/search/offers" class="link-effect">Trouver un stage</a></li>
             </ul>
         </nav>
-        {if isset($user) && $user === ''}
+        {if $user == null}
             <input type="button" value="Se connecter" class="header__account btn btn--primary">
         {else}
             <input type="button" value="Mon compte" class="header__account btn btn--primary">

@@ -27,28 +27,7 @@
         <h2 class="important-title center-title">Meilleures entreprises</h2>
         <div class="best-section__content">
             {foreach $best_companies as $best_company}
-                <div class="card-company card-background">
-                    <a href="#" class="card-link"><span></span></a>
-                    <div class="card-company__content">
-                        {if $best_company->picture}
-                            <img src="/img/company/{$best_company->company_name}.webp" alt="{$best_company->company_name} logo" class="card-company__content__img">
-                        {else}
-                            <img src="/img/company/default.webp" alt="Default logo" class="card-company__content__img">
-                        {/if}
-                        <div class="card-company__content__info">
-                            <h4 class="card-company__content__info__title">{$best_company->company_name}</h4>
-                            <div class="text-and-svg">
-                                <svg><use href="/img/sprite.svg#building"></use></svg>
-                                <p class="card-company__content__sector">{$best_company->sector_name}</p>
-                            </div>
-                            <div class="text-and-svg">
-                                <svg><use href="/img/sprite.svg#map"></use></svg>
-                                <p class="card-company__content__city">{$best_company->city}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="card-company__offer">{$best_company->offers} offre{if $best_company->offers > 1}s{/if}</p>
-                </div>
+                {include file="company-card.tpl" company_card=$best_company}
             {/foreach}
         </div>
     </div>
@@ -56,25 +35,7 @@
         <h2 class="important-title center-title">Dernières offres</h2>
         <div class="best-section__content">
             {foreach $latest_offers as $offer}
-                <div class="card-company card-background">
-                    <a href="#" class="card-link"><span></span></a>
-                    <div class="card-company__content">
-                        {if $offer->picture}
-                            <img src="/img/company/{$offer->company_name}.webp" alt="{$offer->company_name} logo" class="card-company__content__img">
-                        {else}
-                            <img src="/img/company/default.webp" alt="Default logo" class="card-company__content__img">
-                        {/if}
-                        <div class="card-company__content__info">
-                            <h4 class="card-company__content__info__job">{$offer->internship_name}</h4>
-                            <h5 class="card-company__content__info__title">{$offer->company_name}</h5>
-                            <p class="card-company__content__city">{$offer->city_name}</p>
-                            <p class="small-text">{$offer->offer_date}</p>
-                        </div>
-                    </div>
-                    <a href="##" class="card-bookmark">
-                        <svg><use href="/img/sprite.svg#bookmark"></use></svg>
-                    </a>
-                </div>
+                {include file="offer-card.tpl" offer_card=$offer}
             {/foreach}
         </div>
     </div>

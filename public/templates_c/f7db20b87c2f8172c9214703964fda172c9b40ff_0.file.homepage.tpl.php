@@ -1,29 +1,31 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-18 00:07:30
+/* Smarty version 4.3.0, created on 2023-03-18 16:22:48
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\homepage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_641500c28fc844_96140574',
+  'unifunc' => 'content_6415e55803b796_50894277',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f7db20b87c2f8172c9214703964fda172c9b40ff' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\homepage.tpl',
-      1 => 1679098045,
+      1 => 1679134678,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:header.tpl' => 1,
+    'file:company-card.tpl' => 1,
+    'file:offer-card.tpl' => 1,
     'file:login.tpl' => 1,
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_641500c28fc844_96140574 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6415e55803b796_50894277 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main>
@@ -59,34 +61,8 @@ $_smarty_tpl->tpl_vars['best_company']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['best_company']->value) {
 $_smarty_tpl->tpl_vars['best_company']->do_else = false;
 ?>
-                <div class="card-company card-background">
-                    <a href="#" class="card-link"><span></span></a>
-                    <div class="card-company__content">
-                        <?php if ($_smarty_tpl->tpl_vars['best_company']->value->picture) {?>
-                            <img src="/img/company/<?php echo $_smarty_tpl->tpl_vars['best_company']->value->company_name;?>
-.webp" alt="<?php echo $_smarty_tpl->tpl_vars['best_company']->value->company_name;?>
- logo" class="card-company__content__img">
-                        <?php } else { ?>
-                            <img src="/img/company/default.webp" alt="Default logo" class="card-company__content__img">
-                        <?php }?>
-                        <div class="card-company__content__info">
-                            <h4 class="card-company__content__info__title"><?php echo $_smarty_tpl->tpl_vars['best_company']->value->company_name;?>
-</h4>
-                            <div class="text-and-svg">
-                                <svg><use href="/img/sprite.svg#building"></use></svg>
-                                <p class="card-company__content__sector"><?php echo $_smarty_tpl->tpl_vars['best_company']->value->sector_name;?>
-</p>
-                            </div>
-                            <div class="text-and-svg">
-                                <svg><use href="/img/sprite.svg#map"></use></svg>
-                                <p class="card-company__content__city"><?php echo $_smarty_tpl->tpl_vars['best_company']->value->city;?>
-</p>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="card-company__offer"><?php echo $_smarty_tpl->tpl_vars['best_company']->value->offers;?>
- offre<?php if ($_smarty_tpl->tpl_vars['best_company']->value->offers > 1) {?>s<?php }?></p>
-                </div>
+                <?php $_smarty_tpl->_subTemplateRender("file:company-card.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('company_card'=>$_smarty_tpl->tpl_vars['best_company']->value), 0, true);
+?>
             <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
@@ -101,31 +77,8 @@ $_smarty_tpl->tpl_vars['offer']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['offer']->value) {
 $_smarty_tpl->tpl_vars['offer']->do_else = false;
 ?>
-                <div class="card-company card-background">
-                    <a href="#" class="card-link"><span></span></a>
-                    <div class="card-company__content">
-                        <?php if ($_smarty_tpl->tpl_vars['offer']->value->picture) {?>
-                            <img src="/img/company/<?php echo $_smarty_tpl->tpl_vars['offer']->value->company_name;?>
-.webp" alt="<?php echo $_smarty_tpl->tpl_vars['offer']->value->company_name;?>
- logo" class="card-company__content__img">
-                        <?php } else { ?>
-                            <img src="/img/company/default.webp" alt="Default logo" class="card-company__content__img">
-                        <?php }?>
-                        <div class="card-company__content__info">
-                            <h4 class="card-company__content__info__job"><?php echo $_smarty_tpl->tpl_vars['offer']->value->internship_name;?>
-</h4>
-                            <h5 class="card-company__content__info__title"><?php echo $_smarty_tpl->tpl_vars['offer']->value->company_name;?>
-</h5>
-                            <p class="card-company__content__city"><?php echo $_smarty_tpl->tpl_vars['offer']->value->city_name;?>
-</p>
-                            <p class="small-text"><?php echo $_smarty_tpl->tpl_vars['offer']->value->offer_date;?>
-</p>
-                        </div>
-                    </div>
-                    <a href="##" class="card-bookmark">
-                        <svg><use href="/img/sprite.svg#bookmark"></use></svg>
-                    </a>
-                </div>
+                <?php $_smarty_tpl->_subTemplateRender("file:offer-card.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('offer_card'=>$_smarty_tpl->tpl_vars['offer']->value), 0, true);
+?>
             <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>

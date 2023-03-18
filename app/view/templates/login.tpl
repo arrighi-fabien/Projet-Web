@@ -1,5 +1,5 @@
 <div class="popup-background">
-    <div class="popup-form card-background">
+    <div class="popup-form card-background hidden">
         <svg class="popup-form__close">
             <use href="/img/sprite.svg#cancel"></use>
         </svg>
