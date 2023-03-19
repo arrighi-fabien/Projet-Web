@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-18 18:44:30
+/* Smarty version 4.3.0, created on 2023-03-18 19:15:11
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\search-offers.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6416068ec92d28_30923284',
+  'unifunc' => 'content_64160dbf09a3d2_35084379',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '60989e35354ab9d00579c119a4987850b4c9c505' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\search-offers.tpl',
-      1 => 1679165068,
+      1 => 1679166905,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6416068ec92d28_30923284 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64160dbf09a3d2_35084379 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -45,8 +45,10 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                 <select>
                     <option value="">Compétences</option>
                 </select>
-                <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
-                <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+                <label for="myRange">Range</label>
+                <input name="ok1" type="range" min="0" max="100" value="50" id="myRange">
+                <label for="myRange2">Range2</label>
+                <input name="ok2" type="range" min="0" max="100" value="50" id="myRange2">
             </div>
             <input type="button" value="Reset" class="btn btn--secondary">
         </div>

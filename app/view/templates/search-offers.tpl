@@ -17,8 +17,10 @@
                 <select>
                     <option value="">Compétences</option>
                 </select>
-                <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
-                <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+                <label for="myRange">Range</label>
+                <input name="ok1" type="range" min="0" max="100" value="50" id="myRange">
+                <label for="myRange2">Range2</label>
+                <input name="ok2" type="range" min="0" max="100" value="50" id="myRange2">
             </div>
             <input type="button" value="Reset" class="btn btn--secondary">
         </div>

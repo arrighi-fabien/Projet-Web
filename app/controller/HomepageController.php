@@ -9,7 +9,7 @@ class HomepageController {
 
         $offer = new OfferModel();
         $latest_offers = $offer->getLatestOffers();
-        $latest_offers = AppModel::summarize($latest_offers, 40, 'internship_name');
+        //$latest_offers = AppModel::summarize($latest_offers, 40, 'internship_name');
         $latest_offers = AppModel::getEllapsedTime($latest_offers, 'offer_date');
 
         if (isset($_SESSION['user'])) {

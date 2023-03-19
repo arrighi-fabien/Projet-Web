@@ -3,22 +3,22 @@
             <div class="footer__content__img">
                 <img src="/img/logo.webp" alt="logo" class="footer__content__img__logo">
                 <div class="footer__content__img__social">
-                    <a href="#">
+                    <a href="https://www.linkedin.com/">
                         <svg>
                             <use href="/img/sprite.svg#linkedin"></use>
                         </svg>
                     </a>
-                    <a href="#">
+                    <a href="https://www.facebook.com/">
                         <svg>
                             <use href="/img/sprite.svg#facebook"></use>
                         </svg>
                     </a>
-                    <a href="#">
+                    <a href="https://twitter.com/">
                         <svg>
                             <use href="/img/sprite.svg#twitter"></use>
                         </svg>
                     </a>
-                    <a href="#">
+                    <a href="https://www.instagram.com/">
                         <svg>
                             <use href="/img/sprite.svg#instagram"></use>
                         </svg>
@@ -35,8 +35,8 @@
                 </div>
                 <div class="footer__content__link__item">
                     <h3>Trouver un stage</h3>
-                    <a href="#">Offres de stage par entreprise</a>
-                    <a href="#">Offres de stage par métier</a>
+                    <a href="/search/companies">Offres de stage par entreprise</a>
+                    <a href="/search/offers">Offres de stage par métier</a>
                 </div>
                 <div class="footer__content__link__item">
                     <h3>Liens utiles</h3>
