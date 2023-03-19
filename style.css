@@ -1,0 +1,176 @@
+.col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+
+    position: absolute;
+    width: 983px;
+    height: 234px;
+    left: 512px;
+    top: 137px;
+}
+.presentation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 142px;
+height: 164px;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+.image_presentation{
+width: 100px;
+height: 100px;
+
+background: url(image.png);
+border-radius: 1px;
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+.title_col{
+ width: 142px;
+height: 54px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 45px;
+line-height: 54px;
+text-decoration-line: underline;
+
+color: #151515;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+.stars{
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 15px;
+
+width: 983px;
+height: 50px;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+.card{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 750px;
+    height: 752px;
+    left: 200px;
+    top: 80px;
+    
+    background: #FAFAFA;
+    border: 1px solid #151515;
+    border-radius: 20px;
+}
+.bas{
+    display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: flex-start;
+padding: 80px 200px 0px;
+gap: 303px;
+
+position: absolute;
+width: 1920px;
+height: 880px;
+left: 0px;
+top: 371px;
+}
+.card_2{
+    box-sizing: border-box;
+
+position: absolute;
+width: 650px;
+height: 800px;
+left: 1070px;
+top: 80px;
+
+background: #FAFAFA;
+border: 1px solid #151515;
+border-radius: 20px;
+}
+.contenu{
+    display: flex;
+flex-direction: column;
+align-items: center;
+padding: 40px 0px;
+gap: 40px;
+
+position: absolute;
+width: 600px;
+height: 753px;
+left: 275px;
+top: 84px;
+}
+.important-title{
+width: 207px;
+height: 52px;
+
+font-family: 'Baskervville';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 52px;
+text-align: center;
+/* identical to box height */
+
+
+color: #000000;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+.text{
+    width: 600px;
+height: 486px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #151515;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 2;
+flex-grow: 0;
+}
