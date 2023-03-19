@@ -11,7 +11,7 @@ class ErrorController {
             $error_type = "Veillez nous excuser, une erreur est survenue lors de la connexion à la base de données";
         }
         else {
-            $error_type = "Une erreur est survenue";
+            header('Location: error-404');
         }
 
         require '../app/view/error.php';

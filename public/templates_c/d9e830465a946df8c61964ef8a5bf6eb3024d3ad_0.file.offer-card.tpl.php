@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-19 00:41:09
+/* Smarty version 4.3.0, created on 2023-03-19 10:41:45
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\offer-card.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64165a254c2b63_06645370',
+  'unifunc' => 'content_6416e6e98a7855_37139227',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd9e830465a946df8c61964ef8a5bf6eb3024d3ad' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\offer-card.tpl',
-      1 => 1679186464,
+      1 => 1679222429,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,15 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64165a254c2b63_06645370 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6416e6e98a7855_37139227 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="card-company card-background">
-    <a href="/offer-<?php echo $_smarty_tpl->tpl_vars['offer_card']->value->id_internship;?>
+    <?php if ((isset($_smarty_tpl->tpl_vars['current_page']->value)) && $_smarty_tpl->tpl_vars['current_page']->value == "search_offers") {?>
+        <span data-id="<?php echo $_smarty_tpl->tpl_vars['count']->value;?>
+" class="card-link card-preview"> </span>
+    <?php } else { ?>
+        <a href="/offer-<?php echo $_smarty_tpl->tpl_vars['offer_card']->value->id_internship;?>
 " class="card-link"><span></span></a>
+    <?php }?>
     <div class="card-company__content">
         <?php if (file_exists("img/company/".((string)$_smarty_tpl->tpl_vars['offer_card']->value->company_name).".webp")) {?>
             <img src="/img/company/<?php echo $_smarty_tpl->tpl_vars['offer_card']->value->company_name;?>

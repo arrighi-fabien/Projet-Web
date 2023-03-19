@@ -28,8 +28,10 @@
         <div class="card-background offer-preview">
             <div class="card-background">
                 <div class="best-section__content best-section__content--col-1 card-display">
+                    {$count = 0}
                     {foreach $offers as $offer}
-                        {include file="offer-card.tpl" offer_card=$offer}
+                        {include file="offer-card.tpl" offer_card=$offer current_page=$current_page count=$count}
+                        {assign var="count" value=$count+1}
                     {/foreach}
                 </div>
                 <div class="card-display__pagination">
@@ -38,29 +40,32 @@
                 </div>
             </div>
             <div class="offer-description">
-                <h1 class="important-title">{$offer_detail->internship_name}</h1>
+                <script>
+                    var offers = {$offers_json};
+                </script>
+                <h1><a href="/offer-{$offers[0]->id_internship}" id="offer-description__title" class="important-title">{$offers[0]->internship_name}</a></h1>
                 <input type="button" value="Postuler" class="btn btn--primary apply-btn">
                 <input type="button" value="Fermer" class="btn btn--secondary offer-preview-close">
                 <div class="offer-description__company">
-                    <p>{$offer_detail->company_name}</p>
-                    <p>{$offer_detail->city_name}</p>
-                    <p>{$offer_detail->offer_date}</p>
+                    <p id="offer-description__company">{$offers[0]->company_name}</p>
+                    <p id="offer-description__city">{$offers[0]->city_name}</p>
+                    <p id="offer-description__date">{$offers[0]->offer_date}</p>
                 </div>
                 <div class="offer-description__detail">
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#calendar"></use></svg>
-                        <p class="card-company__content__sector">{$offer_detail->duration} semaine{if $offer_detail->duration > 1}s{/if}</p>
+                        <p id="offer-description__duration" class="card-company__content__sector">{$offers[0]->duration} semaine{if $offers[0]->duration > 1}s{/if}</p>
                     </div>
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#money"></use></svg>
-                        <p class="card-company__content__sector">{$offer_detail->salary}€ / mois</p>
+                        <p id="offer-description__salary" class="card-company__content__sector">{$offers[0]->salary}€ / mois</p>
                     </div>
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#checklist"></use></svg>
-                        <p class="card-company__content__sector">{$offer_detail->skills}</p>
+                        <p id="offer-description__skills" class="card-company__content__sector">{$offers[0]->skills}</p>
                     </div>
                 </div>
-                <p>{$offer_detail->description}</p>
+                <p id="offer-description__description">{$offers[0]->description}</p>
             </div>
         </div>
     </div>

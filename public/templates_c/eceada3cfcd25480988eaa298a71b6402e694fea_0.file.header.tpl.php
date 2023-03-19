@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-18 15:56:38
+/* Smarty version 4.3.0, created on 2023-03-19 10:03:01
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6415df36115470_37209514',
+  'unifunc' => 'content_6416ddd55ee151_07421039',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6415df36115470_37209514 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6416ddd55ee151_07421039 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
 <head>

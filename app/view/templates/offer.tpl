@@ -35,7 +35,7 @@
     </div>
     <div class="detail-description">
         <div class="card-background detail-description__info p-2">
-            <div class="m-2-0">
+            <div>
                 {if file_exists("img/company/{$offer->company_name}.webp")}
                     <img src="/img/company/{$offer->company_name}.webp" alt="{$offer->company_name} logo" class="card-company__content__img">
                 {else}
@@ -75,7 +75,7 @@
                     <p>{$offer->skills}</p>
                 </div>
             </div>
-            <input type="button" value="Postuler" class="btn btn--primary center-btn">
+            <input type="button" value="Postuler" class="btn btn--primary apply-btn">
         </div>
         <div class="card-background detail-description__text p-2">
             <p>{$offer->description}</p>
