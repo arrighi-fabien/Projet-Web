@@ -7,8 +7,10 @@ $router = new AltoRouter();
 
 $router->map('GET', '/', 'HomepageController', 'home');
 $router->map('GET', '/search/companies', 'SearchController', 'search_companies');
+$router->map('GET', '/search/companies?[*:params]', 'SearchController', 'search_companies2');
 $router->map('GET', '/search/offers', 'SearchController', 'search_offers');
 $router->map('GET', '/offer-[i:id]', 'OfferController', 'offer');
+$router->map('GET|POST', '/api/search', 'SearchController', 'api_companies');
 $router->map('GET', '/error-[*:error_type]', 'ErrorController', 'error');
 
 $match = $router->match();

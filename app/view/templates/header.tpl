@@ -15,7 +15,7 @@
 </head>
 <body>
     <header class="header">
-        <a href="index.html">
+        <a href="/">
             <img src="/img/logo.webp" alt="logo" class="header__logo">
         </a>
         <nav class="header__nav">

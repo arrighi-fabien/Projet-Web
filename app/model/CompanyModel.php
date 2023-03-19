@@ -32,4 +32,9 @@ class CompanyModel extends Database {
         $result = $this->query($query);
         return $result->fetchAll();
     }
+
+    public function getSectors() {
+        $result = $this->query("SELECT sector_name FROM sector");
+        return $result->fetchAll();
+    }
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-19 10:53:48
+/* Smarty version 4.3.0, created on 2023-03-19 18:13:55
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\search-offers.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6416e9bccde656_01248868',
+  'unifunc' => 'content_641750e391c1d4_19516581',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '60989e35354ab9d00579c119a4987850b4c9c505' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\search-offers.tpl',
-      1 => 1679223213,
+      1 => 1679249634,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6416e9bccde656_01248868 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641750e391c1d4_19516581 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -104,7 +104,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#money"></use></svg>
                         <p id="offer-description__salary" class="card-company__content__sector"><?php echo $_smarty_tpl->tpl_vars['offers']->value[0]->salary;?>
-€ / mois</p>
+ € / mois</p>
                     </div>
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#checklist"></use></svg>

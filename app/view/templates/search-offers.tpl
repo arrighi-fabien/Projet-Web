@@ -58,7 +58,7 @@
                     </div>
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#money"></use></svg>
-                        <p id="offer-description__salary" class="card-company__content__sector">{$offers[0]->salary}€ / mois</p>
+                        <p id="offer-description__salary" class="card-company__content__sector">{$offers[0]->salary} € / mois</p>
                     </div>
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#checklist"></use></svg>
