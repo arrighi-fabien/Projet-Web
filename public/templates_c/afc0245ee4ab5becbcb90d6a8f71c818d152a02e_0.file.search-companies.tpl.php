@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-20 09:25:10
+/* Smarty version 4.3.0, created on 2023-03-20 14:54:01
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\search-companies.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64182676d23822_56181944',
+  'unifunc' => 'content_64187389267250_74770943',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'afc0245ee4ab5becbcb90d6a8f71c818d152a02e' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\search-companies.tpl',
-      1 => 1679302890,
+      1 => 1679324039,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_64182676d23822_56181944 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64187389267250_74770943 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main>
@@ -52,10 +52,12 @@ $_smarty_tpl->tpl_vars['sector']->do_else = false;
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                     </select>
-                    <input type="text" placeholder="Nombre d'étudiant..." id="search-form__nb-students">
+                    <input type="text" placeholder="Nombre d'étudiant déjà accepté..." id="search-form__nb-students">
                     <input type="text" placeholder="Note" id="search-form__rate">
                     <select id="search-form__confidence">
                         <option value="">Confiance pilote</option>
+                        <option value="1">Oui</option>
+                        <option value="">Non</option>
                     </select>
                 </div>
                 <input type="reset" value="Reset" class="btn btn--secondary">

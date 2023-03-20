@@ -26,7 +26,7 @@ class SearchController {
             }
             else if ($current_page == 'api_companies') {
                 header('Content-Type: application/json');
-                //convert to array
+                // convert to array
                 $companies = json_decode(json_encode($companies), true);
                 // foreach company check if the company has a logo
                 foreach ($companies as $key => $company) {

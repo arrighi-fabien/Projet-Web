@@ -15,10 +15,12 @@
                             <option value="{$sector->sector_name}">{$sector->sector_name}</option>
                         {/foreach}
                     </select>
-                    <input type="text" placeholder="Nombre d'étudiant..." id="search-form__nb-students">
+                    <input type="text" placeholder="Nombre d'étudiant déjà accepté..." id="search-form__nb-students">
                     <input type="text" placeholder="Note" id="search-form__rate">
                     <select id="search-form__confidence">
                         <option value="">Confiance pilote</option>
+                        <option value="1">Oui</option>
+                        <option value="">Non</option>
                     </select>
                 </div>
                 <input type="reset" value="Reset" class="btn btn--secondary">

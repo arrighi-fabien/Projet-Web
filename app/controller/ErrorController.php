@@ -10,6 +10,9 @@ class ErrorController {
         else if ($error_type == 'database-connection') {
             $error_type = "Veillez nous excuser, une erreur est survenue lors de la connexion à la base de données";
         }
+        else if ($error_type == 'internet') {
+            $error_type = "Veuillez nous excuser, une erreur est survenue lors de la connexion à internet";
+        }
         else {
             header('Location: error-404');
         }
