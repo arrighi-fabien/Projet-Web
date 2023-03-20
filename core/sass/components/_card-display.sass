@@ -1,0 +1,22 @@
+.card-display
+  height: fit-content
+  max-height: 100vh
+  overflow-y: scroll
+  overflow-x: hidden
+  padding: 2rem 2rem 0 2rem
+  &__pagination
+    position: relative
+    height: 100px
+
+.fade-scroll
+  position: absolute
+  width: 98%
+  top: -40px
+  height: 68px
+  left: 50%
+  transform: translateX(-50%)
+  z-index: 2
+
+@media screen and ( max-width: $breakpoint-phone )
+  .card-display
+    padding: 2rem 0 0 0
