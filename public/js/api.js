@@ -7,7 +7,8 @@ if (document.querySelector('#search-form')) {
       const nb_students = document.querySelector('#search-form__nb-students').value;
       const rate = document.querySelector('#search-form__rate').value;
       const trust = document.querySelector('#search-form__confidence').value;
-      let url = 'http://localhost:8000/api/search';
+      //get domain url
+      let url = window.location.origin + '/api/search';
       let current_url = window.location.href.split('?')[0];
 
       //create a tab with all params name and variables and use a foreach to add them to the url
@@ -42,6 +43,10 @@ if (document.querySelector('#search-form')) {
             console.log(data);
             // delete all the previous results
             document.querySelector('#company-result').innerHTML = '';
+            //check if there is no result
+            if (data.length === 0) {
+              document.querySelector('#company-result').innerHTML = '<h3 class="no-result">Aucun résultat</h3>';
+            }
             // create a new div for each result
             data.forEach(result => {
               // if result.offers > 1 then "offres" else "offre"

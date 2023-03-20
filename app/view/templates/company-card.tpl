@@ -1,4 +1,4 @@
-<div class="card-company card-background" id="company-{$count}">
+<div class="card-company card-background">
     <a href="#" class="card-link"><span></span></a>
     <div class="card-company__content">
         {if file_exists("img/company/{$company_card->company_name}.webp")}

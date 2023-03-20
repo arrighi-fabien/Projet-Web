@@ -30,10 +30,8 @@
         <div>
             <div class="card-background">
                 <div class="best-section__content card-display" id="company-result">
-                    {$count = 0}
                     {foreach $companies as $company}
-                        {include file="company-card.tpl" company_card=$company count=$count}
-                        {assign var="count" value=$count+1}
+                        {include file="company-card.tpl" company_card=$company}
                     {/foreach}
                 </div>
                 <div class="card-display__pagination">

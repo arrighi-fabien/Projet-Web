@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-19 19:03:12
+/* Smarty version 4.3.0, created on 2023-03-20 09:00:48
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\company-card.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64175c707e5464_20134314',
+  'unifunc' => 'content_641820c0168df1_10727194',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '298d9e52873720e33b9164ce8c352027849c268d' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\company-card.tpl',
-      1 => 1679252583,
+      1 => 1679302839,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64175c707e5464_20134314 (Smarty_Internal_Template $_smarty_tpl) {
-?><div class="card-company card-background" id="company-<?php echo $_smarty_tpl->tpl_vars['count']->value;?>
-">
+function content_641820c0168df1_10727194 (Smarty_Internal_Template $_smarty_tpl) {
+?><div class="card-company card-background">
     <a href="#" class="card-link"><span></span></a>
     <div class="card-company__content">
         <?php if (file_exists("img/company/".((string)$_smarty_tpl->tpl_vars['company_card']->value->company_name).".webp")) {?>

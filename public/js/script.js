@@ -32,8 +32,10 @@ if (document.querySelector('.apply-btn')) {
 }
 
 if (document.querySelector('.card-company')) {
-    document.querySelector('.card-company').addEventListener('click', () => {
-        document.querySelector('.offer-description').classList.toggle('offer-description--active');
+    document.querySelectorAll('.card-company').forEach((card) => {
+        card.addEventListener('click', () => {
+            document.querySelector('.offer-description').classList.toggle('offer-description--active');
+        });
     });
 }
 
@@ -61,7 +63,6 @@ if (document.querySelector('.card-preview')) {
     document.querySelectorAll('.card-preview').forEach((card) => {
         card.addEventListener('click', () => {
             const id = card.getAttribute('data-id');
-            console.log(offers);
             document.querySelector('#offer-description__title').innerHTML = offers[id].internship_name;
             document.querySelector('#offer-description__company').innerHTML = offers[id].company_name;
             document.querySelector('#offer-description__city').innerHTML = offers[id].city_name;
