@@ -17,7 +17,7 @@ class AppModel {
         return (array)$object;
     }
 
-    static function getEllapsedTime(array $object, string $key) {
+    static function getEllapsedTime($object, $key) {
         $object = json_decode(json_encode($object), true);
         $tab = array(
             'y' => 'an',

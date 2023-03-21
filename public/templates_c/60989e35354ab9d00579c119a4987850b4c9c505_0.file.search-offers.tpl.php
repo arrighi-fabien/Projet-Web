@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 00:27:41
+/* Smarty version 4.3.0, created on 2023-03-21 10:44:28
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\search-offers.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6418f9fd81c2b0_98479893',
+  'unifunc' => 'content_64198a8cdf9df2_73764112',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '60989e35354ab9d00579c119a4987850b4c9c505' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\search-offers.tpl',
-      1 => 1679358460,
+      1 => 1679395200,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6418f9fd81c2b0_98479893 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64198a8cdf9df2_73764112 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -94,8 +94,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <input type="button" value="Postuler" class="btn btn--primary apply-btn">
                 <input type="button" value="Fermer" class="btn btn--secondary offer-preview-close">
                 <div class="offer-description__company">
-                    <p id="offer-description__company"><?php echo $_smarty_tpl->tpl_vars['offers']->value[0]->company_name;?>
-</p>
+                    <p id="offer-description__company"><a href="/company-<?php echo $_smarty_tpl->tpl_vars['offers']->value[0]->id_company;?>
+"><?php echo $_smarty_tpl->tpl_vars['offers']->value[0]->company_name;?>
+</a></p>
                     <p id="offer-description__city"><?php echo $_smarty_tpl->tpl_vars['offers']->value[0]->city_name;?>
 </p>
                     <p id="offer-description__date"><?php echo $_smarty_tpl->tpl_vars['offers']->value[0]->offer_date;?>

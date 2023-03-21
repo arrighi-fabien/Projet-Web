@@ -66,7 +66,8 @@ function displayPreviewOffer() {
         card.addEventListener('click', () => {
             const id = card.getAttribute('data-id');
             document.querySelector('#offer-description__title').innerHTML = offers_json[id].internship_name;
-            document.querySelector('#offer-description__company').innerHTML = offers_json[id].company_name;
+            // put the company name in link
+            document.querySelector('#offer-description__company').innerHTML = `<a href="/company-${offers_json[id].id_company}">${offers_json[id].company_name}</a>`;
             document.querySelector('#offer-description__city').innerHTML = offers_json[id].city_name;
             document.querySelector('#offer-description__date').innerHTML = offers_json[id].offer_date;
             document.querySelector('#offer-description__duration').innerHTML = offers_json[id].duration + ' semaine' + (offers_json[id].duration > 1 ? 's' : '');

@@ -34,7 +34,7 @@
         {/foreach}
         </div>
         <div class="card-display__pagination">
-            <a href="search/offers?company_name={$company->company_name}">Voir plus</a>
+            <a href="search/offers?company_name={$company->company_name}" class="link-effect">Voir plus</a>
         </div>
     </div>
 </div>

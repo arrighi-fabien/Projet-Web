@@ -1,19 +1,24 @@
 {
     "name": "Stage du zero",
     "short_name": "Stage du zero",
+    "description": "Projet web CPI A2 info",
     "start_url": "/",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
     "display": "standalone",
     "orientation": "portrait-primary",
     "icons": [
         {
             "src": "/img/logo-512.png",
             "type": "image/png",
-            "sizes": "512x512"
+            "sizes": "512x512",
+            "purpose": "any maskable"
         },
         {
             "src": "/img/logo-192.png",
             "type": "image/png",
-            "sizes": "192x192"
+            "sizes": "192x192",
+            "purpose": "any maskable"
         }
     ]
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-20 23:47:30
+/* Smarty version 4.3.0, created on 2023-03-21 10:44:10
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6418f0924331a5_67336715',
+  'unifunc' => 'content_64198a7ae7b385_71360209',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'eceada3cfcd25480988eaa298a71b6402e694fea' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\header.tpl',
-      1 => 1679356041,
+      1 => 1679395427,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6418f0924331a5_67336715 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64198a7ae7b385_71360209 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -47,6 +47,9 @@ function content_6418f0924331a5_67336715 (Smarty_Internal_Template $_smarty_tpl)
         });
     <?php echo '</script'; ?>
 >
+    <meta name="theme-color" content="#317EFB"/>
+    <link rel="apple-touch-icon" href="/img/logo-192.png">
+    <link rel="icon" href="/img/logo-192.png">
     <meta name="description" content="Site de recherche de stage">
     <title>Stage du zero</title>
 </head>

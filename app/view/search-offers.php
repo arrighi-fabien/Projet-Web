@@ -1,5 +1,10 @@
 <?php
 
+if (empty($offers)) {
+    header('Location: /search/offers');
+    exit();
+}
+
 $smarty = new Smarty();
 $smarty->template_dir = '../app/view/templates';
 

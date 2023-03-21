@@ -77,7 +77,7 @@ if (document.querySelector('#search-form')) {
                 // add the result in #company-result
                 document.querySelector('#result').innerHTML += `
                 <div class="card-company card-background">
-                <a href="#" class="card-link"><span></span></a>
+                <a href="/company-${result.id_company}" class="card-link"><span></span></a>
                 <div class="card-company__content">
                         <img src="${result.company_logo}" alt="${result.company_name} logo" class="card-company__content__img">
                     <div class="card-company__content__info">

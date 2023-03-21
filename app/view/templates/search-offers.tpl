@@ -51,7 +51,7 @@
                 <input type="button" value="Postuler" class="btn btn--primary apply-btn">
                 <input type="button" value="Fermer" class="btn btn--secondary offer-preview-close">
                 <div class="offer-description__company">
-                    <p id="offer-description__company">{$offers[0]->company_name}</p>
+                    <p id="offer-description__company"><a href="/company-{$offers[0]->id_company}">{$offers[0]->company_name}</a></p>
                     <p id="offer-description__city">{$offers[0]->city_name}</p>
                     <p id="offer-description__date">{$offers[0]->offer_date}</p>
                 </div>

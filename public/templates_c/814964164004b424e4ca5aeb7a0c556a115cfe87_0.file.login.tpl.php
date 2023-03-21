@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-19 10:03:01
+/* Smarty version 4.3.0, created on 2023-03-21 10:43:04
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6416ddd560feb6_03622197',
+  'unifunc' => 'content_64198a38287a93_59261838',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6416ddd560feb6_03622197 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64198a38287a93_59261838 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="popup-background">
     <div class="popup-form card-background hidden">
         <svg class="popup-form__close">

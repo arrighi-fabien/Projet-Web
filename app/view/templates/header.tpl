@@ -18,6 +18,9 @@
             }
         });
     </script>
+    <meta name="theme-color" content="#317EFB"/>
+    <link rel="apple-touch-icon" href="/img/logo-192.png">
+    <link rel="icon" href="/img/logo-192.png">
     <meta name="description" content="Site de recherche de stage">
     <title>Stage du zero</title>
 </head>
