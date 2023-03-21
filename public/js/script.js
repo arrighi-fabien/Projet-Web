@@ -59,21 +59,27 @@ if (document.querySelector('.filter-btn')) {
     });
 }
 
-if (document.querySelector('.card-preview')) {
+
+
+function displayPreviewOffer() {
     document.querySelectorAll('.card-preview').forEach((card) => {
         card.addEventListener('click', () => {
             const id = card.getAttribute('data-id');
-            document.querySelector('#offer-description__title').innerHTML = offers[id].internship_name;
-            document.querySelector('#offer-description__company').innerHTML = offers[id].company_name;
-            document.querySelector('#offer-description__city').innerHTML = offers[id].city_name;
-            document.querySelector('#offer-description__date').innerHTML = offers[id].offer_date;
-            document.querySelector('#offer-description__duration').innerHTML = offers[id].duration + ' semaine' + (offers[id].duration > 1 ? 's' : '');
-            document.querySelector('#offer-description__salary').innerHTML = offers[id].salary + ' € / mois';
-            document.querySelector('#offer-description__skills').innerHTML = offers[id].skills;
-            document.querySelector('#offer-description__description').innerHTML = offers[id].description;
+            document.querySelector('#offer-description__title').innerHTML = offers_json[id].internship_name;
+            document.querySelector('#offer-description__company').innerHTML = offers_json[id].company_name;
+            document.querySelector('#offer-description__city').innerHTML = offers_json[id].city_name;
+            document.querySelector('#offer-description__date').innerHTML = offers_json[id].offer_date;
+            document.querySelector('#offer-description__duration').innerHTML = offers_json[id].duration + ' semaine' + (offers_json[id].duration > 1 ? 's' : '');
+            document.querySelector('#offer-description__salary').innerHTML = offers_json[id].salary + ' € / mois';
+            document.querySelector('#offer-description__skills').innerHTML = offers_json[id].skills;
+            document.querySelector('#offer-description__description').innerHTML = offers_json[id].description;
 
             //change href of title
-            document.querySelector('#offer-description__title').href = '/offer-' + offers[id].id_internship;
+            document.querySelector('#offer-description__title').href = '/offer-' + offers_json[id].id_internship;
         });
     });
+}
+
+if (document.querySelector('.card-preview')) {
+    displayPreviewOffer();
 }

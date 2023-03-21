@@ -3,8 +3,8 @@
 $smarty = new Smarty();
 $smarty->template_dir = '../app/view/templates';
 
-$smarty->assign('offers', $offers);
-$smarty->assign('offers_json', $offers_json);
+$smarty->assign('company', $company);
+$smarty->assign('company_offers', $company_offers);
 $smarty->assign('user', $_SESSION['user'] ?? null);
 
-$smarty->display('search-offers.tpl');
+$smarty->display('company.tpl');

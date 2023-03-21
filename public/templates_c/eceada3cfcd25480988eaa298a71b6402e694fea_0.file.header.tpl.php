@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-20 15:21:13
+/* Smarty version 4.3.0, created on 2023-03-20 23:47:30
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_641879e9848128_94677594',
+  'unifunc' => 'content_6418f0924331a5_67336715',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'eceada3cfcd25480988eaa298a71b6402e694fea' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\header.tpl',
-      1 => 1679325672,
+      1 => 1679356041,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_641879e9848128_94677594 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6418f0924331a5_67336715 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -34,7 +34,7 @@ function content_641879e9848128_94677594 (Smarty_Internal_Template $_smarty_tpl)
     <?php echo '<script'; ?>
  src="/js/script.js" defer><?php echo '</script'; ?>
 >
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
