@@ -9,22 +9,22 @@ class Session {
         session_start();
     }
 
-    public function getInstance() {
+    static function getInstance() {
         if (self::$session === null) {
             self::$session = new Session();
         }
         return self::$session;
     }
 
-    public function write($key, $value) {
+    static function write($key, $value) {
         $_SESSION[$key] = $value;
     }
 
-    public function read($key) {
+    static function read($key) {
         return isset($_SESSION[$key]) ? $_SESSION[$key] : null;
     }
 
-    public function destroy($key) {
+    static function destroy($key) {
         unset($_SESSION[$key]);
      }
 }

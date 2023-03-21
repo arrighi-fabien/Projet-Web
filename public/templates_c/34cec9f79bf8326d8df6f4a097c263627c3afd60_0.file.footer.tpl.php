@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 12:15:19
+/* Smarty version 4.3.0, created on 2023-03-21 17:27:27
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64199fd7357b44_86141902',
+  'unifunc' => 'content_6419e8ff8f97a2_21753612',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64199fd7357b44_86141902 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6419e8ff8f97a2_21753612 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <footer class="footer">
         <div class="footer__content">
             <div class="footer__content__img">

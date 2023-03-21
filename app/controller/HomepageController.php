@@ -12,11 +12,9 @@ class HomepageController {
         //$latest_offers = AppModel::summarize($latest_offers, 40, 'internship_name');
         $latest_offers = AppModel::getEllapsedTime($latest_offers, 'offer_date');
 
-        if (isset($_SESSION['user'])) {
-            $user = new UserModel();
-            $_SESSION['user']['bookmark'] = $user->getWishlistElementId($_SESSION['user']['id_user']);
-        }
+        var_dump($_SESSION);
 
-        require '../app/view/home.php';
+        $page = 'home';
+        require_once '../app/view/view.php';
     }
 }

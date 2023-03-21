@@ -17,15 +17,17 @@
             <p class="small-text">{$offer_card->offer_date}</p>
         </div>
     </div>
-    <a href="##" class="card-bookmark">
-        {if $user != null}
-            {if $offer_card->is_bookmarked}
-                <svg><use href="/img/sprite.svg#bookmark_fill"></use></svg>
-            {else}
-                <svg><use href="/img/sprite.svg#bookmark_stroke"></use></svg>
+    {if $user}
+        {foreach $user->wishlist_id as $id}
+            {if $id == $offer_card->id_internship}
+                <svg class="card-bookmark" data-offer="{$offer_card->id_internship}-1"><use href="/img/sprite.svg#bookmark"></use></svg>
+                {break}
             {/if}
-        {else}
-            <svg><use href="/img/sprite.svg#bookmark_stroke"></use></svg>
-        {/if}
-    </a>
+            {if $id == end($user->wishlist_id)}
+                <svg class="card-bookmark" data-offer="{$offer_card->id_internship}-0"><use href="/img/sprite.svg#bookmark_stroke"></use></svg>
+            {/if}
+        {/foreach}
+    {else}
+        <svg class="card-bookmark"><use href="/img/sprite.svg#bookmark_stroke"></use></svg>
+    {/if}
 </div>

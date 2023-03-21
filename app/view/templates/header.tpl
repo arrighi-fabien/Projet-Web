@@ -36,10 +36,10 @@
                 <li class="header__nav__item"><a href="/search/offers" class="link-effect">Trouver un stage</a></li>
             </ul>
         </nav>
-        {if $user == null}
-            <input type="button" value="Se connecter" class="header__account btn btn--primary">
+        {if $user}
+            <a href="/dashboard" class="header__account"><input type="button" value="Mon compte" class="btn btn--primary"></a>
         {else}
-            <input type="button" value="Mon compte" class="header__account btn btn--primary">
+            <a href="/login" class="header__account"><input type="button" value="Se connecter" class="btn btn--primary"></a>
         {/if}
         <div class="header__menu">
             <span class="header__menu__line--1"></span>

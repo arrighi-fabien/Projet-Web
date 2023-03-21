@@ -62,7 +62,6 @@ if (document.querySelector('#search-form')) {
           type: 'GET',
           dataType: 'json',
           success: function (data) {
-            console.log(data);
             // delete all the previous results
             document.querySelector('#result').innerHTML = '';
             //check if there is no result

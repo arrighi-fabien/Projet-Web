@@ -84,3 +84,35 @@ function displayPreviewOffer() {
 if (document.querySelector('.card-preview')) {
     displayPreviewOffer();
 }
+
+if (document.querySelector('.card-bookmark')) {
+    document.querySelectorAll('.card-bookmark').forEach((card) => {
+        card.addEventListener('click', () => {
+            const info = card.getAttribute('data-offer');
+            const id_offer = info.split('-')[0];
+            const action = info.split('-')[1];
+            $.ajax({
+                url: '/api/wishlist',
+                type: 'POST',
+                data: {
+                    id_offer: id_offer,
+                    action: action
+                },
+                dataType: 'text',
+                success: function (data) {
+                    console.log(data);
+                    if (data == 'success') {
+                        if (action == 0) {
+                            card.setAttribute('data-offer', id_offer + '-1');
+                            card.innerHTML = '<use href="/img/sprite.svg#bookmark"></use>';
+                        }
+                        else if (action == 1) {
+                            card.setAttribute('data-offer', id_offer + '-0');
+                            card.innerHTML = '<use href="/img/sprite.svg#bookmark_stroke"></use>';
+                        }
+                    }
+                }
+            });
+        });
+    });
+}
