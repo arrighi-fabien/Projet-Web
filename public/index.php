@@ -5,14 +5,15 @@ require_once '../app/autoloader.php';
 
 $router = new AltoRouter();
 
-$router->map('GET', '/', 'HomepageController', 'home');
-$router->map('GET', '/search/companies', 'SearchController', 'search_companies');
-$router->map('GET', '/search/offers', 'SearchController', 'search_offers');
-$router->map('GET', '/company-[i:id]', 'CompanyController', 'company');
-$router->map('GET', '/offer-[i:id]', 'OfferController', 'offer');
-$router->map('GET', '/api/search/companies', 'SearchController', 'api_companies');
-$router->map('GET', '/api/search/offers', 'SearchController', 'api_offers');
-$router->map('GET', '/error-[*:error_type]', 'ErrorController', 'error');
+$router->map('GET|POST', '/', 'HomepageController', 'home');
+$router->map('GET|POST', '/search/companies', 'SearchController', 'search_companies');
+$router->map('GET|POST', '/search/offers', 'SearchController', 'search_offers');
+$router->map('GET|POST', '/company-[i:id]', 'CompanyController', 'company');
+$router->map('GET|POST', '/offer-[i:id]', 'OfferController', 'offer');
+$router->map('GET|POST', '/login', 'AuthController', 'login');
+$router->map('GET|POST', '/api/search/companies', 'SearchController', 'api_companies');
+$router->map('GET|POST', '/api/search/offers', 'SearchController', 'api_offers');
+$router->map('GET|POST', '/error-[*:error_type]', 'ErrorController', 'error');
 
 $match = $router->match();
 

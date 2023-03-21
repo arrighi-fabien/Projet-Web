@@ -5,7 +5,7 @@
         </svg>
         <div class="login-form">
             <h2>Se connecter</h2>
-            <form action="index.html" method="post" class="login-form__content">
+            <form action="/login" method="post" class="login-form__content">
                 <div class="login-form__content__input">
                     <label for="email">Email :</label>
                     <input type="email" name="email" id="email" placeholder="Email...">

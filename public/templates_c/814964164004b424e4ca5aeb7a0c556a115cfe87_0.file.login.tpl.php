@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 10:43:04
+/* Smarty version 4.3.0, created on 2023-03-21 13:37:08
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64198a38287a93_59261838',
+  'unifunc' => 'content_6419b3045e7b96_97145662',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '814964164004b424e4ca5aeb7a0c556a115cfe87' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\login.tpl',
-      1 => 1679156589,
+      1 => 1679405767,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64198a38287a93_59261838 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6419b3045e7b96_97145662 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="popup-background">
     <div class="popup-form card-background hidden">
         <svg class="popup-form__close">
@@ -28,7 +28,7 @@ function content_64198a38287a93_59261838 (Smarty_Internal_Template $_smarty_tpl)
         </svg>
         <div class="login-form">
             <h2>Se connecter</h2>
-            <form action="index.html" method="post" class="login-form__content">
+            <form action="/login" method="post" class="login-form__content">
                 <div class="login-form__content__input">
                     <label for="email">Email :</label>
                     <input type="email" name="email" id="email" placeholder="Email...">

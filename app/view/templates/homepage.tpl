@@ -6,7 +6,7 @@
         <img src="/img/logo.webp" alt="Logo" class="hero-banner__img">
         <h1 class="hero-banner__content">Trouvez le stage qui vous correspond en toute simplicité</h1>
     </div>
-
+    <span id="concept"></span>
     <div class="text-presentation">
         <p>Bienvenue sur notre site dédié à la recherche de stage pour les étudiants du CESI Nice ! Nous sommes une plateforme qui facilite la recherche de stage pour les étudiants en quête d'opportunités professionnelles. Notre objectif est de connecter les étudiants de CESI Nice avec les entreprises qui cherchent à recruter de nouveaux talents. Nous comprenons que la recherche de stage peut être un processus stressant et fastidieux, c'est pourquoi nous sommes là pour vous aider à trouver le stage qui convient à vos besoins et à vos objectifs professionnels. Sur notre site, vous trouverez des offres de stage de différentes entreprises dans différents secteurs, ainsi que des conseils pour réussir votre recherche de stage et maximiser votre expérience professionnelle. Rejoignez notre communauté aujourd'hui pour accéder à des opportunités de stage incroyables !</p>
     </div>

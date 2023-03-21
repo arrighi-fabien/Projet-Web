@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 10:43:04
+/* Smarty version 4.3.0, created on 2023-03-21 12:15:47
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\offer-card.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64198a3827a404_37923683',
+  'unifunc' => 'content_64199ff3c75239_20211512',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64198a3827a404_37923683 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64199ff3c75239_20211512 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="card-company card-background">
     <?php if ((isset($_smarty_tpl->tpl_vars['current_page']->value)) && $_smarty_tpl->tpl_vars['current_page']->value == "search_offers") {?>
         <span data-id="<?php echo $_smarty_tpl->tpl_vars['count']->value;?>

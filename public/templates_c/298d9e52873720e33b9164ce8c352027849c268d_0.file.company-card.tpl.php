@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 10:43:04
+/* Smarty version 4.3.0, created on 2023-03-21 12:17:11
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\company-card.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64198a3826b2b4_46260576',
+  'unifunc' => 'content_6419a0476b2f49_82361108',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64198a3826b2b4_46260576 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6419a0476b2f49_82361108 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="card-company card-background">
     <a href="/company-<?php echo $_smarty_tpl->tpl_vars['company_card']->value->id_company;?>
 " class="card-link"><span></span></a>
