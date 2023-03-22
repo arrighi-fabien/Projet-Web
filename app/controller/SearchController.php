@@ -28,7 +28,8 @@ class SearchController {
             $offers = AppModel::getEllapsedTime($offers, 'offer_date');
             $offers_json = json_encode($offers);
             if ($method == 'search') {
-                require '../app/view/search-offers.php';
+                $page = 'search-offers';
+                require_once '../app/view/view.php';
             }
             else if ($method == 'api') {
                 header('Content-Type: application/json');
@@ -54,7 +55,8 @@ class SearchController {
             $companies = $search_model->searchCompanies($LIMIT_REQUEST, $page, $company_name, $city_name, $sector_name, $student_accepted, $rate, $trust);
             if ($method == 'search') {
                 $sectors = $search_model->getSectors();
-                require '../app/view/search-companies.php';
+                $page = 'search-companies';
+                require_once '../app/view/view.php';
             }
             else if ($method == 'api') {
                 header('Content-Type: application/json');

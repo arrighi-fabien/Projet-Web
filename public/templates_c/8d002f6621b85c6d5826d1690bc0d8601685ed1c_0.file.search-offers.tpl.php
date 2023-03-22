@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 15:18:42
-  from 'C:\www\Projet-Web\app\view\templates\search-offers.tpl' */
+/* Smarty version 4.3.0, created on 2023-03-21 17:27:42
+  from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\search-offers.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6419cad252c776_22721058',
+  'unifunc' => 'content_6419e90e7a4e25_47419157',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '8d002f6621b85c6d5826d1690bc0d8601685ed1c' => 
+    '60989e35354ab9d00579c119a4987850b4c9c505' => 
     array (
-      0 => 'C:\\www\\Projet-Web\\app\\view\\templates\\search-offers.tpl',
-      1 => 1679411920,
+      0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\search-offers.tpl',
+      1 => 1679407153,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
     'file:header.tpl' => 1,
     'file:offer-card.tpl' => 1,
-    'file:login.tpl' => 1,
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6419cad252c776_22721058 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6419e90e7a4e25_47419157 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -78,36 +77,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </div>
                 <div class="card-display__pagination">
                     <img src="/img/fade.png" alt="" class="fade-scroll">
-                    <?php if ($_smarty_tpl->tpl_vars['page']->value != 2) {?>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['url']->value;?>
-page=1" class="frist">1<</a>
-                        <p>...</p>
-                    <?php }?>
-                    <?php if ($_smarty_tpl->tpl_vars['page']->value > 1) {?>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['url']->value;?>
-page=<?php echo $_smarty_tpl->tpl_vars['page']->value-1;?>
-" class="previous"><?php echo $_smarty_tpl->tpl_vars['page']->value-1;?>
-</a>
-                        <p>...</p>
-                    <?php }?>
-                    <p>></p>
-                    <a href="<?php echo $_smarty_tpl->tpl_vars['url']->value;?>
-page=<?php echo $_smarty_tpl->tpl_vars['page']->value;?>
-" class="current"><?php echo $_smarty_tpl->tpl_vars['page']->value;?>
-</a>
-                    <p><</p>
-                    <?php if ($_smarty_tpl->tpl_vars['page']->value < $_smarty_tpl->tpl_vars['max_page']->value) {?>
-                        <p>...</p>
-                        <a href="<?php echo $_smarty_tpl->tpl_vars['url']->value;?>
-page=<?php echo $_smarty_tpl->tpl_vars['page']->value+1;?>
-" class="next"><?php echo $_smarty_tpl->tpl_vars['page']->value+1;?>
-</a>
-                    <?php }?>
-                    <p>...</p>
-                    <a href="<?php echo $_smarty_tpl->tpl_vars['url']->value;?>
-page=<?php echo $_smarty_tpl->tpl_vars['max_page']->value;?>
-" class="last">><?php echo $_smarty_tpl->tpl_vars['max_page']->value;?>
-</a>
+                    <p>1234</p>
                 </div>
             </div>
             <div class="offer-description">
@@ -154,10 +124,6 @@ page=<?php echo $_smarty_tpl->tpl_vars['max_page']->value;?>
         </div>
     </div>
 </main>
-
-<?php if ($_smarty_tpl->tpl_vars['user']->value == null) {?>
-    <?php $_smarty_tpl->_subTemplateRender("file:login.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-}?>
 
 <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }

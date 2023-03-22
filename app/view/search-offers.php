@@ -5,12 +5,8 @@ if (empty($offers)) {
     exit();
 }
 
-$smarty = new Smarty();
-$smarty->template_dir = '../app/view/templates';
-
 $smarty->assign('offers', $offers);
 $smarty->assign('offers_json', $offers_json);
-$smarty->assign('user', $_SESSION['user'] ?? null);
 
 // pagination
 $smarty->assign('page', $page);

@@ -44,4 +44,13 @@ class AppModel {
         $object = json_decode(json_encode($object));
         return (array)$object;
     }
+
+    static function random($length) {
+        $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_#$%&*+';
+        $str = '';
+        for ($i = 0; $i < $length; $i++) {
+            $str .= $chars[rand(0, strlen($chars) - 1)];
+        }
+        return $str;
+    }
 }

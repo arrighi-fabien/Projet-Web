@@ -40,8 +40,4 @@
 </div>
 </main>
 
-{if $user == null}
-    {include file="login.tpl"}
-{/if}
-
 {include file="footer.tpl"}

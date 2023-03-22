@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 13:25:15
-  from 'C:\www\Projet-Web\app\view\templates\footer.tpl' */
+/* Smarty version 4.3.0, created on 2023-03-21 17:27:27
+  from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6419b03b50ca85_71176219',
+  'unifunc' => 'content_6419e8ff8f97a2_21753612',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '29b0d9005ea2d305065b2bacebf2bdf92991213a' => 
+    '34cec9f79bf8326d8df6f4a097c263627c3afd60' => 
     array (
-      0 => 'C:\\www\\Projet-Web\\app\\view\\templates\\footer.tpl',
-      1 => 1679389689,
+      0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\footer.tpl',
+      1 => 1679400205,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6419b03b50ca85_71176219 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6419e8ff8f97a2_21753612 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <footer class="footer">
         <div class="footer__content">
             <div class="footer__content__img">
@@ -51,7 +51,7 @@ function content_6419b03b50ca85_71176219 (Smarty_Internal_Template $_smarty_tpl)
             <div class="footer__content__link">
                 <div class="footer__content__link__item">
                     <h3>À propos</h3>
-                    <a href="#">Concept</a>
+                    <a href="/#concept">Concept</a>
                     <a href="#">Mentions légales</a>
                     <a href="#">Politique de confidentialité</a>
                     <a href="#">Nous contacter</a>
@@ -60,14 +60,6 @@ function content_6419b03b50ca85_71176219 (Smarty_Internal_Template $_smarty_tpl)
                     <h3>Trouver un stage</h3>
                     <a href="/search/companies">Offres de stage par entreprise</a>
                     <a href="/search/offers">Offres de stage par métier</a>
-                </div>
-                <div class="footer__content__link__item">
-                    <h3>Liens utiles</h3>
-                    <a href="#">Lorem ipsum</a>
-                    <a href="#">Vel dolor</a>
-                    <a href="#">In feuglat eum vero</a>
-                    <a href="#">Kasd</a>
-                    <a href="#">Feugiat diam duis</a>
                 </div>
             </div>
         </div>

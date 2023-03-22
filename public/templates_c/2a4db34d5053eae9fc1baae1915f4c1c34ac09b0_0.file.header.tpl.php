@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 13:25:15
-  from 'C:\www\Projet-Web\app\view\templates\header.tpl' */
+/* Smarty version 4.3.0, created on 2023-03-21 19:36:13
+  from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6419b03b413770_56016157',
+  'unifunc' => 'content_641a072d13b934_59544812',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '2a4db34d5053eae9fc1baae1915f4c1c34ac09b0' => 
+    'eceada3cfcd25480988eaa298a71b6402e694fea' => 
     array (
-      0 => 'C:\\www\\Projet-Web\\app\\view\\templates\\header.tpl',
-      1 => 1679396047,
+      0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\header.tpl',
+      1 => 1679427371,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6419b03b413770_56016157 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641a072d13b934_59544812 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -65,10 +65,10 @@ function content_6419b03b413770_56016157 (Smarty_Internal_Template $_smarty_tpl)
                 <li class="header__nav__item"><a href="/search/offers" class="link-effect">Trouver un stage</a></li>
             </ul>
         </nav>
-        <?php if ($_smarty_tpl->tpl_vars['user']->value == null) {?>
-            <input type="button" value="Se connecter" class="header__account btn btn--primary">
+        <?php if ($_smarty_tpl->tpl_vars['user']->value) {?>
+            <a href="/dashboard" class="header__account"><input type="button" value="Mon compte" class="btn btn--primary"></a>
         <?php } else { ?>
-            <input type="button" value="Mon compte" class="header__account btn btn--primary">
+            <a href="/login" class="header__account"><input type="button" value="Se connecter" class="btn btn--primary"></a>
         <?php }?>
         <div class="header__menu">
             <span class="header__menu__line--1"></span>
