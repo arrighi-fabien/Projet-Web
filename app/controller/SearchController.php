@@ -3,13 +3,13 @@
 class SearchController {
 
     public function __construct($method, $page) {
-        $LIMIT_REQUEST = 5;
-        $page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $LIMIT_REQUEST = 2;
+        $nb_page = isset($_GET['page']) ? $_GET['page'] : 1;
         //verify if $page is a number and if not, set it to 1
-        if (!is_numeric($page)) {
-            $page = 1;
-        } else if ($page < 1) { // verify if the page number is valid (not negative) and if not, set it to 1
-            $page = 1;
+        if (!is_numeric($nb_page)) {
+            $nb_page = 1;
+        } else if ($nb_page < 1) { // verify if the page number is valid (not negative) and if not, set it to 1
+            $nb_page = 1;
         }
         if ($page == 'offers') {
             $search_model = new OfferModel();
@@ -21,7 +21,7 @@ class SearchController {
             $skills = isset($_GET['skills']) ? $_GET['skills'] : null;
             $duration = isset($_GET['duration']) ? $_GET['duration'] : null;
             $salary = isset($_GET['salary']) ? $_GET['salary'] : null;
-            $offers = $search_model->searchOffers($LIMIT_REQUEST, $page, $internship_name, $company_name, $city_name, $nb_places, $offer_date, $skills, $duration, $salary);
+            $offers = $search_model->searchOffers($LIMIT_REQUEST, $nb_page, $internship_name, $company_name, $city_name, $nb_places, $offer_date, $skills, $duration, $salary);
             $max_page = $search_model->searchOffersMaxPage($internship_name, $company_name, $city_name, $nb_places, $offer_date, $skills, $duration, $salary);
             $max_page = ceil($max_page->max_page / $LIMIT_REQUEST);
             //$offers = AppModel::summarize($offers, 40, 'internship_name');
@@ -34,7 +34,6 @@ class SearchController {
             else if ($method == 'api') {
                 header('Content-Type: application/json');
                 echo $offers_json;
-                echo $max_page;
             }
         }
         else {
@@ -45,7 +44,7 @@ class SearchController {
             $student_accepted = isset($_GET['student_accepted']) ? $_GET['student_accepted'] : null;
             $rate = isset($_GET['rate']) ? $_GET['rate'] : null;
             $trust = isset($_GET['trust']) ? $_GET['trust'] : null;
-            $companies = $search_model->searchCompanies($LIMIT_REQUEST, $page, $company_name, $city_name, $sector_name, $student_accepted, $rate, $trust);
+            $companies = $search_model->searchCompanies($LIMIT_REQUEST, $nb_page, $company_name, $city_name, $sector_name, $student_accepted, $rate, $trust);
             if ($method == 'search') {
                 $sectors = $search_model->getSectors();
                 $page = 'search-companies';
