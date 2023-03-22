@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 10:44:10
-  from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\header.tpl' */
+/* Smarty version 4.3.0, created on 2023-03-21 13:25:15
+  from 'C:\www\Projet-Web\app\view\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64198a7ae7b385_71360209',
+  'unifunc' => 'content_6419b03b413770_56016157',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'eceada3cfcd25480988eaa298a71b6402e694fea' => 
+    '2a4db34d5053eae9fc1baae1915f4c1c34ac09b0' => 
     array (
-      0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\header.tpl',
-      1 => 1679395427,
+      0 => 'C:\\www\\Projet-Web\\app\\view\\templates\\header.tpl',
+      1 => 1679396047,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64198a7ae7b385_71360209 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6419b03b413770_56016157 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr">
 <head>

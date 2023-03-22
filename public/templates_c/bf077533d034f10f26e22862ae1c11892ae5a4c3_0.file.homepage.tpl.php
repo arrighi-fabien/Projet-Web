@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 10:43:04
-  from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\homepage.tpl' */
+/* Smarty version 4.3.0, created on 2023-03-21 20:27:55
+  from 'C:\www\Projet-Web\app\view\templates\homepage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64198a3824b448_56948663',
+  'unifunc' => 'content_641a053bca76f4_26966030',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'f7db20b87c2f8172c9214703964fda172c9b40ff' => 
+    'bf077533d034f10f26e22862ae1c11892ae5a4c3' => 
     array (
-      0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\homepage.tpl',
-      1 => 1679394944,
+      0 => 'C:\\www\\Projet-Web\\app\\view\\templates\\homepage.tpl',
+      1 => 1679396047,
       2 => 'file',
     ),
   ),
@@ -25,7 +25,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_64198a3824b448_56948663 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641a053bca76f4_26966030 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main>

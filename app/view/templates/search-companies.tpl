@@ -38,7 +38,15 @@
                 </div>
                 <div class="card-display__pagination">
                     <img src="/img/fade.png" alt="" class="fade-scroll">
-                    <p>1234</p>
+                    {if $page > 1}
+                        <a href="/search/companies?page={$page-1}" class="">{$page-1}</a>
+                        <p>...</p>
+                    {/if}
+                    <a href="/search/companies?page={$page}" class="">{$page}</a>
+                    {if $page < $max_page}
+                        <p>...</p>
+                        <a href="/search/companies?page={$page+1}" class="">{$page+1}</a>
+                    {/if}
                 </div>
             </div>
         </div>

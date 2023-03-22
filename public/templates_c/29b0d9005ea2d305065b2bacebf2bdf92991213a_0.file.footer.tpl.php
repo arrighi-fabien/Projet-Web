@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 10:43:04
-  from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\footer.tpl' */
+/* Smarty version 4.3.0, created on 2023-03-21 13:25:15
+  from 'C:\www\Projet-Web\app\view\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64198a38290ef8_41614245',
+  'unifunc' => 'content_6419b03b50ca85_71176219',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '34cec9f79bf8326d8df6f4a097c263627c3afd60' => 
+    '29b0d9005ea2d305065b2bacebf2bdf92991213a' => 
     array (
-      0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\footer.tpl',
-      1 => 1679165534,
+      0 => 'C:\\www\\Projet-Web\\app\\view\\templates\\footer.tpl',
+      1 => 1679389689,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64198a38290ef8_41614245 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6419b03b50ca85_71176219 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <footer class="footer">
         <div class="footer__content">
             <div class="footer__content__img">

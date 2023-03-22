@@ -1,4 +1,4 @@
-const PREFIX = "V1"; // cache name prefix (e.g. V1, V2, etc.)
+const PREFIX = "V2"; // cache name prefix (e.g. V1, V2, etc.)
 const OFFLINE_PAGES = [
     "/error-internet",
     "/css/style.css",
@@ -32,7 +32,8 @@ self.addEventListener("install", (event) => {
  */
 self.addEventListener("activate", (event) => {
     clients.claim(); // Activate immediately without waiting for the page to reload
-    /*event.waitUntil(
+    // verify if the connection is online
+    event.waitUntil(
         (async () => {
             const keys = await caches.keys();
             await Promise.all(
@@ -43,7 +44,8 @@ self.addEventListener("activate", (event) => {
                 })
             );
         })()
-    );*/
+    );
+
     console.log(`Service Worker ${PREFIX} activated`);
 });
 

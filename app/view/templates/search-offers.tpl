@@ -40,7 +40,23 @@
                 </div>
                 <div class="card-display__pagination">
                     <img src="/img/fade.png" alt="" class="fade-scroll">
-                    <p>1234</p>
+                    {if $page != 2}
+                        <a href="{$url}page=1" class="frist">1<</a>
+                        <p>...</p>
+                    {/if}
+                    {if $page > 1}
+                        <a href="{$url}page={$page-1}" class="previous">{$page-1}</a>
+                        <p>...</p>
+                    {/if}
+                    <p>></p>
+                    <a href="{$url}page={$page}" class="current">{$page}</a>
+                    <p><</p>
+                    {if $page < $max_page}
+                        <p>...</p>
+                        <a href="{$url}page={$page+1}" class="next">{$page+1}</a>
+                    {/if}
+                    <p>...</p>
+                    <a href="{$url}page={$max_page}" class="last">>{$max_page}</a>
                 </div>
             </div>
             <div class="offer-description">

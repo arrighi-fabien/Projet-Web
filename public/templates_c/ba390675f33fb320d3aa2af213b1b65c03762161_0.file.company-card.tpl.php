@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 10:43:04
-  from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\company-card.tpl' */
+/* Smarty version 4.3.0, created on 2023-03-21 13:25:15
+  from 'C:\www\Projet-Web\app\view\templates\company-card.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_64198a3826b2b4_46260576',
+  'unifunc' => 'content_6419b03b455c42_77430267',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '298d9e52873720e33b9164ce8c352027849c268d' => 
+    'ba390675f33fb320d3aa2af213b1b65c03762161' => 
     array (
-      0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\company-card.tpl',
-      1 => 1679360043,
+      0 => 'C:\\www\\Projet-Web\\app\\view\\templates\\company-card.tpl',
+      1 => 1679389878,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64198a3826b2b4_46260576 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6419b03b455c42_77430267 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="card-company card-background">
     <a href="/company-<?php echo $_smarty_tpl->tpl_vars['company_card']->value->id_company;?>
 " class="card-link"><span></span></a>
