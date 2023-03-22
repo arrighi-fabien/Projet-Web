@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 22:04:58
+/* Smarty version 4.3.0, created on 2023-03-22 00:29:28
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\dashboard.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_641a2a0a3489d5_75535071',
+  'unifunc' => 'content_641a4be8e83303_96820141',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f382d6bd853ee725cd2c87519d084748b694f5d2' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\dashboard.tpl',
-      1 => 1679436294,
+      1 => 1679444967,
       2 => 'file',
     ),
   ),
@@ -23,11 +23,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_641a2a0a3489d5_75535071 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641a4be8e83303_96820141 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <main class="m-5-0">
+    <a href="/logout" class="btn btn--secondary">Déconnexion</a>
     <div class="best-section__content">
         <div class="card-background personal-info p-2">
             <h2 class="center-title important-title">Informations</h2>
@@ -87,7 +88,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 <?php }?>
         </div>
     </div>
-    <div class="card-background m-0-auto p-2-0">
+    <div class="card-background m-5-auto p-2-0">
         <h2 class="center-title important-title">Wishlist</h2>
         <div class="best-section__content card-display">
         <?php if ($_smarty_tpl->tpl_vars['wishlist']->value == null) {?>

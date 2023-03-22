@@ -12,8 +12,6 @@ class HomepageController {
         //$latest_offers = AppModel::summarize($latest_offers, 40, 'internship_name');
         $latest_offers = AppModel::getEllapsedTime($latest_offers, 'offer_date');
 
-        var_dump($_SESSION);
-
         $page = 'home';
         require_once '../app/view/view.php';
     }

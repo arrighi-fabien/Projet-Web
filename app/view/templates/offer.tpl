@@ -12,11 +12,11 @@
         {if $user}
             {foreach $user->wishlist_id as $id}
                 {if $id == $offer->id_internship}
-                    <svg class="card-bookmark"><use href="/img/sprite.svg#bookmark"></use></svg>
+                    <svg class="card-bookmark" data-offer="{$offer->id_internship}-1"><use href="/img/sprite.svg#bookmark"></use></svg>
                     {break}
                 {/if}
                 {if $id == end($user->wishlist_id)}
-                    <svg class="card-bookmark"><use href="/img/sprite.svg#bookmark_stroke"></use></svg>
+                    <svg class="card-bookmark" data-offer="{$offer->id_internship}-0"><use href="/img/sprite.svg#bookmark_stroke"></use></svg>
                 {/if}
             {/foreach}
         {else}

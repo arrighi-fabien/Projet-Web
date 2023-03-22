@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 17:30:32
+/* Smarty version 4.3.0, created on 2023-03-21 23:02:51
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_6419e9b8c6fa18_85219854',
+  'unifunc' => 'content_641a379b729a09_26844199',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '814964164004b424e4ca5aeb7a0c556a115cfe87' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\login.tpl',
-      1 => 1679418806,
+      1 => 1679439769,
       2 => 'file',
     ),
   ),
@@ -22,12 +22,18 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6419e9b8c6fa18_85219854 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641a379b729a09_26844199 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
     <div class="login-form card-background p-2 m-5-auto ">
         <h2>Se connecter</h2>
+        <?php if ($_smarty_tpl->tpl_vars['errors']->value) {?>
+            <div class="alert alert--danger">
+                <p class="error-message"><?php echo $_smarty_tpl->tpl_vars['errors']->value;?>
+</p>
+            </div>
+        <?php }?>
         <form action="/login/connect" method="post" class="login-form__content">
             <div class="login-form__content__input">
                 <label for="email">Email :</label>
@@ -41,7 +47,7 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                 <input type="password" name="password" id="password" placeholder="Mot de passe...">
             </div>
             <div class="login-form__content__checkbox">
-                <input type="checkbox" name="remember" id="remember">
+                <input type="checkbox" name="remember" id="remember" value="1">
                 <label for="remember">Se souvenir de moi</label>
             </div>
             <input type="submit" value="Se connecter" class="btn btn--primary">

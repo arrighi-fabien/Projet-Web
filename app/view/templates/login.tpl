@@ -2,6 +2,11 @@
 
     <div class="login-form card-background p-2 m-5-auto ">
         <h2>Se connecter</h2>
+        {if $errors}
+            <div class="alert alert--danger">
+                <p class="error-message">{$errors}</p>
+            </div>
+        {/if}
         <form action="/login/connect" method="post" class="login-form__content">
             <div class="login-form__content__input">
                 <label for="email">Email :</label>
@@ -15,7 +20,7 @@
                 <input type="password" name="password" id="password" placeholder="Mot de passe...">
             </div>
             <div class="login-form__content__checkbox">
-                <input type="checkbox" name="remember" id="remember">
+                <input type="checkbox" name="remember" id="remember" value="1">
                 <label for="remember">Se souvenir de moi</label>
             </div>
             <input type="submit" value="Se connecter" class="btn btn--primary">

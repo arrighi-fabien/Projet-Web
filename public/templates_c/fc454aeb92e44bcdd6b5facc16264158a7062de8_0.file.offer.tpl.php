@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-03-21 20:11:03
+/* Smarty version 4.3.0, created on 2023-03-21 22:43:02
   from 'C:\Users\fabar\Desktop\CESI\CPI A2\BLOC 4 Web\Projet\Projet-Web\app\view\templates\offer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_641a0f57997a23_03972168',
+  'unifunc' => 'content_641a32f6049a65_79713895',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fc454aeb92e44bcdd6b5facc16264158a7062de8' => 
     array (
       0 => 'C:\\Users\\fabar\\Desktop\\CESI\\CPI A2\\BLOC 4 Web\\Projet\\Projet-Web\\app\\view\\templates\\offer.tpl',
-      1 => 1679429461,
+      1 => 1679438578,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_641a0f57997a23_03972168 (Smarty_Internal_Template $_smarty_tpl) {
+function content_641a32f6049a65_79713895 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main>
@@ -47,11 +47,13 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['id']->value) {
 $_smarty_tpl->tpl_vars['id']->do_else = false;
 ?>
                 <?php if ($_smarty_tpl->tpl_vars['id']->value == $_smarty_tpl->tpl_vars['offer']->value->id_internship) {?>
-                    <svg class="card-bookmark"><use href="/img/sprite.svg#bookmark"></use></svg>
+                    <svg class="card-bookmark" data-offer="<?php echo $_smarty_tpl->tpl_vars['offer']->value->id_internship;?>
+-1"><use href="/img/sprite.svg#bookmark"></use></svg>
                     <?php break 1;?>
                 <?php }?>
                 <?php if ($_smarty_tpl->tpl_vars['id']->value == end($_smarty_tpl->tpl_vars['user']->value->wishlist_id)) {?>
-                    <svg class="card-bookmark"><use href="/img/sprite.svg#bookmark_stroke"></use></svg>
+                    <svg class="card-bookmark" data-offer="<?php echo $_smarty_tpl->tpl_vars['offer']->value->id_internship;?>
+-0"><use href="/img/sprite.svg#bookmark_stroke"></use></svg>
                 <?php }?>
             <?php
 }

@@ -1,6 +1,7 @@
 {include file="header.tpl"}
 
 <main class="m-5-0">
+    <a href="/logout" class="btn btn--secondary">Déconnexion</a>
     <div class="best-section__content">
         <div class="card-background personal-info p-2">
             <h2 class="center-title important-title">Informations</h2>
@@ -47,7 +48,7 @@
                 {/if}
         </div>
     </div>
-    <div class="card-background m-0-auto p-2-0">
+    <div class="card-background m-5-auto p-2-0">
         <h2 class="center-title important-title">Wishlist</h2>
         <div class="best-section__content card-display">
         {if $wishlist == null}

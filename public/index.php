@@ -14,6 +14,7 @@ $router->map('GET', '/company-[i:id]', 'CompanyController', 'company');
 $router->map('GET', '/offer-[i:id]', 'OfferController', 'offer');
 $router->map('GET', '/login', 'AuthController', 'login_page');
 $router->map('POST', '/login/connect', 'AuthController', 'login');
+$router->map('GET', '/logout', 'AuthController', 'logout');
 $router->map('GET', '/dashboard', 'AuthController', 'dashboard');
 $router->map('GET', '/api/search/companies', 'SearchController', 'api_companies');
 $router->map('GET', '/api/search/offers', 'SearchController', 'api_offers');

@@ -29,25 +29,37 @@ class AuthController {
                 echo "error";
             }
         }
+        else if ($current_page == 'logout') {
+            $auth = new AuthModel();
+            $auth->logout();
+            header("Location: /login");
+            exit();
+        }
         else {
             if (Session::getInstance()->read('user') == null) {
-                if ($current_page == 'dashboard') {
-                    header("Location: /login");
+                $auth = new AuthModel();
+                if ($auth->reconnectFromCookie()) {
+                    $auth->getWishlistId();
+                    $wishlist = $auth->getWishlist();
+                    header("Location: /dashboard");
                     exit();
                 }
-                if (isset($_POST['email']) && isset($_POST['password'])) {
-                    $auth = new AuthModel();
-                    if ($auth->login($_POST['email'], $_POST['password'])) {
+                if (filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL, FILTER_NULL_ON_FAILURE) && isset($_POST['password']) && !empty($_POST['password'])) {
+                    if ($auth->login($_POST['email'], $_POST['password'], isset($_POST['remember']))) {
                         $auth->getWishlistId();
                         $wishlist = $auth->getWishlist();
                         header("Location: /dashboard");
                         exit();
                     }
                     else {
-                        $error = "Email ou mot de passe incorrect";
+                        $errors = "Email ou mot de passe incorrect";
                         $page = 'login';
                         require_once '../app/view/view.php';
                     }
+                }
+                else if ($current_page == 'dashboard' || $current_page == 'login') {
+                    header("Location: /login");
+                    exit();
                 }
                 else {
                     $page = 'login';

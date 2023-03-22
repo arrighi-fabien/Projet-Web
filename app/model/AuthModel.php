@@ -2,12 +2,22 @@
 
 class AuthModel extends Database {
 
-    public function login($email, $password) {
+    public function login($email, $password, $remember = false) {
         $email = $this->escape($email);
         $user = $this->query("SELECT * FROM users NATURAL JOIN is_in NATURAL JOIN promotion NATURAL JOIN center WHERE email = ?", [$email])->fetch();
         if ($user) {
             if (password_verify($password, $user->password)) {
                 Session::getInstance()->write('user', $user);
+                if ($remember) {
+                    $remember_token = AppModel::random(250);
+                    if ($this->query("SELECT * FROM remember WHERE id_user = ?", [$user->id_user])->fetch()) {
+                        $this->query("UPDATE remember SET remember_token = ? WHERE id_user = ?", [$remember_token, $user->id_user]);
+                    }
+                    else {
+                        $this->query("INSERT INTO remember (id_user, remember_token) VALUES (?, ?)", [$user->id_user, $remember_token]);
+                    }
+                    setcookie('remember', $user->id_user.'='.$remember_token, time() + 60 * 60 * 24 * 7, '', '', true, true);
+                }
                 return true;
             }
             else {
@@ -19,8 +29,34 @@ class AuthModel extends Database {
         }
     }
 
+    public function reconnectFromCookie() {
+        if (isset($_COOKIE['remember']) && !Session::getInstance()->read('user')) {
+            $remember_token = explode('=', $_COOKIE['remember']);
+            $user = $this->query("SELECT * FROM users NATURAL JOIN is_in NATURAL JOIN promotion NATURAL JOIN center NATURAL JOIN remember WHERE id_user = ?", [$remember_token[0]])->fetch();
+            if ($user) {
+                if ($remember_token[1] === $user->remember_token) {
+                    Session::getInstance()->write('user', $user);
+                    setcookie('remember', $user->id_user.'='.$user->remember_token, time() + 60 * 60 * 24 * 7, '', '', true, true);
+                    return true;
+                }
+                else {
+                    setcookie('remember', null, -1, '', '', true, true);
+                    return false;
+                }
+            }
+            else {
+                setcookie('remember', null, -1, '', '', true, true);
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
     public function logout() {
-        Session::getInstance()->destroy();
+        setcookie('remember', '', time() - 3600, '', '', true, true);
+        Session::getInstance()->destroy('user');
         header("Location: /");
         exit();
     }
