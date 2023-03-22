@@ -71,42 +71,30 @@ if (document.querySelector("#search-form")) {
                         ? ""
                         : document.querySelector("#search-form__salary").value;
 
-        //get domain url
-        url = window.location.origin + '/api/search/offers';
-        current_url = window.location.href.split('?')[0];
-        //create a tab with all params name and variables and use a foreach to add them to the url
-        params_value = [internship, company, city, nb_places, offer_date, skills, duration, salary];
-        params_name = ['internship_name', 'company_name', 'city_name', 'nb_places', 'offer_date', 'skills', 'duration', 'salary'];
-      }
-      let params = {};
-      let url_params = '';
-      let i = 0;
-      //check with ternary operator if the param is the first one or not
-      params_value.forEach(param => {
-        if (param !== '') {
-          url_params += (url_params.indexOf('?') > -1) ? '&' + params_name[i] + '=' + param : '?' + params_name[i] + '=' + param;
-          params[params_name[i]] = param;
-        }
-        i++;
-      });
-
-      url += url_params;
-      current_url += url_params;
-
-      //replace the current url with the new one
-      window.history.replaceState({}, '', current_url);
-
-      $.ajax({
-          url: url,
-          data: params,
-          type: 'GET',
-          dataType: 'json',
-          success: function (data) {
-            // delete all the previous results
-            document.querySelector('#result').innerHTML = '';
-            //check if there is no result
-            if (data.length === 0) {
-              document.querySelector('#result').innerHTML = '<h3 class="no-result">Aucun résultat</h3>';
+                //get domain url
+                url = window.location.origin + "/api/search/offers";
+                current_url = window.location.href.split("?")[0];
+                //create a tab with all params name and variables and use a foreach to add them to the url
+                params_value = [
+                    internship,
+                    company,
+                    city,
+                    nb_places,
+                    offer_date,
+                    skills,
+                    duration,
+                    salary,
+                ];
+                params_name = [
+                    "internship_name",
+                    "company_name",
+                    "city_name",
+                    "nb_places",
+                    "offer_date",
+                    "skills",
+                    "duration",
+                    "salary",
+                ];
             }
             let params = {};
             let url_params = "";
@@ -135,7 +123,6 @@ if (document.querySelector("#search-form")) {
                 type: "GET",
                 dataType: "json",
                 success: function (data) {
-                    console.log(data);
                     // delete all the previous results
                     document.querySelector("#result").innerHTML = "";
                     //check if there is no result
@@ -196,12 +183,6 @@ if (document.querySelector("#search-form")) {
                         //call the function to add the event listener on the card-link
                         displayPreviewOffer();
                         offers_json = data;
-                        // change th url of all <a> elements in div card-display__pagination
-                        document
-                            .querySelectorAll(".card-display__pagination a")
-                            .forEach((a) => {
-                                a.href = current_url;
-                            });
                     }
                 },
                 error: function (data) {
