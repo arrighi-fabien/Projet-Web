@@ -39,7 +39,7 @@
                 <div class="card-display__pagination">
                     <img src="/img/fade.png" alt="" class="fade-scroll">
                     {if $nb_page != 2}
-                        <a href="{$url}page=1" class="first">1<</a>
+                        <a href="{$url1}page=1" class="first">1<</a>
                         <p>...</p>
                     {/if}
                     {if $nb_page > 1}
@@ -55,7 +55,7 @@
                     {/if}
                     {if $nb_page != $max_page-1}
                         <p>...</p>
-                        <a href="{$url}page=1" class="last">>{$max_page}</a>
+                        <a href="{$url}page={$max_page}" class="last">>{$max_page}</a>
                     {/if}
                 </div>
             </div>

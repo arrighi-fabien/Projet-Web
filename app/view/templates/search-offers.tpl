@@ -57,7 +57,7 @@
                     {/if}
                     {if $nb_page != $max_page-1}
                         <p>...</p>
-                        <a href="{$url}page=1" class="last">>{$max_page}</a>
+                        <a href="{$url}page={$max_page}" class="last">>{$max_page}</a>
                     {/if}
                 </div>
             </div>

@@ -183,6 +183,7 @@ if (document.querySelector("#search-form")) {
             //call the function to add the event listener on the card-link
             displayPreviewOffer();
             offers_json = data;
+            console.log(current_url);
             // change th url of all <a> elements in div card-display__pagination
             document
               .querySelectorAll(".card-display__pagination a")

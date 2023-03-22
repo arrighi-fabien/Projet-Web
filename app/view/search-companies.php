@@ -3,7 +3,7 @@
 $smarty->assign('companies', $companies);
 $smarty->assign('sectors', $sectors);
 
-$smarty->assign('page', 1);
+$smarty->assign('nb_page', $nb_page);
 $smarty->assign('max_page', 5);
 //get current url with all parameters
 $smarty->assign('url1', $_SERVER['REQUEST_URI']);
