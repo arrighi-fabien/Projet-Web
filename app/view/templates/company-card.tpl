@@ -1,5 +1,5 @@
 <div class="card-company card-background">
-    <a href="#" class="card-link"><span></span></a>
+    <a href="/company-{$company_card->id_company}" class="card-link"><span></span></a>
     <div class="card-company__content">
         {if file_exists("img/company/{$company_card->company_name}.webp")}
             <img src="/img/company/{$company_card->company_name}.webp" alt="{$company_card->company_name} logo" class="card-company__content__img">

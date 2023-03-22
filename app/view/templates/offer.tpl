@@ -8,12 +8,25 @@
         {else}
             <img src="/img/company/default.webp" alt="Default logo" class="card-company__content__img">
         {/if}
-        <h3 class="detail-header__company">{$offer->company_name}</h3>
+        <h3 class="detail-header__company"><a href="/company-{$offer->id_company}">{$offer->company_name}</a></h3>
+        {if $user}
+            {foreach $user->wishlist_id as $id}
+                {if $id == $offer->id_internship}
+                    <svg class="card-bookmark" data-offer="{$offer->id_internship}-1"><use href="/img/sprite.svg#bookmark"></use></svg>
+                    {break}
+                {/if}
+                {if $id == end($user->wishlist_id)}
+                    <svg class="card-bookmark" data-offer="{$offer->id_internship}-0"><use href="/img/sprite.svg#bookmark_stroke"></use></svg>
+                {/if}
+            {/foreach}
+        {else}
+            <svg class="card-bookmark"><use href="/img/sprite.svg#bookmark_stroke"></use></svg>
+        {/if}
         <h2 class="detail-header__title">{$offer->internship_name}</h2>
         <div class="detail-header__description">
             <div class="text-and-svg">
                 <svg><use href="/img/sprite.svg#clock"></use></svg>
-                <p>Il y a 15 heures</p>
+                <p>{$offer->offer_date}</p>
             </div>
             <div class="text-and-svg">
                 <svg><use href="/img/sprite.svg#map"></use></svg>
@@ -56,7 +69,7 @@
                 <h3>{$offer->internship_name}</h3>
                 <div class="text-and-svg m-1-0">
                     <svg><use href="/img/sprite.svg#clock"></use></svg>
-                    <p>Il y a 15 heures</p>
+                    <p>{$offer->offer_date}</p>
                 </div>
                 <div class="text-and-svg m-1-0">
                     <svg><use href="/img/sprite.svg#map"></use></svg>
@@ -82,9 +95,5 @@
         </div>
     </div>
 </main>
-
-{if $user == null}
-    {include file="login.tpl"}
-{/if}
 
 {include file="footer.tpl"}
