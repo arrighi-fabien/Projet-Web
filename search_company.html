@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/img/logo-192.png">
+    <meta name="description" content="Site de recherche de stage">
+    <title>Stage du zero</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="/">
+            <img src="/img/logo.webp" alt="logo" class="header__logo">
+        </a>
+        <nav class="header__nav">
+            <ul>
+                <li class="header__nav__item"><a href="/" class="link-effect">Accueil</a></li>
+                <li class="header__nav__item"><a href="/search_company.html" class="link-effect">Trouver une entreprise</a>
+                </li>
+                <li class="header__nav__item"><a href="/search_offer.html" class="link-effect">Trouver un stage</a></li>
+            </ul>
+        </nav>
+        <a href="/login.html" class="header__account"><input type="button" value="Se connecter"
+                class="btn btn--primary"></a>
+        <div class="header__menu">
+            <span class="header__menu__line--1"></span>
+            <span class="header__menu__line--2"></span>
+            <span class="header__menu__line--3"></span>
+            <span class="header__menu__line--4"></span>
+            <span class="header__menu__line--5"></span>
+        </div>
+    </header>
+    <main>
+        <img src="/img/background1.webp" alt="" class="background-form background-form--1">
+        <img src="/img/background2.webp" alt="" class="background-form background-form--2">
+
+        <div class="search-section m-5-0">
+            <div class="card-background search-bar p-1">
+                <form id="search-form">
+                    <div class="search-bar__input">
+                        <input type="text" placeholder="Rechercher par nom..." name="company_name">
+                        <input type="text" placeholder="Rechercher par lieu..." name="city_name">
+                        <select name="sector_name">
+                            <option value="">Secteur</option>
+                            <option value="BTP">BTP</option>
+                            <option value="Généraliste">Généraliste</option>
+                            <option value="Informatique">Informatique</option>
+                            <option value="S3E">S3E</option>
+                        </select>
+                        <input type="text" placeholder="Nombre d'étudiant déjà accepté..." name="student_accepted">
+                        <input type="text" placeholder="Note" name="rate">
+                        <select name="trust">
+                            <option value="">Confiance pilote</option>
+                            <option value="1">Oui</option>
+                            <option value="">Non</option>
+                        </select>
+                    </div>
+                    <input type="reset" value="Reset" class="btn btn--secondary">
+                    <script src="/js/api.js"></script>
+                    <input type="submit" value="Rechercher" class="btn btn--primary" id="btn-search" data-btn="company">
+                </form>
+            </div>
+            <input type="button" value="Afficher les filtres" class="btn btn--secondary filter-btn">
+            <div>
+                <div class="card-background">
+                    <div class="best-section__content card-display" id="result">
+                        <div class="card-company card-background">
+                            <a href="/company-3" class="card-link"></a>
+                            <div class="card-company__content">
+                                <img src="/img/company/Google.webp" alt="Google logo"
+                                    class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Google</h4>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#building"></use>
+                                        </svg>
+                                        <p class="card-company__content__sector">Généraliste</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#map"></use>
+                                        </svg>
+                                        <p class="card-company__content__city">Aix-en-Provence</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-company__offer">4 offres</p>
+                        </div>
+                        <div class="card-company card-background">
+                            <a href="/company-2" class="card-link"></a>
+                            <div class="card-company__content">
+                                <img src="/img/company/Apple.webp" alt="Apple logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Apple</h4>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#building"></use>
+                                        </svg>
+                                        <p class="card-company__content__sector">Informatique</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#map"></use>
+                                        </svg>
+                                        <p class="card-company__content__city">Brest, Pau</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-company__offer">3 offres</p>
+                        </div>
+                        <div class="card-company card-background">
+                            <a href="/company-11" class="card-link"></a>
+                            <div class="card-company__content">
+                                <img src="/img/company/default.webp" alt="Default logo"
+                                    class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Dassault Systèmes</h4>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#building"></use>
+                                        </svg>
+                                        <p class="card-company__content__sector">Généraliste</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#map"></use>
+                                        </svg>
+                                        <p class="card-company__content__city">Orléans, Saint-Nazaire</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-company__offer">0 offre</p>
+                        </div>
+                        <div class="card-company card-background">
+                            <a href="/company-18" class="card-link"></a>
+                            <div class="card-company__content">
+                                <img src="/img/company/Sanofi.webp" alt="Sanofi logo"
+                                    class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Sanofi</h4>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#building"></use>
+                                        </svg>
+                                        <p class="card-company__content__sector">Informatique</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#map"></use>
+                                        </svg>
+                                        <p class="card-company__content__city">Nancy</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-company__offer">1 offre</p>
+                        </div>
+                        <div class="card-company card-background">
+                            <a href="/company-16" class="card-link"></a>
+                            <div class="card-company__content">
+                                <img src="/img/company/Suez.webp" alt="Suez logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Suez</h4>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#building"></use>
+                                        </svg>
+                                        <p class="card-company__content__sector">Informatique</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#map"></use>
+                                        </svg>
+                                        <p class="card-company__content__city">Grenoble</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-company__offer">0 offre</p>
+                        </div>
+                        <div class="card-company card-background">
+                            <a href="/company-1" class="card-link"></a>
+                            <div class="card-company__content">
+                                <img src="/img/company/Microsoft.webp" alt="Microsoft logo"
+                                    class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Microsoft</h4>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#building"></use>
+                                        </svg>
+                                        <p class="card-company__content__sector">Informatique</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#map"></use>
+                                        </svg>
+                                        <p class="card-company__content__city">Aix-en-Provence</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-company__offer">3 offres</p>
+                        </div>
+                        <div class="card-company card-background">
+                            <a href="/company-4" class="card-link"></a>
+                            <div class="card-company__content">
+                                <img src="/img/company/La poste.webp" alt="La poste logo"
+                                    class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">La poste</h4>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#building"></use>
+                                        </svg>
+                                        <p class="card-company__content__sector">BTP</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#map"></use>
+                                        </svg>
+                                        <p class="card-company__content__city">Nancy</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-company__offer">0 offre</p>
+                        </div>
+                        <div class="card-company card-background">
+                            <a href="/company-5" class="card-link"></a>
+                            <div class="card-company__content">
+                                <img src="/img/company/Cesi.webp" alt="Cesi logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Cesi</h4>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#building"></use>
+                                        </svg>
+                                        <p class="card-company__content__sector">S3E</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#map"></use>
+                                        </svg>
+                                        <p class="card-company__content__city">Paris</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-company__offer">0 offre</p>
+                        </div>
+                        <div class="card-company card-background">
+                            <a href="/company-6" class="card-link"></a>
+                            <div class="card-company__content">
+                                <img src="/img/company/Cegos.webp" alt="Cegos logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Cegos</h4>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#building"></use>
+                                        </svg>
+                                        <p class="card-company__content__sector">S3E</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#map"></use>
+                                        </svg>
+                                        <p class="card-company__content__city">Le Mans</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-company__offer">0 offre</p>
+                        </div>
+                        <div class="card-company card-background">
+                            <a href="/company-7" class="card-link"></a>
+                            <div class="card-company__content">
+                                <img src="/img/company/default.webp" alt="Default logo"
+                                    class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__title">Bpce</h4>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#building"></use>
+                                        </svg>
+                                        <p class="card-company__content__sector">Informatique</p>
+                                    </div>
+                                    <div class="text-and-svg">
+                                        <svg>
+                                            <use href="/img/sprite.svg#map"></use>
+                                        </svg>
+                                        <p class="card-company__content__city">Reims, Strasbourg</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-company__offer">0 offre</p>
+                        </div>
+                    </div>
+                    <div class="card-display__pagination">
+                        <img src="/img/fade.png" alt="" class="fade-scroll">
+                        <div class="btn__pagination">
+                            <button style="display: none;"
+                                class="btn btn--secondary btn--pagination btn--pagination--first"
+                                onClick=paginationOffer(".btn--pagination--first") data-pagination-page=1
+                                data-pagination-max=2>1</button>
+                            <button style="display: none;" class="btn--secondary btn--pagination--first--separator"
+                                disable>...</button>
+                            <button style="display: none;"
+                                class="btn btn--secondary btn--pagination btn--pagination--previous"
+                                onClick=paginationOffer(".btn--pagination--previous") data-pagination-page=0
+                                data-pagination-max=2>0</button>
+                            <button class="btn btn--primary btn--pagination btn--pagination--current" disable>1</button>
+                            <button style="display: inline-block;" id="btn-pagination_next"
+                                class="btn btn--secondary btn--pagination btn--pagination--next"
+                                onClick=paginationOffer(".btn--pagination--next") data-pagination-page=2
+                                data-pagination-max=2>2</button>
+                            <button style="display: none;" class="btn--secondary btn--pagination--last--separator"
+                                disable>...</button>
+                            <button style="display: none;" id="btn-pagination_last"
+                                class="btn btn--secondary btn--pagination btn--pagination--last"
+                                onClick=paginationOffer(".btn--pagination--last") data-pagination-page=2
+                                data-pagination-max=2>2</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__content__img">
+                <img src="/img/logo.webp" alt="logo" class="footer__content__img__logo">
+                <div class="footer__content__img__social">
+                    <a href="https://www.linkedin.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#linkedin"></use>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#facebook"></use>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#twitter"></use>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#instagram"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__content__link">
+                <div class="footer__content__link__item">
+                    <h3>À propos</h3>
+                    <a href="/#concept">Concept</a>
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Nous contacter</a>
+                </div>
+                <div class="footer__content__link__item">
+                    <h3>Trouver un stage</h3>
+                    <a href="/search/companies">Offres de stage par entreprise</a>
+                    <a href="/search/offers">Offres de stage par métier</a>
+                </div>
+            </div>
+        </div>
+        <p class="footer__credit small-text">Stage du zero © 2023 - Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>

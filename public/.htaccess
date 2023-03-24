@@ -1,7 +1,0 @@
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ index.php [QSA,L]
-
-order allow,deny
-allow from all
-deny from 10.106.129.84 

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/img/logo-192.png">
+    <meta name="description" content="Site de recherche de stage">
+    <title>Stage du zero</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="/">
+            <img src="/img/logo.webp" alt="logo" class="header__logo">
+        </a>
+        <nav class="header__nav">
+            <ul>
+                <li class="header__nav__item"><a href="/" class="link-effect">Accueil</a></li>
+                <li class="header__nav__item"><a href="/search_company.html" class="link-effect">Trouver une entreprise</a>
+                </li>
+                <li class="header__nav__item"><a href="/search_offer.html" class="link-effect">Trouver un stage</a></li>
+            </ul>
+        </nav>
+        <a href="/login.html" class="header__account"><input type="button" value="Se connecter"
+                class="btn btn--primary"></a>
+        <div class="header__menu">
+            <span class="header__menu__line--1"></span>
+            <span class="header__menu__line--2"></span>
+            <span class="header__menu__line--3"></span>
+            <span class="header__menu__line--4"></span>
+            <span class="header__menu__line--5"></span>
+        </div>
+    </header>
+    <main>
+        <img src="/img/background1.webp" alt="" class="background-form background-form--1">
+        <img src="/img/background2.webp" alt="" class="background-form background-form--2">
+
+        <div class="search-section search-section--offer m-5-0">
+            <div class="card-background search-bar search-bar--offer p-1">
+                <form id="search-form">
+                    <div class="search-bar__input">
+                        <input type="text" placeholder="Rechercher par nom..." name="internship_name">
+                        <input type="text" placeholder="Rechercher par entreprise..." name="company_name">
+                        <input type="text" placeholder="Rechercher par lieu..." name="city_name">
+                        <input type="text" placeholder="Nombre de place..." name="nb_places">
+                        <select name="offer_date">
+                            <option value="">Date de l'offre</option>
+                        </select>
+                        <select name="skills">
+                            <option value="">Compétences</option>
+                            <option value="Allemand">Allemand</option>
+                            <option value="Anglais">Anglais</option>
+                            <option value="Arabe">Arabe</option>
+                            <option value="Assembleur">Assembleur</option>
+                            <option value="Bash">Bash</option>
+                            <option value="C">C</option>
+                            <option value="C#">C#</option>
+                            <option value="C++">C++</option>
+                            <option value="Chinois">Chinois</option>
+                            <option value="CSS">CSS</option>
+                            <option value="Dart">Dart</option>
+                            <option value="Elixir">Elixir</option>
+                            <option value="Erlang">Erlang</option>
+                            <option value="Espagnol">Espagnol</option>
+                            <option value="Go">Go</option>
+                            <option value="Haskell">Haskell</option>
+                            <option value="HTML">HTML</option>
+                            <option value="Italien">Italien</option>
+                            <option value="Japonais">Japonais</option>
+                            <option value="Java">Java</option>
+                            <option value="Javascript">Javascript</option>
+                            <option value="Kotlin">Kotlin</option>
+                            <option value="Lua">Lua</option>
+                            <option value="Matlab">Matlab</option>
+                            <option value="MySQL">MySQL</option>
+                            <option value="Objective-C">Objective-C</option>
+                            <option value="Oracle">Oracle</option>
+                            <option value="PHP">PHP</option>
+                            <option value="PostgreSQL">PostgreSQL</option>
+                            <option value="PowerShell">PowerShell</option>
+                            <option value="Prolog">Prolog</option>
+                            <option value="Python">Python</option>
+                            <option value="Ruby">Ruby</option>
+                            <option value="Russe">Russe</option>
+                            <option value="Rust">Rust</option>
+                            <option value="Scala">Scala</option>
+                            <option value="Scratch">Scratch</option>
+                            <option value="SQL">SQL</option>
+                            <option value="Swift">Swift</option>
+                            <option value="Visual Basic">Visual Basic</option>
+                        </select>
+                        <label for="duration">Durée</label>
+                        <input type="range" min="0" max="100" name="duration" value="0" id="duration">
+                        <label for="salary">Rémunération</label>
+                        <input type="range" min="0" max="100" name="salary" value="0" id="salary">
+                    </div>
+                    <input type="reset" value="Reset" class="btn btn--secondary">
+                    <script src="/js/api.js"></script>
+                    <input type="submit" value="Rechercher" class="btn btn--primary" id="btn-search" data-btn="offer">
+                </form>
+            </div>
+            <input type="button" value="Afficher les filtres" class="btn btn--secondary filter-btn">
+            <div class="card-background offer-preview">
+                <div class="card-background">
+                    <div class="best-section__content best-section__content--col-1 card-display" id="result">
+                        <div class="card-company card-background">
+                            <span data-id="0" class="card-link card-preview"> </span>
+                            <div class="card-company__content">
+                                <img src="/img/company/Sanofi.webp" alt="Sanofi logo"
+                                    class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__job">Chargé d'insertion (H/F)</h4>
+                                    <h5 class="card-company__content__info__title">Sanofi</h5>
+                                    <p class="card-company__content__city">Reims</p>
+                                    <p class="small-text">Il y a 3 jours</p>
+                                </div>
+                            </div>
+                            <svg class="card-bookmark" data-offer="12-1">
+                                <use href="/img/sprite.svg#bookmark"></use>
+                            </svg>
+                        </div>
+                        <div class="card-company card-background">
+                            <span data-id="1" class="card-link card-preview"> </span>
+                            <div class="card-company__content">
+                                <img src="/img/company/Total.webp" alt="Total logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__job">Consultant en recrutement H/F</h4>
+                                    <h5 class="card-company__content__info__title">Total</h5>
+                                    <p class="card-company__content__city">Nice</p>
+                                    <p class="small-text">Il y a 3 jours</p>
+                                </div>
+                            </div>
+                            <svg class="card-bookmark" data-offer="11-1">
+                                <use href="/img/sprite.svg#bookmark"></use>
+                            </svg>
+                        </div>
+                        <div class="card-company card-background">
+                            <span data-id="2" class="card-link card-preview"> </span>
+                            <div class="card-company__content">
+                                <img src="/img/company/Apple.webp" alt="Apple logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__job">Stage - Chargé de Communication &
+                                        Marque Employeur F/H - Paris</h4>
+                                    <h5 class="card-company__content__info__title">Apple</h5>
+                                    <p class="card-company__content__city">Brest</p>
+                                    <p class="small-text">Il y a 3 jours</p>
+                                </div>
+                            </div>
+                            <svg class="card-bookmark" data-offer="2-0">
+                                <use href="/img/sprite.svg#bookmark_stroke"></use>
+                            </svg>
+                        </div>
+                        <div class="card-company card-background">
+                            <span data-id="3" class="card-link card-preview"> </span>
+                            <div class="card-company__content">
+                                <img src="/img/company/Apple.webp" alt="Apple logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__job">Category Manager Junior</h4>
+                                    <h5 class="card-company__content__info__title">Apple</h5>
+                                    <p class="card-company__content__city">Aix-en-Provence</p>
+                                    <p class="small-text">Il y a 4 jours</p>
+                                </div>
+                            </div>
+                            <svg class="card-bookmark" data-offer="5-0">
+                                <use href="/img/sprite.svg#bookmark_stroke"></use>
+                            </svg>
+                        </div>
+                        <div class="card-company card-background">
+                            <span data-id="4" class="card-link card-preview"> </span>
+                            <div class="card-company__content">
+                                <img src="/img/company/Microsoft.webp" alt="Microsoft logo"
+                                    class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__job">Stage de fin d'étude</h4>
+                                    <h5 class="card-company__content__info__title">Microsoft</h5>
+                                    <p class="card-company__content__city">Aix-en-Provence</p>
+                                    <p class="small-text">Il y a 9 jours</p>
+                                </div>
+                            </div>
+                            <svg class="card-bookmark" data-offer="1-1">
+                                <use href="/img/sprite.svg#bookmark"></use>
+                            </svg>
+                        </div>
+                        <div class="card-company card-background">
+                            <span data-id="5" class="card-link card-preview"> </span>
+                            <div class="card-company__content">
+                                <img src="/img/company/Microsoft.webp" alt="Microsoft logo"
+                                    class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__job">Sales Development Representative -
+                                        Stage</h4>
+                                    <h5 class="card-company__content__info__title">Microsoft</h5>
+                                    <p class="card-company__content__city">Brest</p>
+                                    <p class="small-text">Il y a 3 mois</p>
+                                </div>
+                            </div>
+                            <svg class="card-bookmark" data-offer="4-1">
+                                <use href="/img/sprite.svg#bookmark"></use>
+                            </svg>
+                        </div>
+                        <div class="card-company card-background">
+                            <span data-id="6" class="card-link card-preview"> </span>
+                            <div class="card-company__content">
+                                <img src="/img/company/Microsoft.webp" alt="Microsoft logo"
+                                    class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__job">Cyber Security - Web Engineer
+                                        (Symfony/Angular) Final Year Internship</h4>
+                                    <h5 class="card-company__content__info__title">Microsoft</h5>
+                                    <p class="card-company__content__city">Aix-en-Provence</p>
+                                    <p class="small-text">Il y a 5 ans</p>
+                                </div>
+                            </div>
+                            <svg class="card-bookmark" data-offer="3-0">
+                                <use href="/img/sprite.svg#bookmark_stroke"></use>
+                            </svg>
+                        </div>
+                        <div class="card-company card-background">
+                            <span data-id="7" class="card-link card-preview"> </span>
+                            <div class="card-company__content">
+                                <img src="/img/company/Apple.webp" alt="Apple logo" class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__job">Monteur(se) vidéo en stage</h4>
+                                    <h5 class="card-company__content__info__title">Apple</h5>
+                                    <p class="card-company__content__city">Aix-en-Provence</p>
+                                    <p class="small-text">Il y a 5 ans</p>
+                                </div>
+                            </div>
+                            <svg class="card-bookmark" data-offer="6-1">
+                                <use href="/img/sprite.svg#bookmark"></use>
+                            </svg>
+                        </div>
+                        <div class="card-company card-background">
+                            <span data-id="8" class="card-link card-preview"> </span>
+                            <div class="card-company__content">
+                                <img src="/img/company/Google.webp" alt="Google logo"
+                                    class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__job">Business Developer B2B Internship -
+                                        French Speaker</h4>
+                                    <h5 class="card-company__content__info__title">Google</h5>
+                                    <p class="card-company__content__city">Brest</p>
+                                    <p class="small-text">Il y a 5 ans</p>
+                                </div>
+                            </div>
+                            <svg class="card-bookmark" data-offer="7-0">
+                                <use href="/img/sprite.svg#bookmark_stroke"></use>
+                            </svg>
+                        </div>
+                        <div class="card-company card-background">
+                            <span data-id="9" class="card-link card-preview"> </span>
+                            <div class="card-company__content">
+                                <img src="/img/company/Google.webp" alt="Google logo"
+                                    class="card-company__content__img">
+                                <div class="card-company__content__info">
+                                    <h4 class="card-company__content__info__job">Assistant chef de projet</h4>
+                                    <h5 class="card-company__content__info__title">Google</h5>
+                                    <p class="card-company__content__city">Aix-en-Provence</p>
+                                    <p class="small-text">Il y a 5 ans</p>
+                                </div>
+                            </div>
+                            <svg class="card-bookmark" data-offer="8-0">
+                                <use href="/img/sprite.svg#bookmark_stroke"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="card-display__pagination">
+                        <img src="/img/fade.webp" alt="" class="fade-scroll">
+                        <div class="btn__pagination">
+                            <button style="display: none;"
+                                class="btn btn--secondary btn--pagination btn--pagination--first"
+                                onClick=paginationOffer(".btn--pagination--first") data-pagination-page=1
+                                data-pagination-max=2>1</button>
+                            <button style="display: none;" class="btn--secondary btn--pagination--first--separator"
+                                disable>...</button>
+                            <button style="display: none;"
+                                class="btn btn--secondary btn--pagination btn--pagination--previous"
+                                onClick=paginationOffer(".btn--pagination--previous") data-pagination-page=0
+                                data-pagination-max=2>0</button>
+                            <button class="btn btn--primary btn--pagination btn--pagination--current" disable>1</button>
+                            <button style="display: inline-block;" id="btn-pagination_next"
+                                class="btn btn--secondary btn--pagination btn--pagination--next"
+                                onClick=paginationOffer(".btn--pagination--next") data-pagination-page=2
+                                data-pagination-max=2>2</button>
+                            <button style="display: none;" class="btn--secondary btn--pagination--last--separator"
+                                disable>...</button>
+                            <button style="display: none;" id="btn-pagination_last"
+                                class="btn btn--secondary btn--pagination btn--pagination--last"
+                                onClick=paginationOffer(".btn--pagination--last") data-pagination-page=2
+                                data-pagination-max=2>2</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="offer-description">
+                    <script>
+                        var offers_json = [{ "id_internship": 12, "internship_name": "Charg\u00e9 d'insertion (H\/F)", "offer_date": "Il y a 3 jours", "id_company": 18, "company_name": "Sanofi", "city_name": "Reims", "places_students": 11, "skills": "C++, Prolog", "duration": 17, "salary": "740.00", "description": "Description" }, { "id_internship": 11, "internship_name": "Consultant en recrutement H\/F", "offer_date": "Il y a 3 jours", "id_company": 14, "company_name": "Total", "city_name": "Nice", "places_students": 1, "skills": "CSS", "duration": 20, "salary": "650.00", "description": "Description" }, { "id_internship": 2, "internship_name": "Stage - Charg\u00e9 de Communication & Marque Employeur F\/H - Paris", "offer_date": "Il y a 3 jours", "id_company": 2, "company_name": "Apple", "city_name": "Brest", "places_students": 5, "skills": "MySQL", "duration": 24, "salary": "2.00", "description": "Rejoignez BPCE en tant que Charg\u00e9.e de Communication digitale & Marque Employeur pour un stage \u00e0 partir de Mars ! Les missions c'est important, l'\u00e9quipe et l'environnement aussi \u2026 ! \n\n Vous int\u00e9grez une \u00e9quipe qui vous offrira un accompagnement de proximit\u00e9 : 5 Responsables de projets en charge des sujets : Recrutement, Marque Employeur, R\u00e9seaux sociaux, Gestion de carri\u00e8res, etc" }, { "id_internship": 5, "internship_name": "Category Manager Junior", "offer_date": "Il y a 4 jours", "id_company": 2, "company_name": "Apple", "city_name": "Aix-en-Provence", "places_students": 5, "skills": "Anglais", "duration": 15, "salary": "1.00", "description": "Au sein de l\u2019\u00e9quipe Op\u00e9rations, notre Category Manager Junior a pour mission d\u2019\u00e9laborer, de piloter et d\u2019animer le catalogue produit, en collaboration avec les diff\u00e9rentes \u00e9quipes de Beebs (Marketing, Tech, Brand). Avec pr\u00e8s de 2M de produits mis en ligne, cette mission est centrale et se concentre sur plusieurs cat\u00e9gories cl\u00e9s (V\u00eatements, Jeux & Jouets, Alimentaires, Maison, Pu\u00e9riculture\u2026)." }, { "id_internship": 1, "internship_name": "Stage de fin d'\u00e9tude", "offer_date": "Il y a 9 jours", "id_company": 1, "company_name": "Microsoft", "city_name": "Aix-en-Provence", "places_students": 5, "skills": "Allemand, Anglais, Chinois, Espagnol, Italien, Japonais", "duration": 15, "salary": "1.00", "description": "Description" }, { "id_internship": 4, "internship_name": "Sales Development Representative - Stage", "offer_date": "Il y a 3 mois", "id_company": 1, "company_name": "Microsoft", "city_name": "Brest", "places_students": 5, "skills": "Swift", "duration": 15, "salary": "5.00", "description": "Nous souhaitons renforcer nos \u00e9quipes pour accompagner le d\u00e9veloppement de nos clients, grands groupes \u00e0 forte croissance et le lancement de nouveaux projets d\u2019envergure. Rattach\u00e9(e) au manager commercial, vous \u00eates un v\u00e9ritable ambassadeur de la marque aupr\u00e8s des clients. En collaboration avec les nombreux membres de votre \u00e9quipe" }, { "id_internship": 3, "internship_name": "Cyber Security - Web Engineer (Symfony\/Angular) Final Year Internship", "offer_date": "Il y a 5 ans", "id_company": 1, "company_name": "Microsoft", "city_name": "Aix-en-Provence", "places_students": 5, "skills": "Scala", "duration": 15, "salary": "4.00", "description": "Description" }, { "id_internship": 6, "internship_name": "Monteur(se) vid\u00e9o en stage", "offer_date": "Il y a 5 ans", "id_company": 2, "company_name": "Apple", "city_name": "Aix-en-Provence", "places_students": 5, "skills": "C++", "duration": 15, "salary": "5.00", "description": "Description" }, { "id_internship": 7, "internship_name": "Business Developer B2B Internship - French Speaker", "offer_date": "Il y a 5 ans", "id_company": 3, "company_name": "Google", "city_name": "Brest", "places_students": 5, "skills": "Erlang", "duration": 15, "salary": "5.00", "description": "We are looking for a French native speaker Business Developer to develop and be fully in charge of the French market. You will join the adventure from the beginning, and you will contribute to the growth of the company in Europe. You will work in a multicultural company & offices (job based in the city center of Paris).\n\n As a Business Developer B2B, you will be in charge of growing the company business on the French market." }, { "id_internship": 8, "internship_name": "Assistant chef de projet", "offer_date": "Il y a 5 ans", "id_company": 3, "company_name": "Google", "city_name": "Aix-en-Provence", "places_students": 5, "skills": "Prolog, Rust", "duration": 15, "salary": "6.00", "description": "L\u2019Assistant Chef de Projet est un poste central chez Walter Learning : vous \u00eates amen\u00e9(e) \u00e0 porter le produit, c\u2019est-\u00e0-dire l\u2019ensemble de nos formations. Ce poste, tr\u00e8s complet, vise \u00e0 assister le Chef de Projet dans son travail quotidien : strat\u00e9gie de d\u00e9veloppement, choix des th\u00e8mes de formation, conception p\u00e9dagogique, discussions avec les formateurs, suivi des tournages, etc.\nEn tant qu\u2019Assistant Chef de Projet, vous portez l\u2019ambition de l\u2019entreprise : reconna\u00eetre de nouvelles opportunit\u00e9s, collaborer avec des experts dans de nombreux domaines, et surtout, pr\u00e9parer du contenu de haute qualit\u00e9." }];
+                    </script>
+                    <h1><a href="/offer-12" id="offer-description__title" class="important-title">Chargé d'insertion
+                            (H/F)</a></h1>
+                    <input type="button" value="Postuler" class="btn btn--primary apply-btn">
+                    <input type="button" value="Fermer" class="btn btn--secondary offer-preview-close">
+                    <div class="offer-description__company">
+                        <p id="offer-description__company"><a href="/company-18">Sanofi</a></p>
+                        <p id="offer-description__city">Reims</p>
+                        <p id="offer-description__date">Il y a 3 jours</p>
+                    </div>
+                    <div class="offer-description__detail">
+                        <div class="text-and-svg">
+                            <svg>
+                                <use href="/img/sprite.svg#calendar"></use>
+                            </svg>
+                            <p id="offer-description__duration">17 semaines</p>
+                        </div>
+                        <div class="text-and-svg">
+                            <svg>
+                                <use href="/img/sprite.svg#money"></use>
+                            </svg>
+                            <p id="offer-description__salary">740.00 € / mois</p>
+                        </div>
+                        <div class="text-and-svg">
+                            <svg>
+                                <use href="/img/sprite.svg#checklist"></use>
+                            </svg>
+                            <p id="offer-description__skills">C++, Prolog</p>
+                        </div>
+                        <div class="text-and-svg">
+                            <svg>
+                                <use href="/img/sprite.svg#number"></use>
+                            </svg>
+                            <p id="offer-description__places">11 places disponibles</p>
+                        </div>
+                    </div>
+                    <p id="offer-description__description">Description</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__content__img">
+                <img src="/img/logo.webp" alt="logo" class="footer__content__img__logo">
+                <div class="footer__content__img__social">
+                    <a href="https://www.linkedin.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#linkedin"></use>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#facebook"></use>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#twitter"></use>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#instagram"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__content__link">
+                <div class="footer__content__link__item">
+                    <h3>À propos</h3>
+                    <a href="/#concept">Concept</a>
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Nous contacter</a>
+                </div>
+                <div class="footer__content__link__item">
+                    <h3>Trouver un stage</h3>
+                    <a href="/search/companies">Offres de stage par entreprise</a>
+                    <a href="/search/offers">Offres de stage par métier</a>
+                </div>
+            </div>
+        </div>
+        <p class="footer__credit small-text">Stage du zero © 2023 - Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>

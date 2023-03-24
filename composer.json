@@ -1,6 +1,0 @@
-{
-    "require": {
-        "smarty/smarty": "^4.3",
-        "altorouter/altorouter": "^2.0"
-    }
-}

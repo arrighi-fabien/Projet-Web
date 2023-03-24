@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/img/logo-192.png">
+    <meta name="description" content="Site de recherche de stage">
+    <title>Stage du zero</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="/">
+            <img src="/img/logo.webp" alt="logo" class="header__logo">
+        </a>
+        <nav class="header__nav">
+            <ul>
+                <li class="header__nav__item"><a href="/" class="link-effect">Accueil</a></li>
+                <li class="header__nav__item"><a href="/search_company.html" class="link-effect">Trouver une entreprise</a>
+                </li>
+                <li class="header__nav__item"><a href="/search_offer.html" class="link-effect">Trouver un stage</a></li>
+            </ul>
+        </nav>
+        <a href="/login.html" class="header__account"><input type="button" value="Se connecter"
+                class="btn btn--primary"></a>
+        <div class="header__menu">
+            <span class="header__menu__line--1"></span>
+            <span class="header__menu__line--2"></span>
+            <span class="header__menu__line--3"></span>
+            <span class="header__menu__line--4"></span>
+            <span class="header__menu__line--5"></span>
+        </div>
+    </header>
+    <main>
+        <img src="/img/background1.webp" alt="" class="background-form background-form--1">
+        <img src="/img/background2.webp" alt="" class="background-form background-form--2">
+        <div class="detail-header">
+            <img src="/img/company/Sanofi.webp" alt="logo" class="detail-header__logo">
+            <h1 class="detail-header__title">Sanofi</h1>
+            <div class="detail-header__description">
+                <div class="text-and-svg">
+                    <svg>
+                        <use href="/img/sprite.svg#map"></use>
+                    </svg>
+                    <p>Nancy</p>
+                </div>
+                <div class="text-and-svg">
+                    <svg>
+                        <use href="/img/sprite.svg#building"></use>
+                    </svg>
+                    <p>Informatique</p>
+                </div>
+                <div class="text-and-svg">
+                    <svg>
+                        <use href="/img/sprite.svg#user-check"></use>
+                    </svg>
+                    <p>2 pilotes valident cette entreprise</p>
+                </div>
+                <p>Note</p>
+            </div>
+        </div>
+        <div class="detail-description">
+            <div class="card-background detail-description__info p-2">
+                <h2 class="important-title center-title">L'entreprise</h2>
+                <p>Sanofi est un groupe pharmaceutique français, le troisième groupe pharmaceutique mondial en termes de
+                    chiffre d'affaires, le premier en France et le deuxième en Europe. Il est coté à la Bourse de Paris
+                    et est membre de l'indice CAC 40. Il est créé en 2004 par la fusion de l'ancien groupe
+                    Sanofi-Synthélabo et de l'ancien groupe Aventis.</p>
+            </div>
+            <div class="card-background detail-description__text p-2-0">
+                <h2 class="important-title center-title">Leurs offres</h2>
+                <div class="best-section__content best-section__content--col-1 card-display">
+                    <div class="card-company card-background">
+                        <a href="/offer-12" class="card-link"></a>
+                        <div class="card-company__content">
+                            <img src="/img/company/Sanofi.webp" alt="Sanofi logo" class="card-company__content__img">
+                            <div class="card-company__content__info">
+                                <h4 class="card-company__content__info__job">Chargé d'insertion (H/F)</h4>
+                                <h5 class="card-company__content__info__title">Sanofi</h5>
+                                <p class="card-company__content__city">Reims</p>
+                                <p class="small-text">Il y a 3 jours</p>
+                            </div>
+                        </div>
+                        <svg class="card-bookmark" data-offer="12-1">
+                            <use href="/img/sprite.svg#bookmark"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="card-display__pagination">
+                    <a href="search/offers?company_name=Sanofi" class="link-effect">Voir plus</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__content__img">
+                <img src="/img/logo.webp" alt="logo" class="footer__content__img__logo">
+                <div class="footer__content__img__social">
+                    <a href="https://www.linkedin.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#linkedin"></use>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#facebook"></use>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#twitter"></use>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#instagram"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__content__link">
+                <div class="footer__content__link__item">
+                    <h3>À propos</h3>
+                    <a href="/#concept">Concept</a>
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Nous contacter</a>
+                </div>
+                <div class="footer__content__link__item">
+                    <h3>Trouver un stage</h3>
+                    <a href="/search/companies">Offres de stage par entreprise</a>
+                    <a href="/search/offers">Offres de stage par métier</a>
+                </div>
+            </div>
+        </div>
+        <p class="footer__credit small-text">Stage du zero © 2023 - Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>

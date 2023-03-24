@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/img/logo-192.png">
+    <meta name="description" content="Site de recherche de stage">
+    <title>Stage du zero</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="/">
+            <img src="/img/logo.webp" alt="logo" class="header__logo">
+        </a>
+        <nav class="header__nav">
+            <ul>
+                <li class="header__nav__item"><a href="/" class="link-effect">Accueil</a></li>
+                <li class="header__nav__item"><a href="/search_company.html" class="link-effect">Trouver une entreprise</a>
+                </li>
+                <li class="header__nav__item"><a href="/search_offer.html" class="link-effect">Trouver un stage</a></li>
+            </ul>
+        </nav>
+        <a href="/login.html" class="header__account"><input type="button" value="Se connecter"
+                class="btn btn--primary"></a>
+        <div class="header__menu">
+            <span class="header__menu__line--1"></span>
+            <span class="header__menu__line--2"></span>
+            <span class="header__menu__line--3"></span>
+            <span class="header__menu__line--4"></span>
+            <span class="header__menu__line--5"></span>
+        </div>
+    </header>
+    <div class="login-form card-background p-2 m-5-auto ">
+        <h2>Se connecter</h2>
+        <form action="/login/connect" method="post" class="login-form__content">
+            <div class="login-form__content__input">
+                <label for="email">Email :</label>
+                <input type="email" name="email" id="email" placeholder="Email...">
+            </div>
+            <div class="login-form__content__input">
+                <div class="login-form__content__input__pwd-label">
+                    <label for="password">Mot de passe :</label>
+                    <a href="#" class="link-effect small-text">Mot de passe oublié ?</a>
+                </div>
+                <input type="password" name="password" id="password" placeholder="Mot de passe...">
+            </div>
+            <div class="login-form__content__checkbox">
+                <input type="checkbox" name="remember" id="remember" value="1">
+                <label for="remember">Se souvenir de moi</label>
+            </div>
+            <input type="submit" value="Se connecter" class="btn btn--primary">
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__content__img">
+                <img src="/img/logo.webp" alt="logo" class="footer__content__img__logo">
+                <div class="footer__content__img__social">
+                    <a href="https://www.linkedin.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#linkedin"></use>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#facebook"></use>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#twitter"></use>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/">
+                        <svg>
+                            <use href="/img/sprite.svg#instagram"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__content__link">
+                <div class="footer__content__link__item">
+                    <h3>À propos</h3>
+                    <a href="/#concept">Concept</a>
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Nous contacter</a>
+                </div>
+                <div class="footer__content__link__item">
+                    <h3>Trouver un stage</h3>
+                    <a href="/search/companies">Offres de stage par entreprise</a>
+                    <a href="/search/offers">Offres de stage par métier</a>
+                </div>
+            </div>
+        </div>
+        <p class="footer__credit small-text">Stage du zero © 2023 - Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>
