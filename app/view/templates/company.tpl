@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="header.tpl" enable_api=true}
 <main>
     <img src="/img/background1.webp" alt="" class="background-form background-form--1">
     <img src="/img/background2.webp" alt="" class="background-form background-form--2">
@@ -18,7 +18,7 @@
             <svg><use href="/img/sprite.svg#user-check"></use></svg>
             <p>2 pilotes valident cette entreprise</p>
         </div>
-        <p>Note</p>
+        {include file="rate.tpl"}
     </div>
 </div>
 <div class="detail-description">

@@ -116,3 +116,67 @@ if (document.querySelector('.card-bookmark')) {
         });
     });
 }
+
+if (document.querySelector('.rating')) {
+    console.log('rating');
+    const stars = document.querySelectorAll('.star');
+
+    stars.forEach(function (star) {
+        star.addEventListener('click', setRating);
+        star.addEventListener('mouseover', hoverRating);
+        star.addEventListener('mouseout', resetRating);
+    });
+
+    function setRating(ev) {
+        // TODO VERIF QUE L'UTILISATEUR EST CONNECTE
+        const user_id = 1;
+        const stars = document.querySelectorAll(".star");
+        const rating = ev.currentTarget.getAttribute("data-value");
+        stars.forEach((star) => {
+            if (star.getAttribute("data-value") <= rating) {
+                star.classList.add("rated");
+            } else {
+                star.classList.remove("rated");
+            }
+        });
+        stars.forEach((star) => {
+            star.removeEventListener('mouseover', hoverRating);
+            star.removeEventListener('mouseout', resetRating);
+        });
+        const company_id = window.location.href.split('-')[1];
+        $.ajax({
+            url: "/api/rating",
+            type: "POST",
+            data: {
+                rating: rating,
+                company_id: company_id,
+                user_id: user_id,
+            },
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (data) {
+                console.log("error");
+                console.log(data);
+            }
+        });
+    }
+
+    function hoverRating(event) {
+        const hoverValue = event.currentTarget.dataset.value;
+        stars.forEach(function (star) {
+            if (star.dataset.value <= hoverValue) {
+                star.classList.add('rated');
+            } else {
+                star.classList.remove('rated');
+            }
+        });
+    }
+
+    function resetRating() {
+        stars.forEach(function (star) {
+            star.classList.remove('rated');
+        });
+    }
+}

@@ -75,4 +75,8 @@ class CompanyModel extends Database {
     public function getSectors() {
         return $this->query("SELECT sector_name FROM sector")->fetchAll();
     }
+
+    public function setRate($id_company, $id_user, $rate) {
+        $this->query("INSERT INTO rate (id_company, id_user, evaluation) VALUES (?, ?, ?)", [$id_company, $id_user, $rate]);
+    }
 }
