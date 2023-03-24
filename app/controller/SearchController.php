@@ -49,9 +49,9 @@ class SearchController {
             $rate = isset($_GET['rate']) ? $_GET['rate'] : null;
             $trust = isset($_GET['trust']) ? $_GET['trust'] : null;
             $companies = $search_model->searchCompanies($LIMIT_REQUEST, $nb_page, $company_name, $city_name, $sector_name, $student_accepted, $rate, $trust);
-            //$max_page = $search_model->searchCompaniesMaxPage($company_name, $city_name, $sector_name, $student_accepted, $rate, $trust);
-            //$max_page = ceil($max_page->max_page / $LIMIT_REQUEST);
-            $max_page = ceil(18 / $LIMIT_REQUEST);
+            $max_page = $search_model->searchCompaniesMaxPage($company_name, $city_name, $sector_name, $student_accepted, $rate, $trust);
+            $max_page = ceil($max_page->max_page / $LIMIT_REQUEST);
+            //$max_page = ceil(18 / $LIMIT_REQUEST);
             if ($method == 'search') {
                 $sectors = $search_model->getSectors();
                 $page = 'search-companies';
