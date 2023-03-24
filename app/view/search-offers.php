@@ -7,12 +7,10 @@ if (empty($offers)) {
 
 $smarty->assign('offers', $offers);
 $smarty->assign('offers_json', $offers_json);
+$smarty->assign('skills', $skills);
 
 $smarty->assign('nb_page', $nb_page);
 $smarty->assign('max_page', $max_page);
-//get current url with all parameters
-$smarty->assign('url1', $_SERVER['REQUEST_URI']);
-
 
 // remove page number from url
 $url = preg_replace('/page=[0-9]+/', '', $_SERVER['REQUEST_URI']);

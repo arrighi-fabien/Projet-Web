@@ -4,7 +4,7 @@ class OfferModel extends Database {
 
     public function getLatestOffers() {
         $result = $this->query("SELECT id_internship, internship_name, offer_date, company.id_company, company_name, city_name FROM internship JOIN city ON internship.id_city = city.id_city JOIN company ON company.id_company = internship.id_company ORDER BY offer_date DESC LIMIT 4");
-        return $result->fetchAll();
+        return AppModel::getEllapsedTime($result->fetchAll(), 'offer_date');
     }
 
     public function searchOffers($limit, $page, $internship_name = null, $company_name = null, $city_name = null, $sector_name = null, $nb_places = null, $skill_name = null, $duration = null, $salary = null) {
@@ -45,12 +45,12 @@ class OfferModel extends Database {
         }
         $query .= " GROUP BY internship.id_internship ORDER BY offer_date DESC LIMIT $limit OFFSET $offset";
         $result = $this->query($query, $tab);
-        return $result->fetchAll();
+        return AppModel::getEllapsedTime($result->fetchAll(), 'offer_date');
     }
 
     public function searchOffersMaxPage($internship_name = null, $company_name = null, $city_name = null, $sector_name = null, $nb_places = null, $skill_name = null, $duration = null, $salary = null) {
         $tab = [];
-        $query = "SELECT COUNT(*) as max_page FROM (SELECT COUNT(internship.id_internship) as max_page FROM internship JOIN city ON internship.id_city = city.id_city JOIN company ON company.id_company = internship.id_company JOIN need ON internship.id_internship = need.id_internship JOIN skill ON need.id_skill = skill.id_skill WHERE is_visible = 1";
+        $query = "SELECT COUNT(*) as max_page FROM (SELECT COUNT(internship.id_internship) AS max_page FROM internship JOIN city ON internship.id_city = city.id_city JOIN company ON company.id_company = internship.id_company JOIN need ON internship.id_internship = need.id_internship JOIN skill ON need.id_skill = skill.id_skill WHERE is_visible = 1";
         if ($internship_name != null) {
             $query .= " AND internship_name LIKE ?";
             array_push($tab, '%'.$internship_name.'%');
@@ -90,6 +90,10 @@ class OfferModel extends Database {
 
     public function getOfferDetails($id) {
         $result = $this->query("SELECT internship.id_internship, internship_name, offer_date, company.id_company, company_name, city_name, internship.description, duration, salary, GROUP_CONCAT(DISTINCT skill_name ORDER BY skill_name SEPARATOR ', ') AS skills, internship.description, sector_name FROM internship JOIN city ON internship.id_city = city.id_city JOIN company ON company.id_company = internship.id_company LEFT JOIN need ON internship.id_internship = need.id_internship JOIN skill ON need.id_skill = skill.id_skill JOIN sector ON company.id_sector = sector.id_sector WHERE internship.id_internship = ? GROUP BY internship.id_internship", [$id]);
-        return $result->fetch();
+        return AppModel::getEllapsedTime([$result->fetch()], 'offer_date');
+    }
+
+    public function getSkills() {
+        return $this->query("SELECT skill_name FROM skill")->fetchAll();
     }
 }
