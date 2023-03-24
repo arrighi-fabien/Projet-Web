@@ -2,6 +2,9 @@
 
 <main class="m-5-0">
     <a href="/logout" class="btn btn--secondary">Déconnexion</a>
+    <a href="/admin/offers" class="btn btn--secondary">Offers</a>
+    <a href="/admin/companies" class="btn btn--secondary">Companies</a>
+    <a href="/admin/users" class="btn btn--secondary">Users</a>
     <div class="best-section__content">
         <div class="card-background personal-info p-2">
             <h2 class="center-title important-title">Informations</h2>
@@ -42,7 +45,7 @@
                     {/foreach}
                     </div>
                     <div class="card-display__pagination">
-                        <img src="/img/fade.png" alt="" class="fade-scroll">
+                        <img src="/img/fade.webp" alt="" class="fade-scroll">
                         <p>1234</p>
                     </div>
                 {/if}
@@ -60,7 +63,7 @@
             {/foreach}
             </div>
             <div class="card-display__pagination">
-                <img src="/img/fade.png" alt="" class="fade-scroll">
+                <img src="/img/fade.webp" alt="" class="fade-scroll">
                 <p>1234</p>
             </div>
         {/if}

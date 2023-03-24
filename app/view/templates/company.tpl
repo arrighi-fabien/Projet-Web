@@ -4,7 +4,7 @@
     <img src="/img/background2.webp" alt="" class="background-form background-form--2">
     <div class="detail-header">
     <img src="/img/company/{$company->company_name}.webp" alt="logo" class="detail-header__logo">
-    <h2 class="detail-header__title">{$company->company_name}</h2>
+    <h1 class="detail-header__title">{$company->company_name}</h1>
     <div class="detail-header__description">
         <div class="text-and-svg">
             <svg><use href="/img/sprite.svg#map"></use></svg>

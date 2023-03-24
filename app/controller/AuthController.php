@@ -74,9 +74,7 @@ class AuthController {
                 $auth = new AuthModel();
                 $auth->getWishlistId();
                 $wishlist = $auth->getWishlist();
-                $wishlist = AppModel::getEllapsedTime($wishlist, 'offer_date');
                 $candidatures = $auth->getCandidatures();
-                $candidatures = AppModel::getEllapsedTime($candidatures, 'offer_date');
                 $page = 'dashboard';
                 require_once '../app/view/view.php';
             }

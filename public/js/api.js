@@ -286,9 +286,7 @@ function displayOfferCard(data, card_number) {
   `;
 }
 
-
 function displayCompanyCard(data) {
-  console.log(data);
   let nb_offer = (data.offers > 1) ? 's' : '';
   document.querySelector('#result').innerHTML += `
     <div class="card-company card-background">
@@ -309,5 +307,27 @@ function displayCompanyCard(data) {
     </div>
     <p class="card-company__offer">${data.offers} offre${nb_offer}</p>
     </div>
+  `;
+}
+
+function displayUserCard(data) {
+  document.querySelector('#result').innerHTML += `
+  <div class="card-company card-background">
+    <span class="card-link card-preview"> </span>
+    <div class="card-company__content">
+      <img src="/img/user.webp" alt="Default logo" class="card-company__content__img">
+      <div class="card-company__content__info">
+        <h4 class="card-company__content__info__title">${data.last_name} ${data.first_name}</h4>
+        <div class="text-and-svg">
+          <svg><use href="/img/sprite.svg#building"></use></svg>
+          <p class="card-company__content__sector">${data.promotion_name}</p>
+        </div>
+        <div class="text-and-svg">
+          <svg><use href="/img/sprite.svg#map"></use></svg>
+          <p class="card-company__content__city">${data.center_name}</p>
+        </div>
+      </div>
+    </div>
+  </div>
   `;
 }

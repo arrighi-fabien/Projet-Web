@@ -3,13 +3,11 @@
 class CompanyModel extends Database {
 
     public function getBestCompanies() {
-        $result = $this->query("SELECT company.id_company, company_name, GROUP_CONCAT(DISTINCT city_name ORDER BY city_name SEPARATOR ', ') AS city, sector_name, COUNT(DISTINCT id_internship) AS offers FROM company NATURAL JOIN work_at NATURAL JOIN city NATURAL JOIN sector LEFT JOIN internship ON company.id_company = internship.id_company WHERE is_visible = 1 GROUP BY company.id_company ORDER BY nb_student_accepted DESC LIMIT 4");
-        return $result->fetchAll();
+        return $this->query("SELECT company.id_company, company_name, GROUP_CONCAT(DISTINCT city_name ORDER BY city_name SEPARATOR ', ') AS city, sector_name, COUNT(DISTINCT id_internship) AS offers FROM company NATURAL JOIN work_at NATURAL JOIN city NATURAL JOIN sector LEFT JOIN internship ON company.id_company = internship.id_company WHERE is_visible = 1 GROUP BY company.id_company ORDER BY nb_student_accepted DESC LIMIT 4")->fetchAll();
     }
 
     public function getCompanyDetails($id) {
-        $result = $this->query("SELECT company.id_company, company_name, GROUP_CONCAT(DISTINCT city_name ORDER BY city_name SEPARATOR ', ') AS city, sector_name, COUNT(id_internship) AS offers, IFNULL((SELECT 1 FROM trust WHERE trust.id_company = company.id_company), 0) AS trust, company_description FROM company JOIN work_at ON company.id_company = work_at.id_company JOIN city ON work_at.id_city = city.id_city JOIN sector ON company.id_sector = sector.id_sector LEFT JOIN internship ON company.id_company = internship.id_company WHERE is_visible = 1 AND company.id_company = ? GROUP BY company.id_company", [$id]);
-        return $result->fetch();
+        return $this->query("SELECT company.id_company, company_name, GROUP_CONCAT(DISTINCT city_name ORDER BY city_name SEPARATOR ', ') AS city, sector_name, COUNT(id_internship) AS offers, IFNULL((SELECT 1 FROM trust WHERE trust.id_company = company.id_company), 0) AS trust, company_description FROM company JOIN work_at ON company.id_company = work_at.id_company JOIN city ON work_at.id_city = city.id_city JOIN sector ON company.id_sector = sector.id_sector LEFT JOIN internship ON company.id_company = internship.id_company WHERE is_visible = 1 AND company.id_company = ? GROUP BY company.id_company", [$id])->fetch();
     }
 
     public function searchCompanies($limit, $page, $company_name = null, $city_name = null, $sector_name = null, $student_accepted = null, $rate = null, $trust = null) {
@@ -42,8 +40,7 @@ class CompanyModel extends Database {
             array_push($tab, (int)$rate);
         }
         $query .= " ORDER BY nb_student_accepted DESC LIMIT $limit OFFSET $offset";
-        $result = $this->query($query, $tab);
-        return $result->fetchAll();
+        return $this->query($query, $tab)->fetchAll();
     }
     
     
@@ -76,7 +73,6 @@ class CompanyModel extends Database {
     }
 
     public function getSectors() {
-        $result = $this->query("SELECT sector_name FROM sector");
-        return $result->fetchAll();
+        return $this->query("SELECT sector_name FROM sector")->fetchAll();
     }
 }
