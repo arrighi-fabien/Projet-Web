@@ -3,7 +3,7 @@
 class SearchController {
 
     public function __construct($method, $page) {
-        $LIMIT_REQUEST = 2;
+        $LIMIT_REQUEST = 10;
         $nb_page = isset($_GET['page']) ? $_GET['page'] : 1;
         //verify if $page is a number and if not, set it to 1
         if (!is_numeric($nb_page)) {
@@ -49,6 +49,9 @@ class SearchController {
             $rate = isset($_GET['rate']) ? $_GET['rate'] : null;
             $trust = isset($_GET['trust']) ? $_GET['trust'] : null;
             $companies = $search_model->searchCompanies($LIMIT_REQUEST, $nb_page, $company_name, $city_name, $sector_name, $student_accepted, $rate, $trust);
+            //$max_page = $search_model->searchCompaniesMaxPage($company_name, $city_name, $sector_name, $student_accepted, $rate, $trust);
+            //$max_page = ceil($max_page->max_page / $LIMIT_REQUEST);
+            $max_page = ceil(18 / $LIMIT_REQUEST);
             if ($method == 'search') {
                 $sectors = $search_model->getSectors();
                 $page = 'search-companies';
@@ -56,7 +59,6 @@ class SearchController {
             }
             else if ($method == 'api') {
                 header('Content-Type: application/json');
-                // convert to array
                 $companies = json_decode(json_encode($companies), true);
                 // foreach company check if the company has a logo
                 foreach ($companies as $key => $company) {
@@ -67,6 +69,7 @@ class SearchController {
                         $companies[$key]['company_logo'] = "/img/company/default.webp";
                     }
                 }
+                $companies[] = $max_page;
                 $companies_json = json_encode($companies);
                 echo $companies_json;
             }

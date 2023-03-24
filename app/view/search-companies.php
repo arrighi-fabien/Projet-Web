@@ -4,10 +4,7 @@ $smarty->assign('companies', $companies);
 $smarty->assign('sectors', $sectors);
 
 $smarty->assign('nb_page', $nb_page);
-$smarty->assign('max_page', 5);
-//get current url with all parameters
-$smarty->assign('url1', $_SERVER['REQUEST_URI']);
-
+$smarty->assign('max_page', $max_page);
 
 // remove page number from url
 $url = preg_replace('/page=[0-9]+/', '', $_SERVER['REQUEST_URI']);

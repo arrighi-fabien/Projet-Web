@@ -45,6 +45,35 @@ class CompanyModel extends Database {
         $result = $this->query($query, $tab);
         return $result->fetchAll();
     }
+    
+    
+    public function searchCompaniesMaxPage($company_name = null, $city_name = null, $sector_name = null, $student_accepted = null, $rate = null, $trust = null) {
+        $tab = [];
+        $query = "SELECT COUNT(*) AS max_page FROM (SELECT COUNT(id_company) AS  max_page FROM company NATURAL LEFT JOIN work_at NATURAL LEFT JOIN city NATURAL LEFT JOIN sector NATURAL LEFT JOIN internship NATURAL LEFT JOIN rate WHERE is_visible = 1";
+        if ($company_name != null) {
+            $query .= " AND company_name LIKE ?";
+            array_push($tab, '%'.$company_name.'%');
+        }
+        if ($city_name != null) {
+            $query .= " AND city_name LIKE ?";
+            array_push($tab,'%'.$city_name.'%');
+        }
+        if ($sector_name != null) {
+            $query .= " AND sector_name = ?";
+            array_push($tab, $sector_name);
+        }
+        if ($student_accepted != null) {
+            $query .= " AND nb_student_accepted >= ?";
+            array_push($tab, $student_accepted);
+        }
+        if ($trust != null) {
+            $query .= " AND IFNULL((SELECT 1 FROM trust WHERE trust.id_company = company.id_company), 0) = ?";
+            array_push($tab, $trust);
+        }
+        $query .= " GROUP BY id_company) as filtered_companies;";
+        $result = $this->query($query, $tab);
+        return $result->fetch();
+    }
 
     public function getSectors() {
         $result = $this->query("SELECT sector_name FROM sector");

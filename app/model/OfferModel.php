@@ -50,7 +50,7 @@ class OfferModel extends Database {
 
     public function searchOffersMaxPage($internship_name = null, $company_name = null, $city_name = null, $sector_name = null, $nb_places = null, $skill_name = null, $duration = null, $salary = null) {
         $tab = [];
-        $query = "SELECT COUNT(*) as max_page FROM (SELECT COUNT(internship.id_internship) as max_page FROM internship JOIN city ON internship.id_city = city.id_city JOIN company ON company.id_company = internship.id_company JOIN need ON internship.id_internship = need.id_internship JOIN skill ON need.id_skill = skill.id_skill WHERE is_visible = 1";
+        $query = "SELECT COUNT(*) as max_page FROM (SELECT COUNT(internship.id_internship) AS max_page FROM internship JOIN city ON internship.id_city = city.id_city JOIN company ON company.id_company = internship.id_company JOIN need ON internship.id_internship = need.id_internship JOIN skill ON need.id_skill = skill.id_skill WHERE is_visible = 1";
         if ($internship_name != null) {
             $query .= " AND internship_name LIKE ?";
             array_push($tab, '%'.$internship_name.'%');

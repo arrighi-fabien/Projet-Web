@@ -7,11 +7,6 @@ if (document.querySelector("#search-form")) {
       const type = document
         .querySelector("#btn-search")
         .getAttribute("data-btn");
-      let url = "";
-      let current_url = "";
-
-      const form = document.querySelector('#search-form');
-      const formData = new FormData(form);
 
       let params_value = [];
       let params_name = [];
@@ -29,9 +24,6 @@ if (document.querySelector("#search-form")) {
         const trust = document.querySelector(
           "#search-form__confidence"
         ).value;
-        //get domain url
-        url = window.location.origin + "/api/search/companies";
-        current_url = window.location.href.split("?")[0];
         //create a tab with all params name and variables and use a foreach to add them to the url
         params_value = [
           company,
@@ -74,10 +66,6 @@ if (document.querySelector("#search-form")) {
           document.querySelector("#search-form__salary").value == 0
             ? ""
             : document.querySelector("#search-form__salary").value;
-
-        //get domain url
-        url = window.location.origin + "/api/search/offers";
-        current_url = window.location.href.split("?")[0];
         //create a tab with all params name and variables and use a foreach to add them to the url
         params_value = [
           internship,
@@ -100,12 +88,13 @@ if (document.querySelector("#search-form")) {
           "salary",
         ];
       }
-      search(event, params_name, params_value, url, current_url, type, 1);
+      search(params_name, params_value, type, 1);
     });
 }
 
 function paginationOffer(class_name) {
-  const nb_page = document.querySelector(class_name).innerHTML;
+  let nb_page = document.querySelector(class_name).innerHTML;
+  nb_page = parseInt(nb_page);
   //get button .btn--pagination--last and get the value of the attribute data-data-pagination-max
   const $max_page = document.querySelector(class_name).getAttribute("data-pagination-max");
   let params_value = [];
@@ -113,6 +102,7 @@ function paginationOffer(class_name) {
   const type = document
     .querySelector("#btn-search")
     .getAttribute("data-btn");
+  params_value = [];
   if (type == "offer") {
     params_name = [
       "internship_name",
@@ -124,22 +114,34 @@ function paginationOffer(class_name) {
       "duration",
       "salary",
     ];
-    params_value = [
+  } else if (type == "company")
+    params_name = [
+      "company_name",
+      "city_name",
+      "sector_name",
+      "student_accepted",
+      "rate",
+      "trust",
     ];
-    params_name.forEach((param_name) => {
-      // verify if the param is in the url and if it is not empty then add it to the tab params_value
-      if (window.location.href.indexOf(param_name) > -1 && window.location.href.split(param_name + "=")[1].split("&")[0] !== "") {
-        params_value.push(window.location.href.split(param_name + "=")[1].split("&")[0]);
-      } else {
-        params_value.push("");
-      }
-    });
-  }
-  search(event, params_name, params_value, window.location.origin + "/api/search/offers", window.location.href.split("?")[0], type, nb_page);
+  params_name.forEach((param_name) => {
+    // verify if the param is in the url and if it is not empty then add it to the tab params_value
+    if (window.location.href.indexOf(param_name) > -1 && window.location.href.split(param_name + "=")[1].split("&")[0] !== "") {
+      params_value.push(window.location.href.split(param_name + "=")[1].split("&")[0]);
+    } else {
+      params_value.push("");
+    }
+  });
+  search(params_name, params_value, type, nb_page);
 }
 
 
-function search(event, params_name, params_value, url, current_url, type, nb_page) {
+function search(params_name, params_value, type, nb_page) {
+  current_url = window.location.href.split("?")[0];
+  if (type == "offer") {
+    url = window.location.origin + "/api/search/offers";
+  } else if (type == "company") {
+    url = window.location.origin + "/api/search/companies";
+  }
   //get value of <a> with the id "pagination__current" 
   params_value.push(nb_page);
   params_name.push("page");
@@ -163,15 +165,21 @@ function search(event, params_name, params_value, url, current_url, type, nb_pag
   current_url += url_params;
   //replace the current url with the new one
   window.history.replaceState({}, "", current_url);
-
+  console.log(url);
+  console.log(params_name);
+  console.log(params_value);
   $.ajax({
     url: url,
     data: params,
     type: "GET",
     dataType: "json",
     success: function (data) {
+      data.forEach((result) => {
+        console.log(result);
+      });
       // get in data the last element which is the max page
-      const max_page = data.pop();
+      let max_page = data.pop();
+      console.log(max_page);
       // delete all the previous results
       document.querySelector("#result").innerHTML = "";
       //check if there is no result
@@ -191,48 +199,50 @@ function search(event, params_name, params_value, url, current_url, type, nb_pag
         });
         //call the function to add the event listener on the card-link
         displayPreviewOffer();
-        offers_json = data;
-        //check if the max page is egal to 1 then hide the pagination div with class "btn__pagination"
-        if (max_page <= 1) {
-          document.querySelector(".btn__pagination").style.display = "none";
+      }
+      if (max_page == 0) {
+        document.querySelector(".btn__pagination").style.display = "none";
+      } else {
+        document.querySelector(".btn__pagination").style.display = "inline-block";
+        tab_class = [".btn--pagination--first", ".btn--pagination--previous", ".btn--pagination--current", ".btn--pagination--next", ".btn--pagination--last"];
+        tab_value = [1, nb_page - 1, nb_page, parseInt(nb_page) + 1, max_page];
+        tab_class.forEach((class_name) => {
+          if (document.querySelector(class_name) != null) {
+            //change texte inside the button depending on the value of the tab_value at the same index
+            document.querySelector(class_name).innerHTML = tab_value[tab_class.indexOf(class_name)];
+          }
+        });
+        if (nb_page <= 1) {
+          document.querySelector(".btn--pagination--previous").style.display = "none";
         } else {
-          tab_class = [".btn--pagination--first", ".btn--pagination--previous", ".btn--pagination--current", ".btn--pagination--next", ".btn--pagination--last"];
-          tab_value = [1, nb_page - 1, nb_page, parseInt(nb_page) + 1, max_page];
-          console.log(tab_value);
-          tab_class.forEach((class_name) => {
-            console.log(class_name);
-            if (document.querySelector(class_name) != null) {
-              //change texte inside the button depending on the value of the tab_value at the same index
-              document.querySelector(class_name).innerHTML = tab_value[tab_class.indexOf(class_name)];
-            }
-          });
-          if (nb_page <= 1) {
-            document.querySelector(".btn--pagination--previous").style.display = "none";
-          } else {
-            document.querySelector(".btn--pagination--previous").style.display = "inline-block";
-          }
-          if (nb_page <= 2) {
-            document.querySelector(".btn--pagination--first").style.display = "none";
-            document.querySelector(".btn--pagination--first--separator").style.display = "none";
-          } else {
-            document.querySelector(".btn--pagination--first").style.display = "inline-block";
-            document.querySelector(".btn--pagination--first--separator").style.display = "inline-block";
-          }
-          if (nb_page >= max_page - 1) {
-            document.querySelector(".btn--pagination--last").style.display = "none";
-            document.querySelector(".btn--pagination--last--separator").style.display = "none";
-          } else {
-            document.querySelector(".btn--pagination--last").style.display = "inline-block";
-            document.querySelector(".btn--pagination--last--separator").style.display = "inline-block";
-          }
-          if (nb_page >= max_page) {
-            document.querySelector(".btn--pagination--next").style.display = "none";
-          }
-          else {
-            document.querySelector(".btn--pagination--next").style.display = "inline-block";
-          }
+          document.querySelector(".btn--pagination--previous").style.display = "inline-block";
+        }
+        if (nb_page <= 2) {
+          document.querySelector(".btn--pagination--first").style.display = "none";
+          document.querySelector(".btn--pagination--first--separator").style.display = "none";
+        } else {
+          document.querySelector(".btn--pagination--first").style.display = "inline-block";
+          document.querySelector(".btn--pagination--first--separator").style.display = "inline-block";
+        }
+        if (nb_page >= max_page - 1) {
+          document.querySelector(".btn--pagination--last").style.display = "none";
+          document.querySelector(".btn--pagination--last--separator").style.display = "none";
+        } else {
+          document.querySelector(".btn--pagination--last").style.display = "inline-block";
+          document.querySelector(".btn--pagination--last--separator").style.display = "inline-block";
+        }
+        if (nb_page >= max_page) {
+          document.querySelector(".btn--pagination--next").style.display = "none";
+        }
+        else {
+          document.querySelector(".btn--pagination--next").style.display = "inline-block";
         }
       }
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
     },
     error: function (data) {
       //pass
@@ -262,6 +272,7 @@ function displayOfferCard(data, card_number) {
 
 
 function displayCompanyCard(data) {
+  console.log(data);
   let nb_offer = (data.offers > 1) ? 's' : '';
   document.querySelector('#result').innerHTML += `
     <div class="card-company card-background">
