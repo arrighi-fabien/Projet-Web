@@ -10,12 +10,14 @@ if (document.querySelector('#search-form')) {
 
     if (type == 'company') {
       url = window.location.origin + '/api/search/companies';
-      current_url = window.location.href.split('?')[0];
     }
     else if (type == 'offer') {
       url = window.location.origin + '/api/search/offers';
-      current_url = window.location.href.split('?')[0];
     }
+    else if (type == 'user') {
+      url = window.location.origin + '/api/search/users';
+    }
+    current_url = window.location.href.split('?')[0];
     let url_params = '';
     // Check with ternary operator if the param is the first one or not
     // If it's the first one to be not empty, add a '?' before the param
@@ -58,6 +60,14 @@ if (document.querySelector('#search-form')) {
           displayPreviewOffer();
           offers_json = data;
         }
+        else if (type == 'user') {
+          data.forEach(result => {
+            displayUserCard(result);
+          });
+        }
+      },
+      error: function (error) {
+        console.log("error");
       }
     });
   });
@@ -104,5 +114,27 @@ function displayCompanyCard(data) {
     </div>
     <p class="card-company__offer">${data.offers} offre${nb_offer}</p>
     </div>
+  `;
+}
+
+function displayUserCard(data) {
+  document.querySelector('#result').innerHTML += `
+  <div class="card-company card-background">
+    <span class="card-link card-preview"> </span>
+    <div class="card-company__content">
+      <img src="/img/user.webp" alt="Default logo" class="card-company__content__img">
+      <div class="card-company__content__info">
+        <h4 class="card-company__content__info__title">${data.last_name} ${data.first_name}</h4>
+        <div class="text-and-svg">
+          <svg><use href="/img/sprite.svg#building"></use></svg>
+          <p class="card-company__content__sector">${data.promotion_name}</p>
+        </div>
+        <div class="text-and-svg">
+          <svg><use href="/img/sprite.svg#map"></use></svg>
+          <p class="card-company__content__city">${data.center_name}</p>
+        </div>
+      </div>
+    </div>
+  </div>
   `;
 }

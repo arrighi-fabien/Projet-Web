@@ -14,9 +14,9 @@
             {/foreach}
         </select>
         <label for="duration">Durée</label>
-        <input type="range" min="0" max="100" name="duration" value="0">
+        <input type="range" min="0" max="100" name="duration" value="0" id="duration">
         <label for="salary">Rémunération</label>
-        <input type="range" min="0" max="100" name="salary" value="0">
+        <input type="range" min="0" max="100" name="salary" value="0" id="salary">
     </div>
     <input type="reset" value="Reset" class="btn btn--secondary">
     <script src="/js/api.js"></script>

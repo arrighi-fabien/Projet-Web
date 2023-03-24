@@ -6,7 +6,7 @@
 
     <div class="search-section search-section--offer m-5-0">
         <div class="card-background search-bar search-bar--offer p-1">
-            {include file="form-search-offers.tpl"}
+            {include file="form-search-offers.tpl" skills=$skills}
         </div>
         <input type="button" value="Afficher les filtres" class="btn btn--secondary filter-btn">
         <div class="card-background offer-preview">
@@ -19,7 +19,7 @@
                     {/foreach}
                 </div>
                 <div class="card-display__pagination">
-                    <img src="/img/fade.png" alt="" class="fade-scroll">
+                    <img src="/img/fade.webp" alt="" class="fade-scroll">
                     <p>1234</p>
                 </div>
             </div>

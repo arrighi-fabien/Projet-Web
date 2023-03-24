@@ -36,6 +36,7 @@ $router->map('POST', '/admin/users/[i:id]/delete', 'AdminController', 'admin_use
 $router->map('GET', '/api/search/companies', 'SearchController', 'api_companies');
 $router->map('GET', '/api/search/offers', 'SearchController', 'api_offers');
 $router->map('POST', '/api/wishlist', 'AuthController', 'api_wishlist');
+$router->map('GET', '/api/search/users', 'AdminController', 'api_users');
 // Error page
 $router->map('GET', '/error-[*:error_type]', 'ErrorController', 'error');
 

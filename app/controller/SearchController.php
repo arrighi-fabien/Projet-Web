@@ -15,7 +15,7 @@ class SearchController {
             $salary = isset($_GET['salary']) ? $_GET['salary'] : null;
             $offers = $search_model->searchOffers(10, 1, $internship_name, $company_name, $city_name, $nb_places, $offer_date, $skills, $duration, $salary);
             //$offers = AppModel::summarize($offers, 40, 'internship_name');
-            $offers = AppModel::getEllapsedTime($offers, 'offer_date');
+            $skills = $search_model->getSkills();
             $offers_json = json_encode($offers);
             if ($method == 'search') {
                 $page = 'search-offers';

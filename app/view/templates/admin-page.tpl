@@ -11,7 +11,7 @@
             {else if $current_page == "admin_companies"}
                 {include file="form-search-companies.tpl" sectors=$sectors}
             {else if $current_page == "admin_users"}
-
+                {include file="form-search-users.tpl" centers=$centers promotions=$promotions}
             {/if}
         </div>
         <input type="button" value="Afficher les filtres" class="btn btn--secondary filter-btn">
@@ -30,7 +30,7 @@
                     {/foreach}
                 </div>
                 <div class="card-display__pagination">
-                    <img src="/img/fade.png" alt="" class="fade-scroll">
+                    <img src="/img/fade.webp" alt="" class="fade-scroll">
                     <p>1234</p>
                 </div>
             </div>
