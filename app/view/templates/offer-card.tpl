@@ -1,8 +1,10 @@
 <div class="card-company card-background">
-    {if isset($current_page) && ($current_page == "search_offers" || $current_page == "admin_offers")}
+    {if isset($current_page) && $current_page == "search_offers"}
         <span data-id="{$count}" class="card-link card-preview"> </span>
+    {else if isset($current_page) && $current_page == "admin_offers"}
+        <a href="/admin/offer-{$offer_card->id_internship}" class="card-link"></a>
     {else}
-        <a href="/offer-{$offer_card->id_internship}" class="card-link"><span></span></a>
+        <a href="/offer-{$offer_card->id_internship}" class="card-link"></a>
     {/if}
     <div class="card-company__content">
         {if file_exists("img/company/{$offer_card->company_name}.webp")}

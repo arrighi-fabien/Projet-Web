@@ -1,5 +1,9 @@
 <div class="card-company card-background">
-    <a href="/company-{$company_card->id_company}" class="card-link"></a>
+    {if isset($current_page) && $current_page == "admin_companies"}
+        <a href="/admin/company-{$company_card->id_company}" class="card-link"></a>
+    {else}
+        <a href="/company-{$company_card->id_company}" class="card-link"></a>
+    {/if}
     <div class="card-company__content">
         {if file_exists("img/company/{$company_card->company_name}.webp")}
             <img src="/img/company/{$company_card->company_name}.webp" alt="{$company_card->company_name} logo" class="card-company__content__img">

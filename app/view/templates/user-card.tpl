@@ -1,5 +1,5 @@
 <div class="card-company card-background">
-    <span class="card-link card-preview"> </span>
+    <a href="/admin/user-{$user_card->id_user}" class="card-link"></a>
     <div class="card-company__content">
         <img src="/img/user.webp" alt="Default logo" class="card-company__content__img">
         <div class="card-company__content__info">

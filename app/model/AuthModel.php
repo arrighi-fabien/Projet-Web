@@ -105,7 +105,7 @@ class AuthModel extends Database {
 
     public function searchUsers($limit, $page, $last_name = null, $first_name = null, $promotion = null, $center = null, $is_admin = null, $is_pilot = null) {
         $offset = ($page - 1) * $limit;
-        $sql = "SELECT first_name, last_name, email, is_admin, is_pilot, GROUP_CONCAT(DISTINCT promotion_name ORDER BY promotion_name SEPARATOR ', ') AS promotion_name, center_name FROM users NATURAL JOIN is_in NATURAL JOIN promotion NATURAL JOIN center WHERE 1";
+        $sql = "SELECT id_user, first_name, last_name, email, is_admin, is_pilot, GROUP_CONCAT(DISTINCT promotion_name ORDER BY promotion_name SEPARATOR ', ') AS promotion_name, center_name FROM users NATURAL JOIN is_in NATURAL JOIN promotion NATURAL JOIN center WHERE 1";
         $tab = [];
         if ($last_name) {
             $sql .= " AND last_name LIKE ?";

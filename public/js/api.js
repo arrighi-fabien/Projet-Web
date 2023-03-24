@@ -1,7 +1,5 @@
 if (document.querySelector("#search-form")) {
-  document
-    .querySelector("#search-form")
-    .addEventListener("submit", (event) => {
+  document.querySelector("#search-form").addEventListener("submit", (event) => {
       event.preventDefault();
       const type = document.querySelector('#btn-search').getAttribute('data-btn');
       let url = '';
@@ -201,9 +199,7 @@ function displayOfferCard(data, card_number) {
           <p class="small-text">${data.offer_date}</p>
         </div>
       </div>
-      <a href="##" class="card-bookmark">
-        <svg><use href="/img/sprite.svg#bookmark_fill"></use></svg>
-      </a>
+      <svg><use href="/img/sprite.svg#bookmark_fill"></use></svg>
     </div>
   `;
 }
