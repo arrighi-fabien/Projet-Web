@@ -88,15 +88,37 @@ if (document.querySelector("#search-form")) {
           "salary",
         ];
       }
-      search(params_name, params_value, type, 1);
+      current_url = window.location.href.split("?")[0];
+      //get value of <a> with the id "pagination__current" 
+      params_value.push(1);
+      params_name.push("page");
+
+      let params = {};
+      let url_params = "";
+      let i = 0;
+      //check with ternary operator if the param is the first one or not
+      params_value.forEach((param) => {
+        if (param !== "") {
+          url_params +=
+            url_params.indexOf("?") > -1
+              ? "&" + params_name[i] + "=" + param
+              : "?" + params_name[i] + "=" + param;
+          params[params_name[i]] = param;
+        }
+        i++;
+      });
+
+      url += url_params;
+      current_url += url_params;
+      //replace the current url with the new one
+      window.history.replaceState({}, "", current_url);
+      search(url, params, type, 1);
     });
 }
 
 function paginationOffer(class_name) {
   let nb_page = document.querySelector(class_name).innerHTML;
   nb_page = parseInt(nb_page);
-  //get button .btn--pagination--last and get the value of the attribute data-data-pagination-max
-  const $max_page = document.querySelector(class_name).getAttribute("data-pagination-max");
   let params_value = [];
   let params_name = [];
   const type = document
@@ -104,6 +126,7 @@ function paginationOffer(class_name) {
     .getAttribute("data-btn");
   params_value = [];
   if (type == "offer") {
+    url = window.location.origin + "/api/search/offers";
     params_name = [
       "internship_name",
       "company_name",
@@ -114,7 +137,8 @@ function paginationOffer(class_name) {
       "duration",
       "salary",
     ];
-  } else if (type == "company")
+  } else if (type == "company") {
+    url = window.location.origin + "/api/search/companies";
     params_name = [
       "company_name",
       "city_name",
@@ -123,6 +147,7 @@ function paginationOffer(class_name) {
       "rate",
       "trust",
     ];
+  }
   params_name.forEach((param_name) => {
     // verify if the param is in the url and if it is not empty then add it to the tab params_value
     if (window.location.href.indexOf(param_name) > -1 && window.location.href.split(param_name + "=")[1].split("&")[0] !== "") {
@@ -131,17 +156,7 @@ function paginationOffer(class_name) {
       params_value.push("");
     }
   });
-  search(params_name, params_value, type, nb_page);
-}
-
-
-function search(params_name, params_value, type, nb_page) {
   current_url = window.location.href.split("?")[0];
-  if (type == "offer") {
-    url = window.location.origin + "/api/search/offers";
-  } else if (type == "company") {
-    url = window.location.origin + "/api/search/companies";
-  }
   //get value of <a> with the id "pagination__current" 
   params_value.push(nb_page);
   params_name.push("page");
@@ -165,12 +180,13 @@ function search(params_name, params_value, type, nb_page) {
   current_url += url_params;
   //replace the current url with the new one
   window.history.replaceState({}, "", current_url);
-  console.log(url);
-  console.log(params_name);
-  console.log(params_value);
+  search(url, params, type, nb_page);
+}
+
+
+function search(url, params, type, nb_page) {
   $.ajax({
     url: url,
-    data: params,
     type: "GET",
     dataType: "json",
     success: function (data) {

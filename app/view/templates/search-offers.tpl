@@ -6,27 +6,7 @@
 
     <div class="search-section search-section--offer m-5-0">
         <div class="card-background search-bar search-bar--offer p-1">
-            <form id="search-form">
-                <div class="search-bar__input">
-                    <input type="text" placeholder="Rechercher par nom..." id="search-form__name">
-                    <input type="text" placeholder="Rechercher par entreprise..." id="search-form__company">
-                    <input type="text" placeholder="Rechercher par lieu..." id="search-form__city">
-                    <input type="text" placeholder="Nombre de place..." id="search-form__nb-places">
-                    <select id="search-form__offer-date">
-                        <option value="">Date de l'offre</option>
-                    </select>
-                    <select id="search-form__skills">
-                        <option value="">Compétences</option>
-                    </select>
-                    <label for="search-form__duration">Durée</label>
-                    <input name="duration" type="range" min="0" max="100" value="0" id="search-form__duration">
-                    <label for="search-form__salary">Rémunération</label>
-                    <input name="salary" type="range" min="0" max="100" value="0" id="search-form__salary">
-                </div>
-                <input type="reset" value="Reset" class="btn btn--secondary">
-                <script src="/js/api.js"></script>
-                <input type="submit" value="Rechercher" class="btn btn--primary" id="btn-search" data-btn="offer">
-            </form>
+            {include file="form-search-offers.tpl" skills=$skills}
         </div>
         <input type="button" value="Afficher les filtres" class="btn btn--secondary filter-btn">
         <div class="card-background offer-preview">

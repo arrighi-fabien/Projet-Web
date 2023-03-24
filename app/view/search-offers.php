@@ -7,6 +7,7 @@ if (empty($offers)) {
 
 $smarty->assign('offers', $offers);
 $smarty->assign('offers_json', $offers_json);
+$smarty->assign('skills', $skills);
 
 $smarty->assign('nb_page', $nb_page);
 $smarty->assign('max_page', $max_page);
