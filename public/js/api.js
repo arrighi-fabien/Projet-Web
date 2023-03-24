@@ -9,6 +9,10 @@ if (document.querySelector("#search-form")) {
         .getAttribute("data-btn");
       let url = "";
       let current_url = "";
+
+      const form = document.querySelector('#search-form');
+      const formData = new FormData(form);
+
       let params_value = [];
       let params_name = [];
       if (type == "company") {
@@ -96,8 +100,7 @@ if (document.querySelector("#search-form")) {
           "salary",
         ];
       }
-      const nb_page = document.querySelector(".btn--pagination--current").innerHTML
-      search(event, params_name, params_value, url, current_url, type, nb_page);
+      search(event, params_name, params_value, url, current_url, type, 1);
     });
 }
 
@@ -156,16 +159,6 @@ function search(event, params_name, params_value, url, current_url, type, nb_pag
     i++;
   });
 
-  // if in the url_params there is page param 
-  /*if (url_params.indexOf("page") > -1) {
-    //replace the param page with the new one $nb_page
-    url_params = url_params.replace(
-      "page=" + url_params.split("page=")[1].split("&")[0],
-      "page=" + $nb_page
-    );
-  }
-*/
-
   url += url_params;
   current_url += url_params;
   //replace the current url with the new one
@@ -187,54 +180,14 @@ function search(event, params_name, params_value, url, current_url, type, nb_pag
           '<h3 class="no-result">Aucun résultat</h3>';
       }
       if (type == "company") {
-        // create a new div for each result
         data.forEach((result) => {
-          // if result.offers > 1 then "offres" else "offre"
-          let offers = result.offers > 1 ? "s" : "";
-          // add the result in #company-result
-          document.querySelector("#result").innerHTML += `
-            <div class="card-company card-background">
-            <a href="/company-${result.id_company}" class="card-link"><span></span></a>
-            <div class="card-company__content">
-                    <img src="${result.company_logo}" alt="${result.company_name} logo" class="card-company__content__img">
-                <div class="card-company__content__info">
-                    <h4 class="card-company__content__info__title">${result.company_name}</h4>
-                    <div class="text-and-svg">
-                        <svg><use href="/img/sprite.svg#building"></use></svg>
-                        <p class="card-company__content__sector">${result.sector_name}</p>
-                    </div>
-                    <div class="text-and-svg">
-                        <svg><use href="/img/sprite.svg#map"></use></svg>
-                        <p class="card-company__content__city">${result.city}</p>
-                    </div>
-                </div>
-            </div>
-            <p class="card-company__offer">${result.offers} offre${offers}</p>
-            </div>
-            `;
+          displayCompanyCard(result);
         });
       } else if (type == "offer") {
-        // create a new div for each result
-        let count = 0;
+        let card_number = 0;
         data.forEach((result) => {
-          document.querySelector("#result").innerHTML += `
-            <div class="card-company card-background">
-              <span data-id="${count}" class="card-link card-preview"> </span>
-              <div class="card-company__content">
-                  <img src="/img/company/${result.company_name}.webp" alt="${result.company_name} logo" class="card-company__content__img">
-                  <div class="card-company__content__info">
-                      <h4 class="card-company__content__info__job">${result.internship_name}</h4>
-                      <h5 class="card-company__content__info__title">${result.company_name}</h5>
-                      <p class="card-company__content__city">${result.city_name}</p>
-                      <p class="small-text">${result.offer_date}</p>
-                  </div>
-              </div>
-              <a href="##" class="card-bookmark">
-                <svg><use href="/img/sprite.svg#bookmark_fill"></use></svg>
-              </a>
-            </div>
-            `;
-          count++;
+          displayOfferCard(result, card_number);
+          card_number++;
         });
         //call the function to add the event listener on the card-link
         displayPreviewOffer();
@@ -285,4 +238,49 @@ function search(event, params_name, params_value, url, current_url, type, nb_pag
       //pass
     },
   });
+}
+
+function displayOfferCard(data, card_number) {
+  document.querySelector('#result').innerHTML += `
+    <div class="card-company card-background">
+      <span data-id="${card_number}" class="card-link card-preview"> </span>
+      <div class="card-company__content">
+        <img src="/img/company/${data.company_name}.webp" alt="${data.company_name} logo" class="card-company__content__img">
+        <div class="card-company__content__info">
+          <h4 class="card-company__content__info__job">${data.internship_name}</h4>
+          <h5 class="card-company__content__info__title">${data.company_name}</h5>
+          <p class="card-company__content__city">${data.city_name}</p>
+          <p class="small-text">${data.offer_date}</p>
+        </div>
+      </div>
+      <a href="##" class="card-bookmark">
+        <svg><use href="/img/sprite.svg#bookmark_fill"></use></svg>
+      </a>
+    </div>
+  `;
+}
+
+
+function displayCompanyCard(data) {
+  let nb_offer = (data.offers > 1) ? 's' : '';
+  document.querySelector('#result').innerHTML += `
+    <div class="card-company card-background">
+    <a href="/company-${data.id_company}" class="card-link"><span></span></a>
+    <div class="card-company__content">
+        <img src="${data.company_logo}" alt="${data.company_name} logo" class="card-company__content__img">
+      <div class="card-company__content__info">
+        <h4 class="card-company__content__info__title">${data.company_name}</h4>
+        <div class="text-and-svg">
+          <svg><use href="/img/sprite.svg#building"></use></svg>
+          <p class="card-company__content__sector">${data.sector_name}</p>
+        </div>
+        <div class="text-and-svg">
+          <svg><use href="/img/sprite.svg#map"></use></svg>
+          <p class="card-company__content__city">${data.city}</p>
+        </div>
+      </div>
+    </div>
+    <p class="card-company__offer">${data.offers} offre${nb_offer}</p>
+    </div>
+  `;
 }
