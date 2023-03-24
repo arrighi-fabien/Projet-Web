@@ -96,105 +96,193 @@ if (document.querySelector("#search-form")) {
           "salary",
         ];
       }
-      let params = {};
-      let url_params = "";
-      let i = 0;
-      //check with ternary operator if the param is the first one or not
-      params_value.forEach((param) => {
-        if (param !== "") {
-          url_params +=
-            url_params.indexOf("?") > -1
-              ? "&" + params_name[i] + "=" + param
-              : "?" + params_name[i] + "=" + param;
-          params[params_name[i]] = param;
-        }
-        i++;
-      });
+      const nb_page = document.querySelector(".btn--pagination--current").innerHTML
+      search(event, params_name, params_value, url, current_url, type, nb_page);
+    });
+}
 
-      url += url_params;
-      current_url += url_params;
+function paginationOffer(class_name) {
+  const nb_page = document.querySelector(class_name).innerHTML;
+  //get button .btn--pagination--last and get the value of the attribute data-data-pagination-max
+  const $max_page = document.querySelector(class_name).getAttribute("data-pagination-max");
+  let params_value = [];
+  let params_name = [];
+  const type = document
+    .querySelector("#btn-search")
+    .getAttribute("data-btn");
+  if (type == "offer") {
+    params_name = [
+      "internship_name",
+      "company_name",
+      "city_name",
+      "nb_places",
+      "offer_date",
+      "skills",
+      "duration",
+      "salary",
+    ];
+    params_value = [
+    ];
+    params_name.forEach((param_name) => {
+      // verify if the param is in the url and if it is not empty then add it to the tab params_value
+      if (window.location.href.indexOf(param_name) > -1 && window.location.href.split(param_name + "=")[1].split("&")[0] !== "") {
+        params_value.push(window.location.href.split(param_name + "=")[1].split("&")[0]);
+      } else {
+        params_value.push("");
+      }
+    });
+  }
+  search(event, params_name, params_value, window.location.origin + "/api/search/offers", window.location.href.split("?")[0], type, nb_page);
+}
 
-      //replace the current url with the new one
-      window.history.replaceState({}, "", current_url);
 
-      $.ajax({
-        url: url,
-        data: params,
-        type: "GET",
-        dataType: "json",
-        success: function (data) {
-          // delete all the previous results
-          document.querySelector("#result").innerHTML = "";
-          //check if there is no result
-          if (data.length === 0) {
-            document.querySelector("#result").innerHTML =
-              '<h3 class="no-result">Aucun résultat</h3>';
-          }
-          if (type == "company") {
-            // create a new div for each result
-            data.forEach((result) => {
-              // if result.offers > 1 then "offres" else "offre"
-              let offers = result.offers > 1 ? "s" : "";
-              // add the result in #company-result
-              document.querySelector("#result").innerHTML += `
-                <div class="card-company card-background">
-                <a href="/company-${result.id_company}" class="card-link"><span></span></a>
-                <div class="card-company__content">
-                        <img src="${result.company_logo}" alt="${result.company_name} logo" class="card-company__content__img">
-                    <div class="card-company__content__info">
-                        <h4 class="card-company__content__info__title">${result.company_name}</h4>
-                        <div class="text-and-svg">
-                            <svg><use href="/img/sprite.svg#building"></use></svg>
-                            <p class="card-company__content__sector">${result.sector_name}</p>
-                        </div>
-                        <div class="text-and-svg">
-                            <svg><use href="/img/sprite.svg#map"></use></svg>
-                            <p class="card-company__content__city">${result.city}</p>
-                        </div>
+function search(event, params_name, params_value, url, current_url, type, nb_page) {
+  //get value of <a> with the id "pagination__current" 
+  params_value.push(nb_page);
+  params_name.push("page");
+
+  let params = {};
+  let url_params = "";
+  let i = 0;
+  //check with ternary operator if the param is the first one or not
+  params_value.forEach((param) => {
+    if (param !== "") {
+      url_params +=
+        url_params.indexOf("?") > -1
+          ? "&" + params_name[i] + "=" + param
+          : "?" + params_name[i] + "=" + param;
+      params[params_name[i]] = param;
+    }
+    i++;
+  });
+
+  // if in the url_params there is page param 
+  /*if (url_params.indexOf("page") > -1) {
+    //replace the param page with the new one $nb_page
+    url_params = url_params.replace(
+      "page=" + url_params.split("page=")[1].split("&")[0],
+      "page=" + $nb_page
+    );
+  }
+*/
+
+  url += url_params;
+  current_url += url_params;
+  //replace the current url with the new one
+  window.history.replaceState({}, "", current_url);
+
+  $.ajax({
+    url: url,
+    data: params,
+    type: "GET",
+    dataType: "json",
+    success: function (data) {
+      // get in data the last element which is the max page
+      const max_page = data.pop();
+      // delete all the previous results
+      document.querySelector("#result").innerHTML = "";
+      //check if there is no result
+      if (data.length === 0) {
+        document.querySelector("#result").innerHTML =
+          '<h3 class="no-result">Aucun résultat</h3>';
+      }
+      if (type == "company") {
+        // create a new div for each result
+        data.forEach((result) => {
+          // if result.offers > 1 then "offres" else "offre"
+          let offers = result.offers > 1 ? "s" : "";
+          // add the result in #company-result
+          document.querySelector("#result").innerHTML += `
+            <div class="card-company card-background">
+            <a href="/company-${result.id_company}" class="card-link"><span></span></a>
+            <div class="card-company__content">
+                    <img src="${result.company_logo}" alt="${result.company_name} logo" class="card-company__content__img">
+                <div class="card-company__content__info">
+                    <h4 class="card-company__content__info__title">${result.company_name}</h4>
+                    <div class="text-and-svg">
+                        <svg><use href="/img/sprite.svg#building"></use></svg>
+                        <p class="card-company__content__sector">${result.sector_name}</p>
+                    </div>
+                    <div class="text-and-svg">
+                        <svg><use href="/img/sprite.svg#map"></use></svg>
+                        <p class="card-company__content__city">${result.city}</p>
                     </div>
                 </div>
-                <p class="card-company__offer">${result.offers} offre${offers}</p>
-                </div>
-                `;
-            });
-          } else if (type == "offer") {
-            // create a new div for each result
-            let count = 0;
-            data.forEach((result) => {
-              document.querySelector("#result").innerHTML += `
-                <div class="card-company card-background">
-                  <span data-id="${count}" class="card-link card-preview"> </span>
-                  <div class="card-company__content">
-                      <img src="/img/company/${result.company_name}.webp" alt="${result.company_name} logo" class="card-company__content__img">
-                      <div class="card-company__content__info">
-                          <h4 class="card-company__content__info__job">${result.internship_name}</h4>
-                          <h5 class="card-company__content__info__title">${result.company_name}</h5>
-                          <p class="card-company__content__city">${result.city_name}</p>
-                          <p class="small-text">${result.offer_date}</p>
-                      </div>
+            </div>
+            <p class="card-company__offer">${result.offers} offre${offers}</p>
+            </div>
+            `;
+        });
+      } else if (type == "offer") {
+        // create a new div for each result
+        let count = 0;
+        data.forEach((result) => {
+          document.querySelector("#result").innerHTML += `
+            <div class="card-company card-background">
+              <span data-id="${count}" class="card-link card-preview"> </span>
+              <div class="card-company__content">
+                  <img src="/img/company/${result.company_name}.webp" alt="${result.company_name} logo" class="card-company__content__img">
+                  <div class="card-company__content__info">
+                      <h4 class="card-company__content__info__job">${result.internship_name}</h4>
+                      <h5 class="card-company__content__info__title">${result.company_name}</h5>
+                      <p class="card-company__content__city">${result.city_name}</p>
+                      <p class="small-text">${result.offer_date}</p>
                   </div>
-                  <a href="##" class="card-bookmark">
-                    <svg><use href="/img/sprite.svg#bookmark_fill"></use></svg>
-                  </a>
-                </div>
-                `;
-              count++;
-            });
-            //call the function to add the event listener on the card-link
-            displayPreviewOffer();
-            offers_json = data;
-            console.log(current_url);
-            // change th url of all <a> elements in div card-display__pagination
-            document
-              .querySelectorAll(".card-display__pagination a")
-              .forEach((a) => {
-                a.href = current_url;
-              });
+              </div>
+              <a href="##" class="card-bookmark">
+                <svg><use href="/img/sprite.svg#bookmark_fill"></use></svg>
+              </a>
+            </div>
+            `;
+          count++;
+        });
+        //call the function to add the event listener on the card-link
+        displayPreviewOffer();
+        offers_json = data;
+        //check if the max page is egal to 1 then hide the pagination div with class "btn__pagination"
+        if (max_page <= 1) {
+          document.querySelector(".btn__pagination").style.display = "none";
+        } else {
+          tab_class = [".btn--pagination--first", ".btn--pagination--previous", ".btn--pagination--current", ".btn--pagination--next", ".btn--pagination--last"];
+          tab_value = [1, nb_page - 1, nb_page, parseInt(nb_page) + 1, max_page];
+          console.log(tab_value);
+          tab_class.forEach((class_name) => {
+            console.log(class_name);
+            if (document.querySelector(class_name) != null) {
+              //change texte inside the button depending on the value of the tab_value at the same index
+              document.querySelector(class_name).innerHTML = tab_value[tab_class.indexOf(class_name)];
+            }
+          });
+          if (nb_page <= 1) {
+            document.querySelector(".btn--pagination--previous").style.display = "none";
+          } else {
+            document.querySelector(".btn--pagination--previous").style.display = "inline-block";
           }
-        },
-        error: function (data) {
-          //pass
-        },
-      });
-    });
+          if (nb_page <= 2) {
+            document.querySelector(".btn--pagination--first").style.display = "none";
+            document.querySelector(".btn--pagination--first--separator").style.display = "none";
+          } else {
+            document.querySelector(".btn--pagination--first").style.display = "inline-block";
+            document.querySelector(".btn--pagination--first--separator").style.display = "inline-block";
+          }
+          if (nb_page >= max_page - 1) {
+            document.querySelector(".btn--pagination--last").style.display = "none";
+            document.querySelector(".btn--pagination--last--separator").style.display = "none";
+          } else {
+            document.querySelector(".btn--pagination--last").style.display = "inline-block";
+            document.querySelector(".btn--pagination--last--separator").style.display = "inline-block";
+          }
+          if (nb_page >= max_page) {
+            document.querySelector(".btn--pagination--next").style.display = "none";
+          }
+          else {
+            document.querySelector(".btn--pagination--next").style.display = "inline-block";
+          }
+        }
+      }
+    },
+    error: function (data) {
+      //pass
+    },
+  });
 }

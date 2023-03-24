@@ -26,12 +26,16 @@ class SearchController {
             $max_page = ceil($max_page->max_page / $LIMIT_REQUEST);
             //$offers = AppModel::summarize($offers, 40, 'internship_name');
             $offers = AppModel::getEllapsedTime($offers, 'offer_date');
-            $offers_json = json_encode($offers);
             if ($method == 'search') {
+                $offers_json = json_encode($offers);
                 $page = 'search-offers';
                 require_once '../app/view/view.php';
             }
             else if ($method == 'api') {
+                //add $max_page to the offers array to send it to the client
+                $offers[] = $max_page;
+                $offers_json = json_encode($offers);
+                
                 header('Content-Type: application/json');
                 echo $offers_json;
             }

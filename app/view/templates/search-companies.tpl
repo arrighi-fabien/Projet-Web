@@ -36,7 +36,7 @@
                         {include file="company-card.tpl" company_card=$company}
                     {/foreach}
                 </div>
-                <div class="card-display__pagination">
+                <div id="pagination">
                     <img src="/img/fade.png" alt="" class="fade-scroll">
                     {if $nb_page != 2}
                         <a href="{$url1}page=1" class="first">1<</a>
@@ -47,7 +47,7 @@
                         <p>...</p>
                     {/if}
                     <p>></p>
-                    <a href="{$url}page={$nb_page}" class="current">{$nb_page}</a>
+                    <a href="{$url}page={$nb_page}" class="pagination__current">{$nb_page}</a>
                     <p><</p>
                     {if $nb_page < $max_page}
                         <p>...</p>
