@@ -2,6 +2,10 @@
 
 class AuthModel extends Database {
 
+    public function isLogged() {
+        return Session::getInstance()->read('user');
+    }
+
     public function login($email, $password, $remember = false) {
         $email = $this->escape($email);
         $user = $this->query("SELECT * FROM users NATURAL JOIN is_in NATURAL JOIN promotion NATURAL JOIN center WHERE email = ?", [$email])->fetch();
@@ -36,16 +40,16 @@ class AuthModel extends Database {
             if ($user) {
                 if ($remember_token[1] === $user->remember_token) {
                     Session::getInstance()->write('user', $user);
-                    setcookie('remember', $user->id_user.'='.$user->remember_token, time() + 60 * 60 * 24 * 7, '', '', true, true);
+                    setcookie('remember', $user->id_user.'='.$user->remember_token, time() + 60 * 60 * 24 * 7, '/login', '', true, true);
                     return true;
                 }
                 else {
-                    setcookie('remember', null, -1, '', '', true, true);
+                    setcookie('remember', null, -1, '/login', '', true, true);
                     return false;
                 }
             }
             else {
-                setcookie('remember', null, -1, '', '', true, true);
+                setcookie('remember', null, -1, '/login', '', true, true);
                 return false;
             }
         }
@@ -55,7 +59,7 @@ class AuthModel extends Database {
     }
 
     public function logout() {
-        setcookie('remember', '', time() - 3600, '', '', true, true);
+        setcookie('remember', '', time() - 3600, '/login', '', true, true);
         Session::getInstance()->destroy('user');
         header("Location: /");
         exit();
