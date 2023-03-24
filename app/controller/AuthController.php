@@ -75,6 +75,7 @@ class AuthController {
                 $auth->getWishlistId();
                 $wishlist = $auth->getWishlist();
                 $candidatures = $auth->getCandidatures();
+
                 $page = 'dashboard';
                 require_once '../app/view/view.php';
             }
