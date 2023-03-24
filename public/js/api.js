@@ -3,116 +3,38 @@ if (document.querySelector("#search-form")) {
     .querySelector("#search-form")
     .addEventListener("submit", (event) => {
       event.preventDefault();
-      // get the value of the attribute data-type of id btn-search
-      const type = document
-        .querySelector("#btn-search")
-        .getAttribute("data-btn");
+      const type = document.querySelector('#btn-search').getAttribute('data-btn');
+      let url = '';
+      let current_url = '';
 
-      let params_value = [];
-      let params_name = [];
-      if (type == "company") {
-        const company =
-          document.querySelector("#search-form__name").value;
-        const city = document.querySelector("#search-form__city").value;
-        const sector = document.querySelector(
-          "#search-form__sector"
-        ).value;
-        const nb_students = document.querySelector(
-          "#search-form__nb-students"
-        ).value;
-        const rate = document.querySelector("#search-form__rate").value;
-        const trust = document.querySelector(
-          "#search-form__confidence"
-        ).value;
-        //create a tab with all params name and variables and use a foreach to add them to the url
-        params_value = [
-          company,
-          city,
-          sector,
-          nb_students,
-          rate,
-          trust,
-        ];
-        params_name = [
-          "company_name",
-          "city_name",
-          "sector_name",
-          "student_accepted",
-          "rate",
-          "trust",
-        ];
-      } else if (type == "offer") {
-        const internship =
-          document.querySelector("#search-form__name").value;
-        const company = document.querySelector(
-          "#search-form__company"
-        ).value;
-        const city = document.querySelector("#search-form__city").value;
-        const nb_places = document.querySelector(
-          "#search-form__nb-places"
-        ).value;
-        const offer_date = document.querySelector(
-          "#search-form__offer-date"
-        ).value;
-        const skills = document.querySelector(
-          "#search-form__skills"
-        ).value;
-        const duration =
-          document.querySelector("#search-form__duration").value == 0
-            ? ""
-            : document.querySelector("#search-form__duration")
-              .value;
-        const salary =
-          document.querySelector("#search-form__salary").value == 0
-            ? ""
-            : document.querySelector("#search-form__salary").value;
-        //create a tab with all params name and variables and use a foreach to add them to the url
-        params_value = [
-          internship,
-          company,
-          city,
-          nb_places,
-          offer_date,
-          skills,
-          duration,
-          salary,
-        ];
-        params_name = [
-          "internship_name",
-          "company_name",
-          "city_name",
-          "nb_places",
-          "offer_date",
-          "skills",
-          "duration",
-          "salary",
-        ];
+      const form = document.querySelector('#search-form');
+      const formData = new FormData(form);
+
+      if (type == 'company') {
+        url = window.location.origin + '/api/search/companies';
       }
-      current_url = window.location.href.split("?")[0];
-      //get value of <a> with the id "pagination__current" 
-      params_value.push(1);
-      params_name.push("page");
-
-      let params = {};
-      let url_params = "";
-      let i = 0;
-      //check with ternary operator if the param is the first one or not
-      params_value.forEach((param) => {
-        if (param !== "") {
-          url_params +=
-            url_params.indexOf("?") > -1
-              ? "&" + params_name[i] + "=" + param
-              : "?" + params_name[i] + "=" + param;
-          params[params_name[i]] = param;
+      else if (type == 'offer') {
+        url = window.location.origin + '/api/search/offers';
+      }
+      else if (type == 'user') {
+        url = window.location.origin + '/api/search/users';
+      }
+      current_url = window.location.href.split('?')[0];
+      let url_params = '';
+      // Check with ternary operator if the param is the first one or not
+      // If it's the first one to be not empty, add a '?' before the param
+      // Else add a '&' before the param
+      // Add the param to the url
+      formData.forEach((value, key) => {
+        if (value !== '' && value !== '0') {
+          url_params += (url_params.indexOf('?') > -1) ? '&' + key + '=' + value : '?' + key + '=' + value;
         }
-        i++;
       });
 
       url += url_params;
       current_url += url_params;
-      //replace the current url with the new one
       window.history.replaceState({}, "", current_url);
-      search(url, params, type, 1);
+      search(url, type, 1);
     });
 }
 
@@ -180,11 +102,11 @@ function paginationOffer(class_name) {
   current_url += url_params;
   //replace the current url with the new one
   window.history.replaceState({}, "", current_url);
-  search(url, params, type, nb_page);
+  search(url, type, nb_page);
 }
 
 
-function search(url, params, type, nb_page) {
+function search(url, type, nb_page) {
   $.ajax({
     url: url,
     type: "GET",

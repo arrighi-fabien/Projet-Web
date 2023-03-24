@@ -25,7 +25,6 @@ class SearchController {
             $max_page = $search_model->searchOffersMaxPage($internship_name, $company_name, $city_name, $nb_places, $offer_date, $skills, $duration, $salary);
             $max_page = ceil($max_page->max_page / $LIMIT_REQUEST);
             //$offers = AppModel::summarize($offers, 40, 'internship_name');
-            $offers = AppModel::getEllapsedTime($offers, 'offer_date');
             $skills = $search_model->getSkills();
             $offers_json = json_encode($offers);
             if ($method == 'search') {
