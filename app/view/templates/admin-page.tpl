@@ -19,6 +19,7 @@
             <div class="card-background">
                 <h2 class="center-title important-title">Résultats</h2>
                 <div class="best-section__content best-section__content--col-1 card-display" id="result">
+                    {$count = 0}
                     {foreach $results as $result}
                         {if $current_page == "admin_offers"}
                             {include file="offer-card.tpl" offer_card=$result}
@@ -27,6 +28,7 @@
                         {else if $current_page == "admin_users"}
                             {include file="user-card.tpl" user_card=$result}
                         {/if}
+                        {assign var="count" value=$count+1}
                     {/foreach}
                 </div>
                 <div class="card-display__pagination">

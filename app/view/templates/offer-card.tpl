@@ -1,5 +1,5 @@
 <div class="card-company card-background">
-    {if isset($current_page) && $current_page == "search_offers"}
+    {if isset($current_page) && ($current_page == "search_offers" || $current_page == "admin_offers")}
         <span data-id="{$count}" class="card-link card-preview"> </span>
     {else}
         <a href="/offer-{$offer_card->id_internship}" class="card-link"><span></span></a>
