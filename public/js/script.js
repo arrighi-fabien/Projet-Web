@@ -64,18 +64,20 @@ if (document.querySelector('.filter-btn')) {
 function displayPreviewOffer() {
     document.querySelectorAll('.card-preview').forEach((card) => {
         card.addEventListener('click', () => {
+            console.log(offers_json);
             const id = card.getAttribute('data-id');
             document.querySelector('#offer-description__title').innerHTML = offers_json[id].internship_name;
-            // put the company name in link
+            // Put the company name in link
             document.querySelector('#offer-description__company').innerHTML = `<a href="/company-${offers_json[id].id_company}">${offers_json[id].company_name}</a>`;
             document.querySelector('#offer-description__city').innerHTML = offers_json[id].city_name;
             document.querySelector('#offer-description__date').innerHTML = offers_json[id].offer_date;
             document.querySelector('#offer-description__duration').innerHTML = offers_json[id].duration + ' semaine' + (offers_json[id].duration > 1 ? 's' : '');
             document.querySelector('#offer-description__salary').innerHTML = offers_json[id].salary + ' € / mois';
             document.querySelector('#offer-description__skills').innerHTML = offers_json[id].skills;
+            document.querySelector('#offer-description__places').innerHTML = offers_json[id].places_students + ' place' + (offers_json[id].places_students > 1 ? 's' : '') + ' disponible' + (offers_json[id].places_students > 1 ? 's' : '');
             document.querySelector('#offer-description__description').innerHTML = offers_json[id].description;
 
-            //change href of title
+            // Change href of title
             document.querySelector('#offer-description__title').href = '/offer-' + offers_json[id].id_internship;
         });
     });

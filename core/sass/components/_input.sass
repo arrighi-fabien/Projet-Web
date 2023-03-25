@@ -8,3 +8,23 @@ input, select
   &[type="checkbox"]
     width: 20px
     height: 20px
+  
+select[multiple]
+  height: 20rem
+  padding: 0
+  width: 100%
+  option
+    padding: 10px
+    width: 100%
+    &:hover
+      background: $primary-color
+      color: $secondary-color
+
+textarea
+  background: $primary-color
+  border: $border
+  border-radius: $border-radius--small
+  height: 100px
+  padding: 10px
+  width: 100%
+  resize: vertical

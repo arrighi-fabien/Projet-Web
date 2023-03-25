@@ -10,7 +10,6 @@ class AdminController {
             exit();
         }
         else {
-            
             if ($current_page == 'admin_offers') {
                 $search_offers = new OfferModel();
                 $results = $search_offers->searchOffers(10, 1);

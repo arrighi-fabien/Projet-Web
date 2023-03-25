@@ -38,15 +38,19 @@
                 <div class="offer-description__detail">
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#calendar"></use></svg>
-                        <p id="offer-description__duration" class="card-company__content__sector">{$offers[0]->duration} semaine{if $offers[0]->duration > 1}s{/if}</p>
+                        <p id="offer-description__duration">{$offers[0]->duration} semaine{if $offers[0]->duration > 1}s{/if}</p>
                     </div>
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#money"></use></svg>
-                        <p id="offer-description__salary" class="card-company__content__sector">{$offers[0]->salary} € / mois</p>
+                        <p id="offer-description__salary">{$offers[0]->salary} € / mois</p>
                     </div>
                     <div class="text-and-svg">
                         <svg><use href="/img/sprite.svg#checklist"></use></svg>
-                        <p id="offer-description__skills" class="card-company__content__sector">{$offers[0]->skills}</p>
+                        <p id="offer-description__skills">{$offers[0]->skills}</p>
+                    </div>
+                    <div class="text-and-svg">
+                        <svg><use href="/img/sprite.svg#number"></use></svg>
+                        <p id="offer-description__places">{$offers[0]->places_students} place{if $offers[0]->places_students > 1}s{/if} disponible{if $offers[0]->places_students > 1}s{/if}</p>
                     </div>
                 </div>
                 <p id="offer-description__description">{$offers[0]->description}</p>

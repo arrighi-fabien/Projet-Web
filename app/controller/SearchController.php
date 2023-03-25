@@ -5,12 +5,6 @@ class SearchController {
     public function __construct($method, $page) {
         $LIMIT_REQUEST = 10;
         $nb_page = isset($_GET['page']) ? $_GET['page'] : 1;
-        //verify if $page is a number and if not, set it to 1
-        if (!is_numeric($nb_page)) {
-            $nb_page = 1;
-        } else if ($nb_page < 1) { // verify if the page number is valid (not negative) and if not, set it to 1
-            $nb_page = 1;
-        }
         if ($page == 'offers') {
             $search_model = new OfferModel();
             $internship_name = isset($_GET['internship_name']) ? $_GET['internship_name'] : null;
@@ -28,15 +22,12 @@ class SearchController {
             $skills = $search_model->getSkills();
             $offers_json = json_encode($offers);
             if ($method == 'search') {
-                $offers_json = json_encode($offers);
                 $page = 'search-offers';
                 require_once '../app/view/view.php';
             }
             else if ($method == 'api') {
                 //add $max_page to the offers array to send it to the client
                 $offers[] = $max_page;
-                $offers_json = json_encode($offers);
-                
                 header('Content-Type: application/json');
                 echo $offers_json;
             }

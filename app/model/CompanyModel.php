@@ -84,4 +84,8 @@ class CompanyModel extends Database {
     public function getRate($id_company) {
         return $this->query("SELECT ROUND(AVG(evaluation), 2) AS evaluation FROM rate WHERE id_company = ?;", [$id_company])->fetch();
     }
+    
+    public function getCompanies() {
+        return $this->query("SELECT id_company, company_name FROM company ORDER BY company_name ASC")->fetchAll();
+    }
 }

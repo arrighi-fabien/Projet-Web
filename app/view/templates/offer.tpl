@@ -44,6 +44,10 @@
                 <svg><use href="/img/sprite.svg#checklist"></use></svg>
                 <p>{$offer->skills}</p>
             </div>
+            <div class="text-and-svg">
+                <svg><use href="/img/sprite.svg#number"></use></svg>
+                <p>{$offer->places_students} place{if $offer->places_students > 1}s{/if} disponible{if $offer->places_students > 1}s{/if}</p>
+            </div>
         </div>
     </div>
     <div class="detail-description">
@@ -86,6 +90,10 @@
                 <div class="text-and-svg m-1-0">
                     <svg><use href="/img/sprite.svg#checklist"></use></svg>
                     <p>{$offer->skills}</p>
+                </div>
+                <div class="text-and-svg">
+                    <svg><use href="/img/sprite.svg#number"></use></svg>
+                    <p>{$offer->places_students} place{if $offer->places_students > 1}s{/if} disponible{if $offer->places_students > 1}s{/if}</p>
                 </div>
             </div>
             <input type="button" value="Postuler" class="btn btn--primary apply-btn">
