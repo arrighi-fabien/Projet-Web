@@ -121,12 +121,21 @@ if (document.querySelector('.card-bookmark')) {
 
 if (document.querySelector('.rating')) {
     const stars = document.querySelectorAll('.star');
-
+    $already_rate = false;
     stars.forEach(function (star) {
         star.addEventListener('click', setRating);
-        star.addEventListener('mouseover', hoverRating);
-        star.addEventListener('mouseout', resetRating);
+        if (star.classList.contains('rated')) {
+            console.log('rated');
+            $already_rate = true;
+        }
     });
+    if ($already_rate == false) {
+        stars.forEach(function (star) {
+            star.addEventListener('mouseover', hoverRating);
+            star.addEventListener('mouseout', resetRating);
+        }
+        );
+    }
 
     function setRating(ev) {
         const stars = document.querySelectorAll(".star");
