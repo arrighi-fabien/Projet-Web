@@ -120,7 +120,6 @@ if (document.querySelector('.card-bookmark')) {
 }
 
 if (document.querySelector('.rating')) {
-    console.log('rating');
     const stars = document.querySelectorAll('.star');
 
     stars.forEach(function (star) {
@@ -130,8 +129,6 @@ if (document.querySelector('.rating')) {
     });
 
     function setRating(ev) {
-        // TODO VERIF QUE L'UTILISATEUR EST CONNECTE
-        const user_id = 1;
         const stars = document.querySelectorAll(".star");
         const rate = ev.currentTarget.getAttribute("data-value");
         stars.forEach((star) => {
@@ -150,22 +147,24 @@ if (document.querySelector('.rating')) {
         console.log(url);
         console.log(rate);
         console.log(company_id);
-        console.log(user_id);
         $.ajax({
             url: url,
             type: "POST",
             data: {
                 rate: rate,
-                id_company: company_id,
-                id_user: user_id,
+                id_company: company_id
             },
             dataType: "json",
             success: function (data) {
-                console.log(data);
+                if (data["status"] == "not_logged_in") {
+                    window.location.href = window.location.origin + "/login";
+                }
             },
             error: function (data) {
-                console.log("error");
-                console.log(data);
+                stars.forEach(function (star) {
+                    star.classList.remove('rated');
+                });
+                star.removeEventListener('click', setRating);
             }
         });
     }
