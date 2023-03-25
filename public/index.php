@@ -37,7 +37,7 @@ $router->map('GET', '/api/search/companies', 'SearchController', 'api_companies'
 $router->map('GET', '/api/search/offers', 'SearchController', 'api_offers');
 $router->map('POST', '/api/wishlist', 'AuthController', 'api_wishlist');
 $router->map('GET', '/api/search/users', 'AdminController', 'api_users');
-$router->map('GET', '/api/rating', 'RatingController', 'api_rating');
+$router->map('POST', '/api/rating', 'RatingController', 'api_rating');
 // Error page
 $router->map('GET', '/error-[*:error_type]', 'ErrorController', 'error');
 

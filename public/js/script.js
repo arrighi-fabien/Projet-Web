@@ -131,9 +131,9 @@ if (document.querySelector('.rating')) {
         // TODO VERIF QUE L'UTILISATEUR EST CONNECTE
         const user_id = 1;
         const stars = document.querySelectorAll(".star");
-        const rating = ev.currentTarget.getAttribute("data-value");
+        const rate = ev.currentTarget.getAttribute("data-value");
         stars.forEach((star) => {
-            if (star.getAttribute("data-value") <= rating) {
+            if (star.getAttribute("data-value") <= rate) {
                 star.classList.add("rated");
             } else {
                 star.classList.remove("rated");
@@ -144,13 +144,18 @@ if (document.querySelector('.rating')) {
             star.removeEventListener('mouseout', resetRating);
         });
         const company_id = window.location.href.split('-')[1];
+        url = window.location.origin + "/api/rating";
+        console.log(url);
+        console.log(rate);
+        console.log(company_id);
+        console.log(user_id);
         $.ajax({
-            url: "/api/rating",
+            url: url,
             type: "POST",
             data: {
-                rating: rating,
-                company_id: company_id,
-                user_id: user_id,
+                rate: rate,
+                id_company: company_id,
+                id_user: user_id,
             },
             dataType: "json",
             success: function (data) {

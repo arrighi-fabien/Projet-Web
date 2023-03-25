@@ -77,6 +77,7 @@ class CompanyModel extends Database {
     }
 
     public function setRate($id_company, $id_user, $rate) {
+        $this->query("DELETE FROM rate WHERE id_company = ? AND id_user = ?", [$id_company, $id_user]);
         $this->query("INSERT INTO rate (id_company, id_user, evaluation) VALUES (?, ?, ?)", [$id_company, $id_user, $rate]);
     }
 }
