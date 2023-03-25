@@ -21,8 +21,8 @@ $router->map('GET', '/logout', 'AuthController', 'logout');
 $router->map('GET', '/dashboard', 'AuthController', 'dashboard');
 // Admin pages
 $router->map('GET', '/admin/offers', 'AdminController', 'admin_offers');
-$router->map('GET', '/admin/offer/add', 'ContentController', 'offers_add');
-$router->map('GET', '/admin/offer-[i:id]', 'ContentController', 'offers_edit');
+$router->map('GET|POST', '/admin/offer/add', 'ContentController', 'offers_add');
+$router->map('GET|POST', '/admin/offer-[i:id]', 'ContentController', 'offers_edit');
 $router->map('POST', '/admin/offer-[i:id]/delete', 'ContentController', 'offers_delete');
 $router->map('GET', '/admin/companies', 'AdminController', 'admin_companies');
 $router->map('POST', '/admin/company/add', 'ContentController', 'companies_add');

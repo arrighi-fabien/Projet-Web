@@ -17,6 +17,7 @@
         <input type="button" value="Afficher les filtres" class="btn btn--secondary filter-btn">
         <div class="card-background">
             <h2 class="center-title important-title">Résultats</h2>
+            <a href="/admin/offer/add" class="link-effect">Ajouter une offre</a>
             <div class="best-section__content best-section__content--col-1 card-display" id="result">
                 {$count = 0}
                 {foreach $results as $result}

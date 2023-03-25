@@ -75,4 +75,8 @@ class CompanyModel extends Database {
     public function getSectors() {
         return $this->query("SELECT sector_name FROM sector")->fetchAll();
     }
+
+    public function getCompanies() {
+        return $this->query("SELECT id_company, company_name FROM company ORDER BY company_name ASC")->fetchAll();
+    }
 }
