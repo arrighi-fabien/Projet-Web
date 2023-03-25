@@ -80,4 +80,8 @@ class CompanyModel extends Database {
         $this->query("DELETE FROM rate WHERE id_company = ? AND id_user = ?", [$id_company, $id_user]);
         $this->query("INSERT INTO rate (id_company, id_user, evaluation) VALUES (?, ?, ?)", [$id_company, $id_user, $rate]);
     }
+
+    public function getRate($id_company) {
+        return $this->query("SELECT ROUND(AVG(evaluation), 2) AS evaluation FROM rate WHERE id_company = ?;", [$id_company])->fetch();
+    }
 }

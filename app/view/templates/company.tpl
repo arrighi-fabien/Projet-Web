@@ -18,8 +18,12 @@
             <svg><use href="/img/sprite.svg#user-check"></use></svg>
             <p>2 pilotes valident cette entreprise</p>
         </div>
-        {include file="rate.tpl"}
+        <div class="text-and-svg">
+            <svg><use href="/img/sprite.svg#star"></use></svg>
+            <p>{$company_ratings} / 5</p>
+        </div>
     </div>
+    {include file="rate.tpl"}
 </div>
 <div class="detail-description">
     <div class="card-background detail-description__info p-2">
