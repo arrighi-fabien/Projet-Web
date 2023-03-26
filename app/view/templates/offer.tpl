@@ -96,7 +96,7 @@
                     <p>{$offer->places_students} place{if $offer->places_students > 1}s{/if} disponible{if $offer->places_students > 1}s{/if}</p>
                 </div>
             </div>
-            <input type="button" value="Postuler" class="btn btn--primary apply-btn">
+            <a href="/offer-{$offer->id_internship}/apply"><input type="button" value="Postuler" class="btn btn--primary apply-btn"></a>
         </div>
         <div class="card-background detail-description__text p-2">
             <p>{$offer->description}</p>

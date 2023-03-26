@@ -28,7 +28,7 @@
                     var offers_json = {$offers_json};
                 </script>
                 <h1><a href="/offer-{$offers[0]->id_internship}" id="offer-description__title" class="important-title">{$offers[0]->internship_name}</a></h1>
-                <input type="button" value="Postuler" class="btn btn--primary apply-btn">
+                <a href="/offer-{$offers[0]->id_internship}/apply" id="apply-btn"><input type="button" value="Postuler" class="btn btn--primary apply-btn"></a>
                 <input type="button" value="Fermer" class="btn btn--secondary offer-preview-close">
                 <div class="offer-description__company">
                     <p id="offer-description__company"><a href="/company-{$offers[0]->id_company}">{$offers[0]->company_name}</a></p>

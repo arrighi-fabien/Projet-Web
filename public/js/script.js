@@ -8,15 +8,6 @@ nav_menu.addEventListener('click', () => {
     nav__account.classList.toggle('header__account--open');
 });
 
-if (document.querySelector('.popup-form__close')) {
-    document.querySelector('.popup-form__close').addEventListener('click', () => {
-        document.querySelector('.popup-background').classList.toggle('popup-background--active');
-        setTimeout(() => {
-            document.querySelector('.popup-form').classList.toggle('hidden');
-        }, 500);
-    });
-}
-
 if (document.querySelector('.header__account')) {
     document.querySelector('.header__account').addEventListener('click', () => {
         document.querySelector('.popup-form').classList.toggle('hidden');
@@ -59,8 +50,6 @@ if (document.querySelector('.filter-btn')) {
     });
 }
 
-
-
 function displayPreviewOffer() {
     document.querySelectorAll('.card-preview').forEach((card) => {
         card.addEventListener('click', () => {
@@ -75,6 +64,7 @@ function displayPreviewOffer() {
             document.querySelector('#offer-description__skills').innerHTML = offers_json[id].skills;
             document.querySelector('#offer-description__places').innerHTML = offers_json[id].places_students + ' place' + (offers_json[id].places_students > 1 ? 's' : '') + ' disponible' + (offers_json[id].places_students > 1 ? 's' : '');
             document.querySelector('#offer-description__description').innerHTML = offers_json[id].description;
+            document.querySelector('#apply-btn').setAttribute('href', '/offer-' + offers_json[id].id_internship + '/apply');
 
             // Change href of title
             document.querySelector('#offer-description__title').href = '/offer-' + offers_json[id].id_internship;
