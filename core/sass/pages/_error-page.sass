@@ -9,3 +9,13 @@
     align-items: center
     font-size: 4rem
     font-family: $font-family-heading
+
+@media screen and (max-width: $breakpoint-tablet)
+  .error-display
+    & > h1
+      font-size: 2rem
+
+@media screen and (max-width: $breakpoint-phone)
+  .error-display
+    & > h1
+      font-size: 1rem
