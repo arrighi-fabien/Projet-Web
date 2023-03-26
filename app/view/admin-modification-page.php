@@ -6,5 +6,7 @@ $smarty->assign('skills', $skills ?? null);
 $smarty->assign('offer_skills', $offer_skills ?? null);
 $smarty->assign('companies', $companies ?? null);
 $smarty->assign('sectors', $sectors ?? null);
+$smarty->assign('centers', $centers ?? null);
+$smarty->assign('promotions', $promotions ?? null);
 
 $smarty->display('admin-modification-page.tpl');

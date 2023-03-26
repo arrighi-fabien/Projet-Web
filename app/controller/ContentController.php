@@ -101,13 +101,21 @@ class ContentController {
     private function users() {
         $user_model = new AuthModel();
         if (isset($_POST) && !empty($_POST)) {
+            $first_name = htmlspecialchars($_POST['first_name']);
+            $last_name = htmlspecialchars($_POST['last_name']);
+            $email = htmlspecialchars($_POST['email']);
+            $password = $_POST['password'] != '' ? $_POST['password'] : null;
+            $is_admin = htmlspecialchars($_POST['is_admin']);
+            $is_pilot = htmlspecialchars($_POST['is_pilot']);
+            $id_center = htmlspecialchars($_POST['id_center']);
+            $id_promotion = htmlspecialchars($_POST['id_promotion']);
             if ($this->action == 'add') {
-                $user_model->addUser();
+                $user_model->addUser($first_name, $last_name, $email, $password, $is_admin, $is_pilot, $id_center, $id_promotion);
                 header('Location: /admin/users');
                 exit();
             }
             else if ($this->action == 'edit') {
-                $user_model->updateUser();
+                $user_model->updateUser($this->id, $first_name, $last_name, $email, $password, $is_admin, $is_pilot, $id_center, $id_promotion);
                 header('Location: /admin/users');
                 exit();
             }
@@ -115,10 +123,13 @@ class ContentController {
         if ($this->action == 'delete') {
             $user_model->deleteUser($this->id);
             header('Location: /admin/users');
+            exit();
         }
         else if ($this->action == 'edit') {
             $result = $user_model->getUserDetails($this->id);
         }
+        $centers = $user_model->getCenters();
+        $promotions = $user_model->getPromotions();
         $content_type = 'user';
         $page = 'admin-modification-page';
         require_once '../app/view/view.php';
