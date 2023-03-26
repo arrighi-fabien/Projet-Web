@@ -13,10 +13,7 @@
                 <input type="email" name="email" id="email" placeholder="Email...">
             </div>
             <div class="login-form__content__input">
-                <div class="login-form__content__input__pwd-label">
-                    <label for="password">Mot de passe :</label>
-                    <a href="#" class="link-effect small-text">Mot de passe oublié ?</a>
-                </div>
+                <label for="password">Mot de passe :</label>
                 <input type="password" name="password" id="password" placeholder="Mot de passe...">
             </div>
             <div class="login-form__content__checkbox">
