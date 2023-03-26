@@ -6,15 +6,15 @@
 
     <div class="search-section search-section--offer m-5-0">
         <div class="card-background search-bar search-bar--offer p-1">
-            {include file="form-search-offers.tpl" skills=$skills}
+            {include file="form-search-offers.tpl"}
         </div>
-        <input type="button" value="Afficher les filtres" class="btn btn--secondary filter-btn">
+        <input type="button" value="Afficher les filtres" class="btn btn--secondary filter-btn" onclick="showFilters()">
         <div class="card-background offer-preview">
             <div class="card-background">
                 <div class="best-section__content best-section__content--col-1 card-display" id="result">
                     {$count = 0}
                     {foreach $offers as $offer}
-                        {include file="offer-card.tpl" offer_card=$offer current_page='search_offers' count=$count}
+                        {include file="offer-card.tpl" offer_card=$offer current_page='search_offers'}
                         {assign var="count" value=$count+1}
                     {/foreach}
                 </div>
@@ -29,7 +29,7 @@
                 </script>
                 <h1><a href="/offer-{$offers[0]->id_internship}" id="offer-description__title" class="important-title">{$offers[0]->internship_name}</a></h1>
                 <a href="/offer-{$offers[0]->id_internship}/apply" id="apply-btn"><input type="button" value="Postuler" class="btn btn--primary apply-btn"></a>
-                <input type="button" value="Fermer" class="btn btn--secondary offer-preview-close">
+                <input type="button" value="Fermer" class="btn btn--secondary offer-preview-close" onclick="closeOfferPreview()">
                 <div class="offer-description__company">
                     <p id="offer-description__company"><a href="/company-{$offers[0]->id_company}">{$offers[0]->company_name}</a></p>
                     <p id="offer-description__city">{$offers[0]->city_name}</p>
