@@ -65,6 +65,70 @@ class AuthModel extends Database {
         exit();
     }
 
+    /*
+    * Admin = 3
+    * Pilot = 2
+    * User = 1
+    */
+    public function getUserNumberPrivilege($id_user) : int {
+        $user = $this->query("SELECT * FROM users WHERE id_user = ?", [$id_user])->fetch();
+        if($user->is_admin == true){
+            return 3;
+        } else if($user->is_pilot == true){
+            return 2;
+        } else {
+            return 1;
+        }   
+    }
+
+
+    /*
+    * Return true if user is admin
+    *
+    * @param int $id_user
+    * 
+    * @return bool
+    */
+    public function userIsAdmin($id_user) : bool {
+        if(getUserNumberPrivilege($id_user) == 3){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /*
+    * Return true if user is pilot
+    *
+    * @param int $id_user
+    *
+    * @return bool
+    */
+
+    public function userIsPilot($id_user) : bool {
+        if(getUserNumberPrivilege($id_user) == 2){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /*
+    * Return true if user is student
+    *
+    * @param int $id_user
+    *
+    * @return bool
+    */
+    public function userIsStudent($id_user) : bool {
+        if(getUserNumberPrivilege($id_user) == 1){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public function getWishlistId() {
         $user = Session::getInstance()->read('user');
         $wishlist = $this->query("SELECT id_internship FROM wishlist WHERE id_user = ?", [$user->id_user])->fetchAll();
