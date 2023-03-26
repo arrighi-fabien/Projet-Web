@@ -6,16 +6,24 @@ class CompanyController {
         $company_model = new CompanyModel();
         $company = $company_model->getCompanyDetails($id);
         $company_ratings = $company_model->getRate($id);
+        $trust = $company_model->getTrust($id);
         $auth_model = new AuthModel();
         $is_logged = $auth_model->isLogged();
         if($is_logged) {
             $id_user = Session::getInstance()->read('user')->id_user;
+            //todo verify user permission
+            if(true){
+                $user_trust = $company_model->getUserTrust($id, $id_user)->result;
+            } else {
+                $user_trust = -1;
+            }
             $evaluation = $company_model->getUserRate($id, $id_user)->evaluation;
             $rated = ["","","","",""];
             for($i = 0; $i < $evaluation; $i++) {
                 $rated[$i] = "rated";
             }
         } else {
+            $user_trust = -1;
             $rated = ["","","","",""];
         }
         $offer_model = new OfferModel();

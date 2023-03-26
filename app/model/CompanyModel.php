@@ -81,13 +81,26 @@ class CompanyModel extends Database {
     }
 
     public function getRate($id_company) {
-        return $this->query("SELECT ROUND(AVG(evaluation), 2) AS evaluation FROM rate WHERE id_company = ?;", [$id_company])->fetch();
+        return $this->query("SELECT IFNULL(ROUND(AVG(evaluation), 2), 0) AS evaluation FROM rate WHERE id_company = ?;", [$id_company])->fetch();
     }
 
     public function getUserRate($id_company, $id_user) {
-        return $this->query("SELECT evaluation FROM rate WHERE id_company = ? AND id_user = ?;", [$id_company, $id_user])->fetch();
+        return $this->query("SELECT IFNULL((SELECT evaluation FROM rate WHERE id_company = ? AND id_user = ?), 0) AS evaluation;", [$id_company, $id_user])->fetch();
     }
     
+    public function setTrust($id_company, $id_user) {
+        $this->query("DELETE FROM trust WHERE id_company = ? AND id_user = ?", [$id_company, $id_user]);
+        $this->query("INSERT INTO trust (id_company, id_user) VALUES (?, ?)", [$id_company, $id_user]);
+    }
+
+    public function getTrust($id_company) {
+        return $this->query("SELECT IFNULL(COUNT(*), 0) AS result FROM `trust` WHERE `id_company` = ?;", [$id_company])->fetch();
+    }
+
+    public function getUserTrust($id_company, $id_user) {
+        return $this->query("SELECT IFNULL((SELECT 1 FROM `trust` WHERE id_company = ? AND `id_user` = ?), 0) AS result;", [$id_company, $id_user])->fetch();
+    }
+
     public function getCompanies() {
         return $this->query("SELECT id_company, company_name FROM company ORDER BY company_name ASC")->fetchAll();
     }

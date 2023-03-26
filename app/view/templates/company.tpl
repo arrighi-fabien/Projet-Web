@@ -16,14 +16,31 @@
         </div>
         <div class="text-and-svg">
             <svg><use href="/img/sprite.svg#user-check"></use></svg>
-            <p>2 pilotes valident cette entreprise</p>
+            {if $trust <= 1}
+                <p>{$trust} pilote valide cette entreprise</p>
+            {else}
+                <p>{$trust} pilotes valident cette entreprise</p>
+            {/if}
         </div>
         <div class="text-and-svg">
             <svg><use href="/img/sprite.svg#star"></use></svg>
             <p>{$company_ratings} / 5</p>
         </div>
     </div>
-    {include file="rate.tpl"}
+    <div class="detail-header__description detail-header__user">
+        {include file="rate.tpl"}
+        {if $user_trust == 1}
+            <div class="text-and-svg">
+                <input type="checkbox" id="trust" name="trust" checked>
+                <label for="trust">Donner ma confiance</label>
+                </div>
+        {else if $user_trust == 0}
+            <div class="text-and-svg">
+                <input type="checkbox" id="trust" name="trust">
+                <label for="trust">Donner ma confiance</label>
+            </div>
+        {/if}
+    </div>
 </div>
 <div class="detail-description">
     <div class="card-background detail-description__info p-2">

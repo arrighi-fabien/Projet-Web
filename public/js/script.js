@@ -124,7 +124,6 @@ if (document.querySelector('.rating')) {
     stars.forEach(function (star) {
         star.addEventListener('click', setRating);
         if (star.classList.contains('rated')) {
-            console.log('rated');
             $already_rate = true;
         }
     });
@@ -150,17 +149,14 @@ if (document.querySelector('.rating')) {
             star.removeEventListener('mouseover', hoverRating);
             star.removeEventListener('mouseout', resetRating);
         });
-        const company_id = window.location.href.split('-')[1];
+        const id_company = window.location.href.split('-')[1];
         url = window.location.origin + "/api/rating";
-        console.log(url);
-        console.log(rate);
-        console.log(company_id);
         $.ajax({
             url: url,
             type: "POST",
             data: {
                 rate: rate,
-                id_company: company_id
+                id_company: id_company
             },
             dataType: "json",
             success: function (data) {
@@ -168,7 +164,7 @@ if (document.querySelector('.rating')) {
                     window.location.href = window.location.origin + "/login";
                 }
             },
-            error: function (data) {
+            error: function () {
                 stars.forEach(function (star) {
                     star.classList.remove('rated');
                 });
@@ -193,4 +189,37 @@ if (document.querySelector('.rating')) {
             star.classList.remove('rated');
         });
     }
+}
+
+if (document.querySelector('#trust')) {
+    //#trust is clicked, send ajax request to api
+    trust_checkboxe = document.querySelector('#trust');
+    trust_checkboxe.addEventListener('click', function () {
+        if (trust_checkboxe.checked) {
+            checked = true;
+        }
+        else {
+            checked = false;
+        }
+        const id_company = window.location.href.split('-')[1];
+        url = window.location.origin + "/api/trusting";
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: {
+                checked: checked,
+                id_company: id_company
+            },
+            dataType: "json",
+            success: function (data) {
+                if (data["status"] == "not_logged_in") {
+                    window.location.href = window.location.origin + "/login";
+                }
+            },
+            error: function (data) {
+                console.log('error');
+                trust_checkboxe.checked = !checked;
+            }
+        });
+    });
 }

@@ -93,6 +93,14 @@ class AuthModel extends Database {
         $this->query("INSERT INTO rate (id_company, id_user, evaluation) VALUES (?, ?, ?)", [$id_company, $id_user, $rate]);
     }
 
+    public function addTrust($id_company, $id_user) {
+        $this->query("INSERT INTO trust (id_company, id_user) VALUES (?, ?)", [$id_company, $id_user]);
+    }
+
+    public function removeTrust($id_company, $id_user) {
+        $this->query("DELETE FROM trust WHERE id_company = ? AND id_user = ?", [$id_company, $id_user]);
+    }
+
     public function getCandidatures() {
         $user = Session::getInstance()->read('user');
         $candidatures = $this->query("SELECT * FROM candidate NATURAL JOIN internship NATURAL JOIN company NATURAL JOIN city WHERE id_user = ?", [$user->id_user]);
