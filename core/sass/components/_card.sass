@@ -49,10 +49,28 @@
     width: 15%
     text-align: right
 
+@media screen and (max-width: $breakpoint-small-desktop)
+  .card-company
+    width: 100%
+    &__content
+      &__img
+        width: 5rem
+        height: 5rem
+
+@media screen and (max-width: $breakpoint-tablet)
+  .card-company
+    width: 90%
+    &__content
+      &__img
+        width: 4rem
+        height: 4rem
+        &__info
+          width: 80%
+          font-size: 0.9rem
+
 @media screen and (max-width: $breakpoint-small-tablet)
   .card-company
     width: 90%
-    height: 10.4rem
     padding: 0 1.5rem
     &__content
       &__img
@@ -61,5 +79,9 @@
       &__info
         width: 80%
         font-size: 0.9rem
+        &__job
+          font-size: 1rem
+        &__title
+          font-size: 0.9rem
     &__offer
       display: none
