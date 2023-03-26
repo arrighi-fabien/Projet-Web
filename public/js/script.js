@@ -64,7 +64,6 @@ if (document.querySelector('.filter-btn')) {
 function displayPreviewOffer() {
     document.querySelectorAll('.card-preview').forEach((card) => {
         card.addEventListener('click', () => {
-            console.log(offers_json);
             const id = card.getAttribute('data-id');
             document.querySelector('#offer-description__title').innerHTML = offers_json[id].internship_name;
             // Put the company name in link

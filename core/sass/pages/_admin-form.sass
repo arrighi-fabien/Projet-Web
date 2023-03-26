@@ -7,3 +7,15 @@
     flex-direction: column
     width: 50%
     margin: 0 auto 1rem auto
+
+@media screen and (max-width: $breakpoint-tablet)
+  .admin-form
+    width: 70%
+    &__element
+      width: 70%
+
+@media screen and (max-width: $breakpoint-phone)
+  .admin-form
+    width: 90%
+    &__element
+      width: 90%
