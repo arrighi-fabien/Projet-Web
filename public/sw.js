@@ -17,11 +17,14 @@ self.addEventListener("install", (event) => {
     event.waitUntil(
         (async () => {
             const cache = await caches.open(PREFIX);
+            pages = [];
             await Promise.all(
                 OFFLINE_PAGES.map((page) => {
+                    pages.push(page);
                     return cache.add(new Request(`${page}`)); // put the offline pages in the cache
                 })
             );
+            console.log(`Service Worker ${PREFIX} caching ${pages}`);
         })()
     );
     console.log(`Service Worker ${PREFIX} installed`);
@@ -54,15 +57,12 @@ self.addEventListener("activate", (event) => {
  */
 
 self.addEventListener("fetch", function (event) {
-    console.log(
-        `Service Worker ${PREFIX} fetch ${event.request.url}, mode: ${event.request.mode}`
-    );
+    //console.log(`Service Worker ${PREFIX} fetch ${event.request.url}, mode: ${event.request.mode}`);
     let $url_Path = new URL(event.request.url).pathname;
     if (OFFLINE_PAGES.includes($url_Path)) {
+        console.log(`Service Worker ${PREFIX} fetch ${event.request.url} from cache`);
         event.respondWith(caches.match(event.request)); // return the cached version of the file if it exists
     } else if (event.request.mode === "navigate") {
-        console.log("Navigate request");
-        console.log(event.request.url);
         event.respondWith(
             (async () => {
                 try {

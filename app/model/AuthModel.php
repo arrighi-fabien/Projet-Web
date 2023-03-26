@@ -82,6 +82,17 @@ class AuthModel extends Database {
         return AppModel::getEllapsedTime($wishlist->fetchAll(), 'offer_date');
     }
 
+    public function getRate() {
+        $user = Session::getInstance()->read('user');
+        $rate = $this->query("SELECT * FROM rate WHERE id_user = ?", [$user->id_user]);
+        return $rate;
+    }
+
+    public function addRate($id_company, $id_user, $rate) {
+        $this->query("DELETE FROM rate WHERE id_company = ? AND id_user = ?", [$id_company, $id_user]);
+        $this->query("INSERT INTO rate (id_company, id_user, evaluation) VALUES (?, ?, ?)", [$id_company, $id_user, $rate]);
+    }
+
     public function getCandidatures() {
         $user = Session::getInstance()->read('user');
         $candidatures = $this->query("SELECT * FROM candidate NATURAL JOIN internship NATURAL JOIN company NATURAL JOIN city WHERE id_user = ?", [$user->id_user]);

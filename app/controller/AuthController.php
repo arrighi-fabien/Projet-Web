@@ -48,6 +48,7 @@ class AuthController {
                     if ($auth->login($_POST['email'], $_POST['password'], isset($_POST['remember']))) {
                         $auth->getWishlistId();
                         $wishlist = $auth->getWishlist();
+                        $rate = $auth->getRate();
                         header("Location: /dashboard");
                         exit();
                     }
@@ -74,6 +75,7 @@ class AuthController {
                 $auth = new AuthModel();
                 $auth->getWishlistId();
                 $wishlist = $auth->getWishlist();
+                $rate = $auth->getRate();
                 $candidatures = $auth->getCandidatures();
 
                 $page = 'dashboard';
