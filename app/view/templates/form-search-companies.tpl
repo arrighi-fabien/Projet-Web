@@ -15,6 +15,13 @@
             <option value="1">Oui</option>
             <option value="">Non</option>
         </select>
+        {if isset($admin_page) && $admin_page == true}
+            <select name="is_visible">
+                <option value="">Visible</option>
+                <option value="1">Oui</option>
+                <option value="0">Non</option>
+            </select>
+        {/if}
     </div>
     <input type="reset" value="Reset" class="btn btn--secondary">
     <script src="/js/api.js"></script>

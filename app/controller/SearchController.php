@@ -56,8 +56,15 @@ class SearchController {
         $rate = isset($_GET['rate']) ? $_GET['rate'] : null;
         $trust = isset($_GET['trust']) ? $_GET['trust'] : null;
         $nb_page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $companies = $search_model->searchCompanies($this->LIMIT_REQUEST, $nb_page, $company_name, $city_name, $sector_name, $student_accepted, $rate, $trust);
-        $max_page = $search_model->searchCompaniesMaxPage($company_name, $city_name, $sector_name, $student_accepted, $rate, $trust);
+        $is_visible = 1;
+        if ($this->method == 'api') {
+            $is_visible = isset($_GET['is_visible']) ? $_GET['is_visible'] : 1;
+        }
+        if ($this->method != 'api' && isset($_SESSION['user']) && ($_SESSION['user']->is_admin == 1 || $_SESSION['user']->is_pilot == 1)) {
+            $is_visible = isset($_GET['is_visible']) ? $_GET['is_visible'] : 1;
+        }
+        $companies = $search_model->searchCompanies($this->LIMIT_REQUEST, $nb_page, $company_name, $city_name, $sector_name, $student_accepted, $rate, $trust, $is_visible);
+        $max_page = $search_model->searchCompaniesMaxPage($company_name, $city_name, $sector_name, $student_accepted, $rate, $trust, $is_visible);
         $max_page = ceil($max_page->max_page / $this->LIMIT_REQUEST);
         if ($this->method == 'search') {
             $sectors = $search_model->getSectors();

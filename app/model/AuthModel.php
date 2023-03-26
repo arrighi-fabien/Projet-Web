@@ -20,7 +20,7 @@ class AuthModel extends Database {
                     else {
                         $this->query("INSERT INTO remember (id_user, remember_token) VALUES (?, ?)", [$user->id_user, $remember_token]);
                     }
-                    setcookie('remember', $user->id_user.'='.$remember_token, time() + 60 * 60 * 24 * 7, '', '', true, true);
+                    setcookie('remember', $user->id_user.'='.$remember_token, time() + 60 * 60 * 24 * 7, '', '', false, false);
                 }
                 return true;
             }
@@ -40,16 +40,16 @@ class AuthModel extends Database {
             if ($user) {
                 if ($remember_token[1] === $user->remember_token) {
                     Session::getInstance()->write('user', $user);
-                    setcookie('remember', $user->id_user.'='.$user->remember_token, time() + 60 * 60 * 24 * 7, '/login', '', true, true);
+                    setcookie('remember', $user->id_user.'='.$user->remember_token, time() + 60 * 60 * 24 * 7, '/login', '', false, false);
                     return true;
                 }
                 else {
-                    setcookie('remember', null, -1, '/login', '', true, true);
+                    setcookie('remember', null, -1, '/login', '', false, false);
                     return false;
                 }
             }
             else {
-                setcookie('remember', null, -1, '/login', '', true, true);
+                setcookie('remember', null, -1, '/login', '', false, false);
                 return false;
             }
         }
@@ -59,7 +59,7 @@ class AuthModel extends Database {
     }
 
     public function logout() {
-        setcookie('remember', '', time() - 3600, '/login', '', true, true);
+        setcookie('remember', '', time() - 3600, '/login', '', false, false);
         Session::getInstance()->destroy('user');
         header("Location: /");
         exit();
@@ -226,7 +226,7 @@ class AuthModel extends Database {
     public function getCenters() {
         return $this->query("SELECT * FROM center")->fetchAll();
     }
-    
+
     public function getPromotions() {
         return $this->query("SELECT * FROM promotion")->fetchAll();
     }
