@@ -53,4 +53,10 @@ class AppModel {
         }
         return $str;
     }
+
+    static function escapeElement($element) {
+        $element = htmlspecialchars($element);
+        $element = str_replace("'", "\'", $element);
+        return $element;
+    }
 }

@@ -13,6 +13,9 @@ class AdminController {
             if ($current_page == 'admin_offers') {
                 $search_offers = new OfferModel();
                 $results = $search_offers->searchOffers(10, 1);
+                $nb_page = isset($_GET['page']) ? $_GET['page'] : 1;
+                $max_page = $search_offers->searchOffersMaxPage();
+                $max_page = ceil($max_page->max_page / 10);
                 $skills = $search_offers->getSkills();
                 $search_mode = 'offer';
             }
@@ -38,6 +41,7 @@ class AdminController {
                 }
                 else if (substr($current_page, 0, 3) == 'api') {
                     header('Content-Type: application/json');
+                    $results[] = 1;
                     $users_json = json_encode($results);
                     echo $users_json;
                     exit();

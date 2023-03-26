@@ -58,7 +58,7 @@
     </div>
     <div class="admin-form__element">
         <label for="description">Description</label>
-        <textarea name="description" id="description" cols="30" rows="10">{if isset($offer[0]->description)}{$offer[0]->description}{/if}</textarea>
+        <textarea name="description" placeholder="Description..." id="description" cols="30" rows="10">{if isset($offer[0]->description)}{$offer[0]->description}{/if}</textarea>
     </div>
         <input type="submit" value="{if isset($offer[0]->id_internship)}Modifier{else}Créer{/if}" class="btn btn--primary center-btn">
 </form>

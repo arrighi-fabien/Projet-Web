@@ -17,7 +17,13 @@
         <input type="button" value="Afficher les filtres" class="btn btn--secondary filter-btn">
         <div class="card-background">
             <h2 class="center-title important-title">Résultats</h2>
-            <a href="/admin/offer/add" class="link-effect">Ajouter une offre</a>
+            {if $current_page == "admin_offers"}
+                <a href="/admin/offer/add" class="link-effect">Ajouter une offre</a>
+            {else if $current_page == "admin_companies"}
+                <a href="/admin/company/add" class="link-effect">Ajouter une entreprise</a>
+            {else if $current_page == "admin_users"}
+                <a href="/admin/user/add" class="link-effect">Ajouter un utilisateur</a>
+            {/if}
             <div class="best-section__content best-section__content--col-1 card-display" id="result">
                 {$count = 0}
                 {foreach $results as $result}
@@ -33,7 +39,7 @@
             </div>
             <div class="card-display__pagination">
                 <img src="/img/fade.webp" alt="" class="fade-scroll">
-                <p>1234</p>
+                {include file="pagination.tpl"}
             </div>
         </div>
     </div>

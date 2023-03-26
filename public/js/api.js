@@ -110,12 +110,8 @@ function search(url, type, nb_page) {
     type: "GET",
     dataType: "json",
     success: function (data) {
-      data.forEach((result) => {
-        console.log(result);
-      });
       // get in data the last element which is the max page
       let max_page = data.pop();
-      console.log(max_page);
       // delete all the previous results
       document.querySelector("#result").innerHTML = "";
       //check if there is no result
@@ -134,7 +130,12 @@ function search(url, type, nb_page) {
           card_number++;
         });
         //call the function to add the event listener on the card-link
+        offers_json = data;
         displayPreviewOffer();
+      } else if (type == "user") {
+        data.forEach((result) => {
+          displayUserCard(result);
+        });
       }
       if (max_page == 0) {
         document.querySelector(".btn__pagination").style.display = "none";
@@ -187,10 +188,19 @@ function search(url, type, nb_page) {
 }
 
 function displayOfferCard(data, card_number) {
+  // get origin page
+  let origin = window.location.href.split("?")[0];
+  // if origin is the admin page then add the admin/offer- before the id of the internship
+  let link = "";
+  if (origin.indexOf("admin") > -1) {
+    link = `<a href="/admin/offer-${data.id_internship}" class="card-link"></a>`;
+  } else {
+    link = `<span data-id="${card_number}" class="card-link card-preview"> </span>`;
+  }
   document.querySelector('#result').innerHTML += `
-    <div class="card-company card-background">
-      <span data-id="${card_number}" class="card-link card-preview"> </span>
-      <div class="card-company__content">
+    <div class="card-company card-background">`
+      + link +
+      `<div class="card-company__content">
         <img src="/img/company/${data.company_name}.webp" alt="${data.company_name} logo" class="card-company__content__img">
         <div class="card-company__content__info">
           <h4 class="card-company__content__info__job">${data.internship_name}</h4>
@@ -231,7 +241,7 @@ function displayCompanyCard(data) {
 function displayUserCard(data) {
   document.querySelector('#result').innerHTML += `
   <div class="card-company card-background">
-    <span class="card-link card-preview"> </span>
+    <a href="/admin/user-${data.id_user}" class="card-link"></a>
     <div class="card-company__content">
       <img src="/img/user.webp" alt="Default logo" class="card-company__content__img">
       <div class="card-company__content__info">
