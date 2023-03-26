@@ -7,7 +7,7 @@ class CompanyModel extends Database {
     }
 
     public function getCompanyDetails($id) {
-        return $this->query("SELECT company.id_company, company_name, GROUP_CONCAT(DISTINCT city_name ORDER BY city_name SEPARATOR ', ') AS city, sector_name, COUNT(id_internship) AS offers, email, nb_student_accepted, IFNULL((SELECT 1 FROM trust WHERE trust.id_company = company.id_company), 0) AS trust, company_description, is_visible FROM company JOIN work_at ON company.id_company = work_at.id_company JOIN city ON work_at.id_city = city.id_city JOIN sector ON company.id_sector = sector.id_sector LEFT JOIN internship ON company.id_company = internship.id_company WHERE company.id_company = ? GROUP BY company.id_company", [$id])->fetch();
+        return $this->query("SELECT company.id_company, company_name, GROUP_CONCAT(DISTINCT city_name ORDER BY city_name SEPARATOR ', ') AS city, sector_name, COUNT(id_internship) AS offers, email, nb_student_accepted, (SELECT CASE WHEN COUNT(*) > 0 THEN COUNT(*) ELSE 0 END FROM trust WHERE trust.id_company = company.id_company) AS trust, company_description, is_visible FROM company JOIN work_at ON company.id_company = work_at.id_company JOIN city ON work_at.id_city = city.id_city JOIN sector ON company.id_sector = sector.id_sector LEFT JOIN internship ON company.id_company = internship.id_company WHERE company.id_company = ? GROUP BY company.id_company", [$id])->fetch();
     }
 
     public function searchCompanies($limit, $page, $company_name = null, $city_name = null, $sector_name = null, $student_accepted = null, $rate = null, $trust = null, $is_visible = 1) {

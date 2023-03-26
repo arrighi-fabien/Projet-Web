@@ -230,4 +230,28 @@ class AuthModel extends Database {
     public function getPromotions() {
         return $this->query("SELECT * FROM promotion")->fetchAll();
     }
+
+    public function addUser($first_name, $last_name, $email, $password, $is_admin, $is_pilot, $center, $promotion) {
+        $password = password_hash($password, PASSWORD_BCRYPT);
+        $this->query("INSERT INTO users (last_name, first_name, email, password, is_admin, is_pilot, id_center) VALUES (?, ?, ?, ?, ?, ?, ?)", [$last_name, $first_name, $email, $password, $is_admin, $is_pilot, $center]);
+        $id_user = $this->query("SELECT id_user FROM users WHERE email = ?", [$email])->fetch()->id_user;
+        $this->query("INSERT INTO is_in (id_user, id_promotion) VALUES (?, ?)", [$id_user, $promotion]);
+    }
+
+    public function deleteUser($id_user) {
+        $this->query("DELETE FROM users WHERE id_user = ?", [$id_user]);
+    }
+
+    public function updateUser($id_user, $first_name, $last_name, $email, $password, $is_admin, $is_pilot, $center, $promotion) {
+        if ($password) {
+            $password = password_hash($password, PASSWORD_BCRYPT);
+            $this->query("UPDATE users SET password = ? WHERE id_user = ?", [$password, $id_user]);
+        }
+        $this->query("UPDATE users SET last_name = ?, first_name = ?, email = ?, is_admin = ?, is_pilot = ?, id_center = ? WHERE id_user = ?", [$last_name, $first_name, $email, $is_admin, $is_pilot, $center, $id_user]);
+        $this->query("UPDATE is_in SET id_promotion = ? WHERE id_user = ?", [$promotion, $id_user]);
+    }
+
+    public function getUserDetails($id_user) {
+        return $this->query("SELECT * FROM users NATURAL JOIN is_in NATURAL JOIN promotion NATURAL JOIN center WHERE id_user = ?", [$id_user])->fetch();
+    }
 }

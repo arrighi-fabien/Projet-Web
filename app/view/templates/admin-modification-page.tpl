@@ -9,7 +9,7 @@
     {elseif $content_type == 'company'}
         {include file="form-admin-companies.tpl" company=$result sectors=$sectors}
     {elseif $content_type == 'user'}
-        {include file="form-admin-users.tpl"}
+        {include file="form-admin-users.tpl" user_card=$result}
     {/if}
 </main>
 
