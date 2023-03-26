@@ -5,7 +5,7 @@ class Session {
     static $session;
 
     public function __construct() {
-        session_set_cookie_params(0, '/', '', true, true);
+        session_set_cookie_params(0, '/', '', false, false);
         session_start();
     }
 

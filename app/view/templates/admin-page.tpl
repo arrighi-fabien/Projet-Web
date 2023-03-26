@@ -9,7 +9,7 @@
             {if $current_page == "admin_offers"}
                 {include file="form-search-offers.tpl" skills=$skills}
             {else if $current_page == "admin_companies"}
-                {include file="form-search-companies.tpl" sectors=$sectors}
+                {include file="form-search-companies.tpl" sectors=$sectors admin_page=true}
             {else if $current_page == "admin_users"}
                 {include file="form-search-users.tpl" centers=$centers promotions=$promotions}
             {/if}

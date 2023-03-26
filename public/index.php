@@ -26,8 +26,7 @@ $router->map('GET|POST', '/admin/offer-[i:id]', 'ContentController', 'offers_edi
 $router->map('POST', '/admin/offer-[i:id]/delete', 'ContentController', 'offers_delete');
 $router->map('GET', '/admin/companies', 'AdminController', 'admin_companies');
 $router->map('GET|POST', '/admin/company/add', 'ContentController', 'companies_add');
-$router->map('GET', '/admin/company-[i:id]', 'ContentController', 'companies_edit');
-$router->map('POST', '/admin/company-[i:id]/hide', 'ContentController', 'companies_hide');
+$router->map('GET|POST', '/admin/company-[i:id]', 'ContentController', 'companies_edit');
 $router->map('GET', '/admin/users', 'AdminController', 'admin_users');
 $router->map('GET|POST', '/admin/user/add', 'ContentController', 'users_add');
 $router->map('GET|POST', '/admin/user-[i:id]', 'ContentController', 'users_edit');

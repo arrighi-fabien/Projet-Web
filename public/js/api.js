@@ -28,6 +28,10 @@ if (document.querySelector("#search-form")) {
           url_params += (url_params.indexOf('?') > -1) ? '&' + key + '=' + value : '?' + key + '=' + value;
         }
       });
+      // If page link contain admin and formData contain is_visible and it's value is 0 then add it to the url
+      if (window.location.href.indexOf('admin') > -1 && formData.get('is_visible') === '0') {
+        url_params += (url_params.indexOf('?') > -1) ? '&' + 'is_visible' + '=' + '0' : '?' + 'is_visible' + '=' + '0';
+      }
 
       url += url_params;
       current_url += url_params;
@@ -66,6 +70,7 @@ function paginationOffer(class_name) {
       "student_accepted",
       "rate",
       "trust",
+      "is_visible",
     ];
   }
   params_name.forEach((param_name) => {

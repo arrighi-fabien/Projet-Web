@@ -80,17 +80,12 @@ class ContentController {
                 exit();
             }
             else if ($this->action == 'edit') {
-                $company_model->updateCompany();
+                $company_model->updateCompany($this->id, $company_name, $email, $is_visible, $city_name, $id_sector, $student_accepted, $description);
                 header('Location: /admin/companies');
                 exit();
             }
         }
-        if ($this->action == 'hide') {
-            $company_model->hideCompany($this->id);
-            header('Location: /admin/companies');
-            exit();
-        }
-        else if ($this->action == 'edit') {
+        if ($this->action == 'edit') {
             $result = $company_model->getCompanyDetails($this->id);
             if ($result != null) {
                 $company_sector = $company_model->getSectors($this->id);
@@ -104,15 +99,28 @@ class ContentController {
     }
 
     private function users() {
-        if ($this->element == 'offers') {
-            $offer_model = new OfferModel();
-            $offer_model->deleteOffer($this->id);
-            header('Location: /admin/offers');
+        $user_model = new AuthModel();
+        if (isset($_POST) && !empty($_POST)) {
+            if ($this->action == 'add') {
+                $user_model->addUser();
+                header('Location: /admin/users');
+                exit();
+            }
+            else if ($this->action == 'edit') {
+                $user_model->updateUser();
+                header('Location: /admin/users');
+                exit();
+            }
         }
-        else if ($this->element == 'users') {
-            $user_model = new AuthModel();
+        if ($this->action == 'delete') {
             $user_model->deleteUser($this->id);
             header('Location: /admin/users');
         }
+        else if ($this->action == 'edit') {
+            $result = $user_model->getUserDetails($this->id);
+        }
+        $content_type = 'user';
+        $page = 'admin-modification-page';
+        require_once '../app/view/view.php';
     }
 }
