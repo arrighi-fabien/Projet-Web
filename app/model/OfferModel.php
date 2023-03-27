@@ -138,4 +138,8 @@ class OfferModel extends Database {
     public function deleteOffer($id) {
         $this->query("DELETE FROM internship WHERE id_internship = ?", [$id]);
     }
+
+    public function applyOffer($id_student, $id_internship) {
+        $this->query("INSERT INTO apply (id_student, id_internship) VALUES (?, ?)", [$id_student, $id_internship]);
+    }
 }

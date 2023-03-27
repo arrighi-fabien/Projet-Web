@@ -14,6 +14,7 @@ $router->map('GET', '/search/offers', 'SearchController', 'search_offers');
 // Details pages
 $router->map('GET', '/company-[i:id]', 'CompanyController', 'company');
 $router->map('GET', '/offer-[i:id]', 'OfferController', 'offer');
+$router->map('GET|POST', '/offer-[i:id]/apply', 'ApplyController', 'offer_apply');
 // Account pages
 $router->map('GET', '/login', 'AuthController', 'login_page');
 $router->map('POST', '/login/connect', 'AuthController', 'login');
@@ -54,7 +55,7 @@ if ($match != null) {
         $action = explode('_', $current_page);
         $controler = new $match['target']($action[0], $action[1]);
     }
-    else if (substr($match['target'], 0, 5) == 'Offer' || substr($match['target'], 0, 7) == 'Company') {
+    else if (substr($match['target'], 0, 5) == 'Offer' || substr($match['target'], 0, 7) == 'Company' || substr($match['target'], 0, 5) == 'Apply') {
         $controler = new $match['target']($params['id']);
     }
     else if (substr($match['target'], 0, 4) == 'Auth' || substr($match['target'], 0, 5) == 'Admin') {

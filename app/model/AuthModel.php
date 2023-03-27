@@ -286,4 +286,8 @@ class AuthModel extends Database {
     public function getUserDetails($id_user) {
         return $this->query("SELECT * FROM users NATURAL JOIN is_in NATURAL JOIN promotion NATURAL JOIN center WHERE id_user = ?", [$id_user])->fetch();
     }
+
+    public function addCandidate($id_offer, $id_user) {
+        $this->query("INSERT INTO candidate (id_internship, id_user) VALUES (?, ?)", [$id_offer, $id_user]);
+    }
 }

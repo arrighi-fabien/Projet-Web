@@ -5,9 +5,9 @@
 
     <div class="search-section m-5-0">
         <div class="card-background search-bar p-1">
-            {include file="form-search-companies.tpl" sectors=$sectors}
+            {include file="form-search-companies.tpl"}
         </div>
-        <input type="button" value="Afficher les filtres" class="btn btn--secondary filter-btn">
+        <input type="button" value="Afficher les filtres" class="btn btn--secondary filter-btn" onclick="showFilters()">
         <div>
             <div class="card-background">
                 <div class="best-section__content card-display" id="result">

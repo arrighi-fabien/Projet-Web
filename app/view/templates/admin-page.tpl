@@ -7,14 +7,14 @@
     <div class="search-section m-5-0">
         <div class="card-background search-bar search-bar--offer p-1">
             {if $current_page == "admin_offers"}
-                {include file="form-search-offers.tpl" skills=$skills}
+                {include file="form-search-offers.tpl"}
             {else if $current_page == "admin_companies"}
-                {include file="form-search-companies.tpl" sectors=$sectors admin_page=true}
+                {include file="form-search-companies.tpl" admin_page=true}
             {else if $current_page == "admin_users"}
-                {include file="form-search-users.tpl" centers=$centers promotions=$promotions}
+                {include file="form-search-users.tpl"}
             {/if}
         </div>
-        <input type="button" value="Afficher les filtres" class="btn btn--secondary filter-btn">
+        <input type="button" value="Afficher les filtres" class="btn btn--secondary filter-btn" onclick="showFilters()">
         <div class="card-background">
             <h2 class="center-title important-title">Résultats</h2>
             {if $current_page == "admin_offers"}

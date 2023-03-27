@@ -8,29 +8,6 @@ nav_menu.addEventListener('click', () => {
     nav__account.classList.toggle('header__account--open');
 });
 
-if (document.querySelector('.popup-form__close')) {
-    document.querySelector('.popup-form__close').addEventListener('click', () => {
-        document.querySelector('.popup-background').classList.toggle('popup-background--active');
-        setTimeout(() => {
-            document.querySelector('.popup-form').classList.toggle('hidden');
-        }, 500);
-    });
-}
-
-if (document.querySelector('.header__account')) {
-    document.querySelector('.header__account').addEventListener('click', () => {
-        document.querySelector('.popup-form').classList.toggle('hidden');
-        document.querySelector('.popup-background').classList.toggle('popup-background--active');
-    });
-}
-
-if (document.querySelector('.apply-btn')) {
-    document.querySelector('.apply-btn').addEventListener('click', () => {
-        document.querySelector('.popup-form').classList.toggle('hidden');
-        document.querySelector('.popup-background').classList.toggle('popup-background--active');
-    });
-}
-
 if (document.querySelector('.card-company')) {
     document.querySelectorAll('.card-company').forEach((card) => {
         card.addEventListener('click', () => {
@@ -39,27 +16,21 @@ if (document.querySelector('.card-company')) {
     });
 }
 
-if (document.querySelector('.offer-preview-close')) {
-    document.querySelector('.offer-preview-close').addEventListener('click', () => {
-        document.querySelector('.offer-description').scrollTop = 0;
-        document.querySelector('.offer-description').classList.toggle('offer-description--active');
-    });
+function closeOfferPreview() {
+    document.querySelector('.offer-description').scrollTop = 0;
+    document.querySelector('.offer-description').classList.toggle('offer-description--active');
 }
 
-if (document.querySelector('.filter-btn')) {
-    document.querySelector('.filter-btn').addEventListener('click', () => {
-        document.querySelector('.search-bar').classList.toggle('search-bar--active');
-        if (document.querySelector('.filter-btn').value == 'Afficher les filtres') {
-            document.querySelector('.filter-btn').value = 'Fermer les filtres';
-        }
-        else {
-            document.querySelector('.filter-btn').value = 'Afficher les filtres';
-        }
-        window.scrollTo(0, 0);
-    });
+function showFilters() {
+    document.querySelector('.search-bar').classList.toggle('search-bar--active');
+    if (document.querySelector('.filter-btn').value == 'Afficher les filtres') {
+        document.querySelector('.filter-btn').value = 'Fermer les filtres';
+    }
+    else {
+        document.querySelector('.filter-btn').value = 'Afficher les filtres';
+    }
+    window.scrollTo(0, 0);
 }
-
-
 
 function displayPreviewOffer() {
     document.querySelectorAll('.card-preview').forEach((card) => {
@@ -75,6 +46,7 @@ function displayPreviewOffer() {
             document.querySelector('#offer-description__skills').innerHTML = offers_json[id].skills;
             document.querySelector('#offer-description__places').innerHTML = offers_json[id].places_students + ' place' + (offers_json[id].places_students > 1 ? 's' : '') + ' disponible' + (offers_json[id].places_students > 1 ? 's' : '');
             document.querySelector('#offer-description__description').innerHTML = offers_json[id].description;
+            document.querySelector('#apply-btn').setAttribute('href', '/offer-' + offers_json[id].id_internship + '/apply');
 
             // Change href of title
             document.querySelector('#offer-description__title').href = '/offer-' + offers_json[id].id_internship;
@@ -192,7 +164,6 @@ if (document.querySelector('.rating')) {
 }
 
 if (document.querySelector('#trust')) {
-    //#trust is clicked, send ajax request to api
     trust_checkboxe = document.querySelector('#trust');
     trust_checkboxe.addEventListener('click', function () {
         if (trust_checkboxe.checked) {
