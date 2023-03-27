@@ -90,7 +90,7 @@ class AuthModel extends Database {
     * @return bool
     */
     public function userIsAdmin($id_user) : bool {
-        if(getUserNumberPrivilege($id_user) == 3){
+        if($this->getUserNumberPrivilege($id_user) == 3){
             return true;
         } else {
             return false;
@@ -106,7 +106,7 @@ class AuthModel extends Database {
     */
 
     public function userIsPilot($id_user) : bool {
-        if(getUserNumberPrivilege($id_user) == 2){
+        if($this->getUserNumberPrivilege($id_user) == 2){
             return true;
         } else {
             return false;
@@ -121,7 +121,7 @@ class AuthModel extends Database {
     * @return bool
     */
     public function userIsStudent($id_user) : bool {
-        if(getUserNumberPrivilege($id_user) == 1){
+        if($this->getUserNumberPrivilege($id_user) == 1){
             return true;
         } else {
             return false;
