@@ -4,9 +4,9 @@
     <div class="nav--admin">
         <a href="/logout" class="btn btn--secondary">Déconnexion</a>
         {if !$is_student}
-            <a href="/admin/offers" class="btn btn--secondary">Offers</a>
-            <a href="/admin/companies" class="btn btn--secondary">Companies</a>
-            <a href="/admin/users" class="btn btn--secondary">Users</a>
+            <a href="/admin/offers" class="btn btn--secondary">Offre</a>
+            <a href="/admin/companies" class="btn btn--secondary">Entreprise</a>
+            <a href="/admin/users" class="btn btn--secondary">Utilisateur</a>
         {/if}
     </div>
     <div class="best-section__content">
