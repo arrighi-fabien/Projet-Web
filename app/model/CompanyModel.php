@@ -14,6 +14,10 @@ class CompanyModel extends Database {
         return $this->query("SELECT email FROM company NATURAL JOIN internship WHERE id_internship = ?", [$id])->fetch();
     }
 
+    public function getCompanyIdIntership($id) {
+        return $this->query("SELECT id_company FROM internship WHERE id_internship = ?", [$id])->fetch();
+    }
+
     public function searchCompanies($limit, $page, $company_name = null, $city_name = null, $sector_name = null, $student_accepted = null, $rate = null, $trust = null, $is_visible = 1) {
         $offset = $limit * ($page - 1);
         $tab = [];

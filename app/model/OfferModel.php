@@ -10,7 +10,7 @@ class OfferModel extends Database {
     public function searchOffers($limit, $page, $internship_name = null, $company_name = null, $city_name = null, $sector_name = null, $nb_places = null, $skill_name = null, $duration = null, $salary = null) {
         $offset = $limit * ($page - 1);
         $tab = [];
-        $query = "SELECT internship.id_internship, internship_name, offer_date, company.id_company, company_name, city_name, places_students, GROUP_CONCAT(DISTINCT skill_name ORDER BY skill_name SEPARATOR ', ') AS skills, duration, salary, internship.description FROM internship JOIN city ON internship.id_city = city.id_city JOIN company ON company.id_company = internship.id_company JOIN need ON internship.id_internship = need.id_internship JOIN skill ON need.id_skill = skill.id_skill WHERE is_visible = 1";
+        $query = "SELECT internship.id_internship, internship_name, offer_date, company.id_company, company_name, city_name, places_students, GROUP_CONCAT(DISTINCT skill_name ORDER BY skill_name SEPARATOR ', ') AS skills, promotion.promotion_name, duration, salary, internship.description FROM internship JOIN city ON internship.id_city = city.id_city JOIN company ON company.id_company = internship.id_company JOIN need ON internship.id_internship = need.id_internship JOIN skill ON need.id_skill = skill.id_skill LEFT JOIN concern ON internship.id_internship = concern.id_internship JOIN promotion ON promotion.id_promotion = concern.id_promotion WHERE is_visible = 1";
         if ($internship_name != null) {
             $query .= " AND internship_name LIKE ?";
             array_push($tab, '%'.$internship_name.'%');
@@ -89,7 +89,7 @@ class OfferModel extends Database {
     }
 
     public function getOfferDetails($id) {
-        $result = $this->query("SELECT internship.id_internship, internship_name, offer_date, places_students, company.id_company, company_name, city_name, internship.description, duration, salary, GROUP_CONCAT(DISTINCT skill_name ORDER BY skill_name SEPARATOR ', ') AS skills, internship.description, sector_name FROM internship JOIN city ON internship.id_city = city.id_city JOIN company ON company.id_company = internship.id_company LEFT JOIN need ON internship.id_internship = need.id_internship JOIN skill ON need.id_skill = skill.id_skill JOIN sector ON company.id_sector = sector.id_sector WHERE internship.id_internship = ? GROUP BY internship.id_internship", [$id]);
+        $result = $this->query("SELECT internship.id_internship, internship_name, offer_date, promotion.promotion_name, places_students, company.id_company, company_name, city_name, internship.description, duration, salary, GROUP_CONCAT(DISTINCT skill_name ORDER BY skill_name SEPARATOR ', ') AS skills, internship.description, sector_name FROM internship JOIN city ON internship.id_city = city.id_city JOIN company ON company.id_company = internship.id_company LEFT JOIN need ON internship.id_internship = need.id_internship JOIN skill ON need.id_skill = skill.id_skill LEFT JOIN concern ON internship.id_internship = concern.id_internship JOIN promotion ON promotion.id_promotion = concern.id_promotion JOIN sector ON company.id_sector = sector.id_sector WHERE internship.id_internship = ? GROUP BY internship.id_internship", [$id]);
         if ($result->rowCount() == 0) {
             return false;
         }
@@ -104,7 +104,7 @@ class OfferModel extends Database {
         return $this->query("SELECT id_skill, skill_name FROM need NATURAL JOIN skill WHERE id_internship = ?", [$id])->fetchAll();
     }
 
-    public function addOffer($internship_name, $id_company, $city_name, $description, $duration, $salary, $nb_places, $skills) {
+    public function addOffer($internship_name, $id_company, $city_name, $description, $duration, $salary, $nb_places, $skills, $concern) {
         // get id of city and create it if it doesn't exist
         $id_city = $this->query("SELECT id_city FROM city WHERE city_name = ?", [$city_name])->fetch();
         if ($id_city == null) {
@@ -118,9 +118,10 @@ class OfferModel extends Database {
         foreach ($skills as $skill) {
             $this->query("INSERT INTO need (id_internship, id_skill) VALUES (?, ?)", [$id_internship, $skill]);
         }
+        $this->query("INSERT INTO concern (id_internship, id_promotion) VALUE (?, ?)", [$id_internship, $concern]);
     }
 
-    public function updateOffer($id, $internship_name, $id_company, $city_name, $description, $duration, $salary, $nb_places, $skills) {
+    public function updateOffer($id, $internship_name, $id_company, $city_name, $description, $duration, $salary, $nb_places, $skills, $concern) {
         // get id of city and create it if it doesn't exist
         $id_city = $this->query("SELECT id_city FROM city WHERE city_name = ?", [$city_name])->fetch();
         if ($id_city == null) {
@@ -133,6 +134,8 @@ class OfferModel extends Database {
         foreach ($skills as $skill) {
             $this->query("INSERT INTO need (id_internship, id_skill) VALUES (?, ?)", [$id, $skill]);
         }
+        $this->query("DELETE FROM concern WHERE id_internship = ? AND id_promotion = ?", [$id, $concern]);
+        $this->query("INSERT INTO concern (id_internship, id_promotion) VALUE (?, ?)", [$id, $concern]);
     }
 
     public function deleteOffer($id) {

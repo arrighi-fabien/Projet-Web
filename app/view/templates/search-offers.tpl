@@ -52,6 +52,10 @@
                         <svg><use href="/img/sprite.svg#number"></use></svg>
                         <p id="offer-description__places">{$offers[0]->places_students} place{if $offers[0]->places_students > 1}s{/if} disponible{if $offers[0]->places_students > 1}s{/if}</p>
                     </div>
+                    <div class="text-and-svg">
+                        <svg><use href="/img/sprite.svg#info"></use></svg>
+                        <p id="offer-description__concern">{$offers[0]->promotion_name}</p>
+                    </div>
                 </div>
                 <p id="offer-description__description">{$offers[0]->description}</p>
             </div>

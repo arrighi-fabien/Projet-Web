@@ -59,15 +59,22 @@
                     <img src="/img/company/default.webp" alt="Default logo" class="card-company__content__img">
                 {/if}
                 <h3 class="detail-header__company">{$offer->company_name}</h3>
-                <div class="text-and-svg m-1-0">
+                <div class="text-and-svg ">
                     <svg><use href="/img/sprite.svg#building"></use></svg>
                     <p>{$offer->sector_name}</p>
                 </div>
                 <div class="text-and-svg m-1-0">
                     <svg><use href="/img/sprite.svg#user-check"></use></svg>
-                    <p>Votre pilote valide cette entreprise</p>
+                    {if $trust <= 1}
+                        <p>{$trust} pilote valide cette entreprise</p>
+                    {else}
+                        <p>{$trust} pilotes valident cette entreprise</p>
+                    {/if}
                 </div>
-                <p>Note</p>
+                <div class="text-and-svg">
+                    <svg><use href="/img/sprite.svg#star"></use></svg>
+                    <p>{$company_ratings} / 5</p>
+                </div>
             </div>
             <div class="detail-description__info__offer m-2-0">
                 <h3>{$offer->internship_name}</h3>
@@ -91,9 +98,13 @@
                     <svg><use href="/img/sprite.svg#checklist"></use></svg>
                     <p>{$offer->skills}</p>
                 </div>
-                <div class="text-and-svg">
+                <div class="text-and-svg m-1-0">
                     <svg><use href="/img/sprite.svg#number"></use></svg>
                     <p>{$offer->places_students} place{if $offer->places_students > 1}s{/if} disponible{if $offer->places_students > 1}s{/if}</p>
+                </div>
+                <div class="text-and-svg m-1-0">
+                    <svg><use href="/img/sprite.svg#info"></use></svg>
+                    <p id="offer-description__concern">{$offer->promotion_name}</p>
                 </div>
             </div>
             <a href="/offer-{$offer->id_internship}/apply"><input type="button" value="Postuler" class="btn btn--primary apply-btn"></a>
