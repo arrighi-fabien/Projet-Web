@@ -19,15 +19,22 @@ class SearchController {
 
     private function searchOffers() {
         $search_model = new OfferModel();
-        $internship_name = isset($_GET['internship_name']) ? $_GET['internship_name'] : null;
-        $company_name = isset($_GET['company_name']) ? $_GET['company_name'] : null;
-        $city_name = isset($_GET['city_name']) ? $_GET['city_name'] : null;
-        $nb_places = isset($_GET['nb_places']) ? $_GET['nb_places'] : null;
+        $internship_name = filter_input(INPUT_GET, 'internship_name', FILTER_SANITIZE_STRING, FILTER_NULL_ON_FAILURE);
+        $company_name = filter_input(INPUT_GET, 'company_name', FILTER_SANITIZE_STRING, FILTER_NULL_ON_FAILURE);
+        $city_name = filter_input(INPUT_GET, 'city_name', FILTER_SANITIZE_STRING, FILTER_NULL_ON_FAILURE);
+        $nb_places = filter_input(INPUT_GET, 'nb_places', FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+
+        // TODO : Implement date filter
         $offer_date = isset($_GET['offer_date']) ? $_GET['offer_date'] : null;
-        $skills = isset($_GET['skills']) ? $_GET['skills'] : null;
-        $duration = isset($_GET['duration']) ? $_GET['duration'] : null;
-        $salary = isset($_GET['salary']) ? $_GET['salary'] : null;
-        $nb_page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+        $skills = filter_input(INPUT_GET, 'skills', FILTER_SANITIZE_STRING, FILTER_NULL_ON_FAILURE);
+        $duration = filter_input(INPUT_GET, 'duration', FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+        $salary = filter_input(INPUT_GET, 'salary', FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+        
+        $nb_page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+        if($nb_page == null) {
+            $nb_page = 1;
+        }
         $offers = $search_model->searchOffers($this->LIMIT_REQUEST, $nb_page, $internship_name, $company_name, $city_name, $nb_places, $offer_date, $skills, $duration, $salary);
         $max_page = $search_model->searchOffersMaxPage($internship_name, $company_name, $city_name, $nb_places, $offer_date, $skills, $duration, $salary);
         $max_page = ceil($max_page->max_page / $this->LIMIT_REQUEST);
@@ -49,19 +56,29 @@ class SearchController {
 
     private function searchCompanies() {
         $search_model = new CompanyModel();
-        $company_name = isset($_GET['company_name']) ? $_GET['company_name'] : null;
-        $city_name = isset($_GET['city_name']) ? $_GET['city_name'] : null;
-        $sector_name = isset($_GET['sector_name']) ? $_GET['sector_name'] : null;
-        $student_accepted = isset($_GET['student_accepted']) ? $_GET['student_accepted'] : null;
-        $rate = isset($_GET['rate']) ? $_GET['rate'] : null;
-        $trust = isset($_GET['trust']) ? $_GET['trust'] : null;
-        $nb_page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $company_name = filter_input(INPUT_GET, 'company_name', FILTER_SANITIZE_STRING, FILTER_NULL_ON_FAILURE);
+        $city_name = filter_input(INPUT_GET, 'city_name', FILTER_SANITIZE_STRING, FILTER_NULL_ON_FAILURE);
+        $sector_name = filter_input(INPUT_GET, 'sector_name', FILTER_SANITIZE_STRING, FILTER_NULL_ON_FAILURE);
+        $student_accepted = filter_input(INPUT_GET, 'student_accepted', FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+        $rate = filter_input(INPUT_GET, 'rate', FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+        $trust = filter_input(INPUT_GET, 'trust', FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+        
+        $nb_page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+        if($nb_page == null) {
+            $nb_page = 1;
+        }
         $is_visible = 1;
         if ($this->method == 'api') {
-            $is_visible = isset($_GET['is_visible']) ? $_GET['is_visible'] : 1;
+            $is_visible = filter_input(INPUT_GET, 'is_visible', FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+            if($is_visible == null) {
+                $is_visible = 1;
+            }
         }
         if ($this->method != 'api' && isset($_SESSION['user']) && ($_SESSION['user']->is_admin == 1 || $_SESSION['user']->is_pilot == 1)) {
-            $is_visible = isset($_GET['is_visible']) ? $_GET['is_visible'] : 1;
+            $is_visible = filter_input(INPUT_GET, 'is_visible', FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
+            if($is_visible == null) {
+                $is_visible = 1;
+            }
         }
         $companies = $search_model->searchCompanies($this->LIMIT_REQUEST, $nb_page, $company_name, $city_name, $sector_name, $student_accepted, $rate, $trust, $is_visible);
         $max_page = $search_model->searchCompaniesMaxPage($company_name, $city_name, $sector_name, $student_accepted, $rate, $trust, $is_visible);

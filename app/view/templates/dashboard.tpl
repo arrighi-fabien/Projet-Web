@@ -50,7 +50,7 @@
                     </div>
                     <div class="card-display__pagination">
                         <img src="/img/fade.webp" alt="" class="fade-scroll">
-                        <p>1234</p>
+                        {include file="pagination.tpl"}
                     </div>
                 {/if}
         </div>
@@ -68,7 +68,7 @@
             </div>
             <div class="card-display__pagination">
                 <img src="/img/fade.webp" alt="" class="fade-scroll">
-                <p>1234</p>
+                {include file="pagination.tpl"}
             </div>
         {/if}
     </div>

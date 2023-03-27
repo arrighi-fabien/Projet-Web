@@ -4,7 +4,7 @@ class TrustingController {
 
     public function __construct() {
         $checked = isset($_POST['checked']) ? $_POST['checked'] : null;
-        $id_company = isset($_POST['id_company']) ? $_POST['id_company'] : null;
+        $id_company = filter_input(INPUT_POST, 'id_company', FILTER_VALIDATE_INT, FILTER_NULL_ON_FAILURE);
         if($checked != null && $id_company != null) {
             $auth_model = new AuthModel();
             $is_logged = $auth_model->isLogged();

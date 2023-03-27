@@ -11,7 +11,7 @@ class CompanyController {
         $is_logged = $auth_model->isLogged();
         if($is_logged) {
             $id_user = Session::getInstance()->read('user')->id_user;
-            //todo verify user permission
+            // verify user permission
             if($auth_model->getUserNumberPrivilege($id_user) >= 2){
                 $user_trust = $company_model->getUserTrust($id, $id_user)->result;
             } else {
