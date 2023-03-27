@@ -73,6 +73,7 @@ class AuthController {
                     exit();
                 }
                 $auth = new AuthModel();
+                $is_student = $auth->userIsStudent($user = Session::getInstance()->read('user')->id_user);
                 $auth->getWishlistId();
                 $wishlist = $auth->getWishlist();
                 $rate = $auth->getRate();

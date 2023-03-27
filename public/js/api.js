@@ -1,43 +1,43 @@
 if (document.querySelector("#search-form")) {
   document.querySelector("#search-form").addEventListener("submit", (event) => {
-      event.preventDefault();
-      const type = document.querySelector('#btn-search').getAttribute('data-btn');
-      let url = '';
-      let current_url = '';
+    event.preventDefault();
+    const type = document.querySelector('#btn-search').getAttribute('data-btn');
+    let url = '';
+    let current_url = '';
 
-      const form = document.querySelector('#search-form');
-      const formData = new FormData(form);
+    const form = document.querySelector('#search-form');
+    const formData = new FormData(form);
 
-      if (type == 'company') {
-        url = window.location.origin + '/api/search/companies';
+    if (type == 'company') {
+      url = window.location.origin + '/api/search/companies';
+    }
+    else if (type == 'offer') {
+      url = window.location.origin + '/api/search/offers';
+    }
+    else if (type == 'user') {
+      url = window.location.origin + '/api/search/users';
+    }
+    current_url = window.location.href.split('?')[0];
+    let url_params = '';
+    // Check with ternary operator if the param is the first one or not
+    // If it's the first one to be not empty, add a '?' before the param
+    // Else add a '&' before the param
+    // Add the param to the url
+    formData.forEach((value, key) => {
+      if (value !== '' && value !== '0') {
+        url_params += (url_params.indexOf('?') > -1) ? '&' + key + '=' + value : '?' + key + '=' + value;
       }
-      else if (type == 'offer') {
-        url = window.location.origin + '/api/search/offers';
-      }
-      else if (type == 'user') {
-        url = window.location.origin + '/api/search/users';
-      }
-      current_url = window.location.href.split('?')[0];
-      let url_params = '';
-      // Check with ternary operator if the param is the first one or not
-      // If it's the first one to be not empty, add a '?' before the param
-      // Else add a '&' before the param
-      // Add the param to the url
-      formData.forEach((value, key) => {
-        if (value !== '' && value !== '0') {
-          url_params += (url_params.indexOf('?') > -1) ? '&' + key + '=' + value : '?' + key + '=' + value;
-        }
-      });
-      // If page link contain admin and formData contain is_visible and it's value is 0 then add it to the url
-      if (window.location.href.indexOf('admin') > -1 && formData.get('is_visible') === '0') {
-        url_params += (url_params.indexOf('?') > -1) ? '&' + 'is_visible' + '=' + '0' : '?' + 'is_visible' + '=' + '0';
-      }
-
-      url += url_params;
-      current_url += url_params;
-      window.history.replaceState({}, "", current_url);
-      search(url, type, 1);
     });
+    // If page link contain admin and formData contain is_visible and it's value is 0 then add it to the url
+    if (window.location.href.indexOf('admin') > -1 && formData.get('is_visible') === '0') {
+      url_params += (url_params.indexOf('?') > -1) ? '&' + 'is_visible' + '=' + '0' : '?' + 'is_visible' + '=' + '0';
+    }
+
+    url += url_params;
+    current_url += url_params;
+    window.history.replaceState({}, "", current_url);
+    search(url, type, 1);
+  });
 }
 
 function paginationOffer(class_name) {
@@ -71,6 +71,16 @@ function paginationOffer(class_name) {
       "rate",
       "trust",
       "is_visible",
+    ];
+  } else if (type == "user") {
+    url = window.location.origin + "/api/search/users";
+    params_name = [
+      "last_name",
+      "first_name",
+      "center_name",
+      "promotion_name",
+      "is_admin",
+      "is_pilot",
     ];
   }
   params_name.forEach((param_name) => {
@@ -204,8 +214,8 @@ function displayOfferCard(data, card_number) {
   }
   document.querySelector('#result').innerHTML += `
     <div class="card-company card-background">`
-      + link +
-      `<div class="card-company__content">
+    + link +
+    `<div class="card-company__content">
         <img src="/img/company/${data.company_name}.webp" alt="${data.company_name} logo" class="card-company__content__img">
         <div class="card-company__content__info">
           <h4 class="card-company__content__info__job">${data.internship_name}</h4>

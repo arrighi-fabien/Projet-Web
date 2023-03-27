@@ -1,7 +1,7 @@
 <form method="post" class="admin-form card-background" id="myForm">
     <div class="admin-form__element">
         <label for="internship_name">Nom du stage</label>
-        <input type="text" placeholder="Nom du stage..." value="{if isset($offer[0]->internship_name)}{$offer[0]->internship_name}{/if}" name="internship_name" id="internship_name">
+        <input type="text" placeholder="Nom du stage..." value="{if isset($offer[0]->internship_name)}{$offer[0]->internship_name}{/if}" name="internship_name" id="internship_name" pattern="[A-Za-zÀ-ÿ -._0-9]+" required>
     </div>
     <div class="admin-form__element">
         <label for="id_company">Nom de l'entreprise</label>
@@ -21,11 +21,11 @@
     </div>
     <div class="admin-form__element">
         <label for="city_name">Lieu du stage</label>
-    <input type="text" placeholder="Lieu du stage..." value="{if isset($offer[0]->city_name)}{$offer[0]->city_name}{/if}" name="city_name" id="city_name">
+    <input type="text" placeholder="Lieu du stage..." value="{if isset($offer[0]->city_name)}{$offer[0]->city_name}{/if}" name="city_name" id="city_name" pattern="[A-Za-zÀ-ÿ _-]+" required>
     </div>
     <div class="admin-form__element">
         <label for="nb_places">Nombre de place</label>
-    <input type="text" placeholder="Nombre de place..." value="{if isset($offer[0]->places_students)}{$offer[0]->places_students}{/if}" name="nb_places" id="nb_places">
+    <input type="number" placeholder="Nombre de place..." value="{if isset($offer[0]->places_students)}{$offer[0]->places_students}{/if}" name="nb_places" id="nb_places" pattern="[0-9]+" required>
     </div>
     <div class="admin-form__element">
         <label for="skills">Compétence</label>
@@ -50,11 +50,11 @@
     </div>
     <div class="admin-form__element">
         <label for="duration">Durée (en semaines)</label>
-        <input type="text" placeholder="Durée..." value="{if isset($offer[0]->duration)}{$offer[0]->duration}{/if}" name="duration" id="duration">
+        <input type="number" placeholder="Durée..." value="{if isset($offer[0]->duration)}{$offer[0]->duration}{/if}" name="duration" id="duration" pattern="[0-9]+" required>
     </div>
     <div class="admin-form__element">
         <label for="salary">Salaire (en €)</label>
-        <input type="text" placeholder="Salaire..." value="{if isset($offer[0]->salary)}{$offer[0]->salary}{/if}" name="salary" id="salary">
+        <input type="number" placeholder="Salaire..." value="{if isset($offer[0]->salary)}{$offer[0]->salary}{/if}" name="salary" id="salary" pattern="[0-9]+" required>
     </div>
     <div class="admin-form__element">
         <label for="description">Description</label>

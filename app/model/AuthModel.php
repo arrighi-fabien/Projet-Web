@@ -90,7 +90,7 @@ class AuthModel extends Database {
     * @return bool
     */
     public function userIsAdmin($id_user) : bool {
-        if(getUserNumberPrivilege($id_user) == 3){
+        if($this->getUserNumberPrivilege($id_user) == 3){
             return true;
         } else {
             return false;
@@ -106,7 +106,7 @@ class AuthModel extends Database {
     */
 
     public function userIsPilot($id_user) : bool {
-        if(getUserNumberPrivilege($id_user) == 2){
+        if($this->getUserNumberPrivilege($id_user) == 2){
             return true;
         } else {
             return false;
@@ -121,7 +121,7 @@ class AuthModel extends Database {
     * @return bool
     */
     public function userIsStudent($id_user) : bool {
-        if(getUserNumberPrivilege($id_user) == 1){
+        if($this->getUserNumberPrivilege($id_user) == 1){
             return true;
         } else {
             return false;
@@ -218,6 +218,38 @@ class AuthModel extends Database {
         $sql .= " LIMIT $limit OFFSET $offset";
         return $this->query($sql, $tab)->fetchAll();
     }
+
+    public function searchUsersMaxPage($last_name = null, $first_name = null, $promotion = null, $center = null, $is_admin = null, $is_pilot = null) {
+        $sql = "SELECT COUNT(*) AS max_page FROM (SELECT COUNT(id_user) FROM users NATURAL JOIN is_in NATURAL JOIN promotion NATURAL JOIN center WHERE 1";
+        $tab = [];
+        if ($last_name) {
+            $sql .= " AND last_name LIKE ?";
+            array_push($tab, "%$last_name%");
+        }
+        if ($first_name) {
+            $sql .= " AND first_name LIKE ?";
+            array_push($tab, "%$first_name%");
+        }
+        if ($promotion) {
+            $sql .= " AND promotion_name = ?";
+            array_push($tab, $promotion);
+        }
+        if ($center) {
+            $sql .= " AND center_name = ?";
+            array_push($tab, $center);
+        }
+        if ($is_admin) {
+            $sql .= " AND is_admin = ?";
+            array_push($tab, $is_admin);
+        }
+        if ($is_pilot) {
+            $sql .= " AND is_pilot = ?";
+            array_push($tab, $is_pilot);
+        }
+        $sql .= " GROUP BY users.id_user) as filtered_companies;";
+        return $this->query($sql, $tab)->fetch();
+    }
+
 
     public function escape($string) {
         return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
