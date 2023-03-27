@@ -1,10 +1,14 @@
 {include file="header.tpl"}
 
 <main class="m-5-0">
-    <a href="/logout" class="btn btn--secondary">Déconnexion</a>
-    <a href="/admin/offers" class="btn btn--secondary">Offers</a>
-    <a href="/admin/companies" class="btn btn--secondary">Companies</a>
-    <a href="/admin/users" class="btn btn--secondary">Users</a>
+    <div class="nav--admin">
+        <a href="/logout" class="btn btn--secondary">Déconnexion</a>
+        {if !$is_student}
+            <a href="/admin/offers" class="btn btn--secondary">Offers</a>
+            <a href="/admin/companies" class="btn btn--secondary">Companies</a>
+            <a href="/admin/users" class="btn btn--secondary">Users</a>
+        {/if}
+    </div>
     <div class="best-section__content">
         <div class="card-background personal-info p-2">
             <h2 class="center-title important-title">Informations</h2>

@@ -8,5 +8,6 @@ $smarty->assign('companies', $companies ?? null);
 $smarty->assign('sectors', $sectors ?? null);
 $smarty->assign('centers', $centers ?? null);
 $smarty->assign('promotions', $promotions ?? null);
+$smarty->assign('is_admin', $is_admin ?? false);
 
 $smarty->display('admin-modification-page.tpl');

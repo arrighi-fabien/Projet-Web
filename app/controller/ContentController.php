@@ -131,6 +131,9 @@ class ContentController {
         $centers = $user_model->getCenters();
         $promotions = $user_model->getPromotions();
         $content_type = 'user';
+        // TODO VERIF if user has perm
+        $is_admin = false;
+        
         $page = 'admin-modification-page';
         require_once '../app/view/view.php';
     }
