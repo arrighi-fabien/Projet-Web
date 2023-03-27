@@ -1,4 +1,4 @@
-<form method="post" class="admin-form card-background">
+<form method="post" enctype="multipart/form-data" class="admin-form card-background">
     <div class="admin-form__element">
         <label for="company_name">Nom de l'entreprise</label>
         <input type="text" placeholder="Nom de l'entreprise..." value="{if isset($company->company_name)}{$company->company_name}{/if}" name="company_name" id="company_name" pattern="[A-Za-zÀ-ÿ _-]+" required>
@@ -30,6 +30,10 @@
     <div class="admin-form__element">
         <label for="student_accepted">Nombre d'étudiant déjà accepté</label>
         <input type="number" placeholder="Nombre d'étudiant déjà accepté..." value="{if isset($company->nb_student_accepted)}{$company->nb_student_accepted}{/if}" name="student_accepted" id="student_accepted">
+    </div>
+    <div class="admin-form__element">
+            <label for="img">Sélectionnez un logo pour l'entreprise :</label>
+            <input type="file" accept=".webp" name="img" id="img">
     </div>
     <div class="admin-form__element">
         <label for="email">Description</label>

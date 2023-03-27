@@ -31,16 +31,18 @@ class ContentController {
             $duration = htmlspecialchars($_POST['duration']);
             $salary = htmlspecialchars($_POST['salary']);
             $nb_places = htmlspecialchars($_POST['nb_places']);
+            $concern = htmlspecialchars($_POST['concern']);
+            var_dump($concern);
             foreach ($_POST['skills'] as $skill) {
                 $skills[] = htmlspecialchars($skill);
             }
             if ($this->action == 'add') {
-                $offer_model->addOffer($internship_name, $id_company, $city_name, $description, $duration, $salary, $nb_places, $skills);
+                $offer_model->addOffer($internship_name, $id_company, $city_name, $description, $duration, $salary, $nb_places, $skills, $concern);
                 header('Location: /admin/offers');
                 exit();
             }
             else if ($this->action == 'edit') {
-                $offer_model->updateOffer($this->id, $internship_name, $id_company, $city_name, $description, $duration, $salary, $nb_places, $skills);
+                $offer_model->updateOffer($this->id, $internship_name, $id_company, $city_name, $description, $duration, $salary, $nb_places, $skills, $concern);
                 header('Location: /admin/offers');
                 exit();
             }
@@ -57,6 +59,8 @@ class ContentController {
             }
         }
         $company_model = new CompanyModel();
+        $auth_model = new AuthModel();
+        $promotions = $auth_model->getPromotions();
         $companies = $company_model->getCompanies();
         $skills = $offer_model->getSkills();
         $content_type = 'offer';
@@ -74,6 +78,9 @@ class ContentController {
             $id_sector = htmlspecialchars($_POST['id_sector']);
             $student_accepted = htmlspecialchars($_POST['student_accepted']);
             $description = htmlspecialchars($_POST['description']);
+            if (isset($_FILES)) {
+                UploadModel::uploadImgCompany($_FILES['img'], $company_name);
+            }
             if ($this->action == 'add') {
                 $company_model->addCompany($company_name, $email, $is_visible, $city_name, $id_sector, $student_accepted, $description);
                 header('Location: /admin/companies');

@@ -16,7 +16,7 @@ abstract class Database {
                 echo 'Erreur : '.$e->getMessage().'<br>';
                 http_response_code(500);
                 header('Location: /error-database-connection');
-                die();
+                exit();
             }
         }
         else {

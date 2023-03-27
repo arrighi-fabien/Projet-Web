@@ -18,7 +18,9 @@
         <label for="salary">Rémunération</label>
         <input type="range" min="0" max="100" name="salary" value="0" id="salary">
     </div>
-    <input type="reset" value="Reset" class="btn btn--secondary">
-    <script src="/js/api.js"></script>
-    <input type="submit" value="Rechercher" class="btn btn--primary" id="btn-search" data-btn="offer">
+    <div class="search-bar__btn">
+        <input type="reset" value="Reset" class="btn btn--secondary">
+        <script src="/js/api.js"></script>
+        <input type="submit" value="Rechercher" class="btn btn--primary" id="btn-search" data-btn="offer">
+    </div>
 </form>

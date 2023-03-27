@@ -15,6 +15,7 @@ class ErrorController {
         }
         else {
             header('Location: error-404');
+            exit();
         }
         $page = 'error';
         require_once '../app/view/view.php';

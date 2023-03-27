@@ -47,6 +47,7 @@ function displayPreviewOffer() {
             document.querySelector('#offer-description__places').innerHTML = offers_json[id].places_students + ' place' + (offers_json[id].places_students > 1 ? 's' : '') + ' disponible' + (offers_json[id].places_students > 1 ? 's' : '');
             document.querySelector('#offer-description__description').innerHTML = offers_json[id].description;
             document.querySelector('#apply-btn').setAttribute('href', '/offer-' + offers_json[id].id_internship + '/apply');
+            document.querySelector('#offer-description__concern').innerHTML = offers_json[id].promotion_name;
 
             // Change href of title
             document.querySelector('#offer-description__title').href = '/offer-' + offers_json[id].id_internship;

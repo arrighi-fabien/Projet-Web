@@ -22,11 +22,11 @@
         </div>
         <div class="login-form__content__input">
             <label for="cv">Sélectionnez un CV à télécharger :</label>
-            <input type="file" name="cv" id="cv">
+            <input type="file" accept=".pdf" name="cv" id="cv">
         </div>
         <div class="login-form__content__input">
             <label for="motivation_letter">Sélectionnez une lettre de motivation à télécharger :</label>
-            <input type="file" name="motivation_letter" id="motivation_letter">
+            <input type="file" accept=".pdf" name="motivation_letter" id="motivation_letter">
         </div>
         <input type="submit" value="Postuler" class="btn btn--primary">
     </form>

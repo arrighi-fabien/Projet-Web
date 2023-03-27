@@ -21,11 +21,11 @@
     </div>
     <div class="admin-form__element">
         <label for="city_name">Lieu du stage</label>
-    <input type="text" placeholder="Lieu du stage..." value="{if isset($offer[0]->city_name)}{$offer[0]->city_name}{/if}" name="city_name" id="city_name" pattern="[A-Za-zÀ-ÿ _-]+" required>
+        <input type="text" placeholder="Lieu du stage..." value="{if isset($offer[0]->city_name)}{$offer[0]->city_name}{/if}" name="city_name" id="city_name" pattern="[A-Za-zÀ-ÿ _-]+" required>
     </div>
     <div class="admin-form__element">
         <label for="nb_places">Nombre de place</label>
-    <input type="number" placeholder="Nombre de place..." value="{if isset($offer[0]->places_students)}{$offer[0]->places_students}{/if}" name="nb_places" id="nb_places" pattern="[0-9]+" required>
+        <input type="number" placeholder="Nombre de place..." value="{if isset($offer[0]->places_students)}{$offer[0]->places_students}{/if}" name="nb_places" id="nb_places" pattern="[0-9]+" required>
     </div>
     <div class="admin-form__element">
         <label for="skills">Compétence</label>
@@ -57,10 +57,26 @@
         <input type="number" placeholder="Salaire..." value="{if isset($offer[0]->salary)}{$offer[0]->salary}{/if}" name="salary" id="salary" pattern="[0-9]+" required>
     </div>
     <div class="admin-form__element">
+        <label for="concern">Concerne</label>
+        <select name="concern" id="concern">
+            {foreach $promotions as $promotion}
+                {if isset($concern)}
+                    {if $promotion->id_promotion == $concern->id_promotion}
+                        <option value="{$promotion->id_promotion}" selected>{$promotion->promotion_name}</option>
+                    {else}
+                        <option value="{$promotion->id_promotion}">{$promotion->promotion_name}</option>
+                    {/if}
+                {else}
+                <option value="{$promotion->id_promotion}">{$promotion->promotion_name}</option>
+                {/if}
+            {/foreach}
+        </select>
+    </div>
+    <div class="admin-form__element">
         <label for="description">Description</label>
         <textarea name="description" placeholder="Description..." id="description" cols="30" rows="10">{if isset($offer[0]->description)}{$offer[0]->description}{/if}</textarea>
     </div>
-        <input type="submit" value="{if isset($offer[0]->id_internship)}Modifier{else}Créer{/if}" class="btn btn--primary center-btn">
+    <input type="submit" value="{if isset($offer[0]->id_internship)}Modifier{else}Créer{/if}" class="btn btn--primary center-btn">
 </form>
 
 {if isset($offer[0]->id_internship)}
