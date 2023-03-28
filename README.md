@@ -5,11 +5,10 @@ Réalisation du site : **Stage du zero**
 Groupe : Arrighi Fabien et Ferrer Nathan
 
 Ce projet est un site web qui permet aux étudiants de simuler la recherche de stage en leur offrant une expérience interactive et conviviale. Le site utilise différentes technologies pour offrir une expérience utilisateur optimale.
-
-HTML / CSS (SASS)
-PHP (Maildev, AltoRouteur, Composer)
-Javascript (JQuery)
-Smarty
+- HTML / CSS (SASS)
+- PHP (DevMail, AltoRouteur, Composer)
+- Javascript (JQuery)
+- Smarty
 
 ## Configuration
 ### BDD
@@ -51,3 +50,4 @@ Dans le fichier `httpd-vhosts.conf` (xampp/apache/conf/extra/httpd-vhosts.conf)
 1. Lancez XAMPP et démarrez Apache et MySQL.
 2. Ouvrez une invite de commande (terminal) sur votre ordinateur.
 3. Tapez la commande "devmail" pour lancer le serveur de messagerie local.
+4. Il est maintenant possible d'accéder à [stageduzero.local](stageduzero.local) ou [https://stageduzero.local](https://stageduzero.local).
