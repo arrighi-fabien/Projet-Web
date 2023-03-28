@@ -3,8 +3,8 @@
     <img src="/img/background1.webp" alt="" class="background-form background-form--1">
     <img src="/img/background2.webp" alt="" class="background-form background-form--2">
     <div class="detail-header">
-    {if file_exists("img/company/{$company->company_name}.webp")}
-        <img src="/img/company/{$company->company_name}.webp" alt="{$company->company_name} logo" class="card-company__content__img">
+    {if file_exists("img/company/{$company->company_name|lower|replace:' ':''}.webp")}
+        <img src="/img/company/{$company->company_name|lower|replace:' ':''}.webp" alt="{$company->company_name} logo" class="card-company__content__img">
     {else}
         <img src="/img/company/default.webp" alt="Default logo" class="card-company__content__img">
     {/if}

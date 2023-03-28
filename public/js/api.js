@@ -217,7 +217,7 @@ function displayOfferCard(data, card_number) {
     <div class="card-company card-background">`
     + link +
     `<div class="card-company__content">
-        <img src="/img/company/${data.company_name}.webp" alt="${data.company_name} logo" class="card-company__content__img">
+        <img src="/img/company/${normalizeString(data.company_name)}.webp" alt="${data.company_name} logo" class="card-company__content__img">
         <div class="card-company__content__info">
           <h4 class="card-company__content__info__job">${data.internship_name}</h4>
           <h5 class="card-company__content__info__title">${data.company_name}</h5>
@@ -236,7 +236,7 @@ function displayCompanyCard(data) {
     <div class="card-company card-background">
     <a href="/company-${data.id_company}" class="card-link"><span></span></a>
     <div class="card-company__content">
-        <img src="${data.company_logo}" alt="${data.company_name} logo" class="card-company__content__img">
+        <img src="${normalizeString(data.company_logo)}" alt="${data.company_name} logo" class="card-company__content__img">
       <div class="card-company__content__info">
         <h4 class="card-company__content__info__title">${data.company_name}</h4>
         <div class="text-and-svg">
@@ -274,4 +274,8 @@ function displayUserCard(data) {
     </div>
   </div>
   `;
+}
+
+function normalizeString(string) {
+  return string.toLowerCase().replace(/\s/g, '');
 }

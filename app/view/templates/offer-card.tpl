@@ -7,8 +7,8 @@
         <a href="/offer-{$offer_card->id_internship}" class="card-link"></a>
     {/if}
     <div class="card-company__content">
-        {if file_exists("img/company/{$offer_card->company_name}.webp")}
-            <img src="/img/company/{$offer_card->company_name}.webp" alt="{$offer_card->company_name} logo" class="card-company__content__img">
+        {if file_exists("img/company/{$offer_card->company_name|lower|replace:' ':''}.webp")}
+            <img src="/img/company/{$offer_card->company_name|lower|replace:' ':''}.webp" alt="{$offer_card->company_name} logo" class="card-company__content__img">
         {else}
             <img src="/img/company/default.webp" alt="Default logo" class="card-company__content__img">
         {/if}
