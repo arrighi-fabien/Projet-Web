@@ -10,6 +10,12 @@ class ContentController {
         $this->element = $element;
         $this->action = $action;
         $this->id = $id;
+        $auth = new AuthModel();
+        $is_logged = $auth->isLogged();
+        if (!$is_logged) {
+            header('Location: /login');
+            exit();
+        }
         if ($this->element == 'offers') {
             $this->offers();
         }
@@ -32,7 +38,6 @@ class ContentController {
             $salary = htmlspecialchars($_POST['salary']);
             $nb_places = htmlspecialchars($_POST['nb_places']);
             $concern = htmlspecialchars($_POST['concern']);
-            var_dump($concern);
             foreach ($_POST['skills'] as $skill) {
                 $skills[] = htmlspecialchars($skill);
             }

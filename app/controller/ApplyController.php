@@ -32,7 +32,7 @@ class ApplyController {
             }
             if ($apply_model->sendMail($email_to, $cv_path, $motivation_letter_path, $offer_name)) {
                 $auth_model->addCandidate($id, Session::getInstance()->read('user')->id_user);
-                $errors = "Votre candidature a bien été envoyée";
+                $success = "Votre candidature a bien été envoyée";
                 $page = "apply";
                 require_once '../app/view/view.php';
                 exit();

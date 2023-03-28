@@ -21,7 +21,7 @@
     </div>
     <div class="admin-form__element">
         <label for="city_name">Lieu du stage</label>
-        <input type="text" placeholder="Lieu du stage..." value="{if isset($offer[0]->city_name)}{$offer[0]->city_name}{/if}" name="city_name" id="city_name" pattern="[A-Za-zÀ-ÿ _-]+" required>
+        <input type="text" placeholder="Lieu du stage..." value="{if isset($offer[0]->city_name)}{$offer[0]->city_name}{/if}" name="city_name" id="city_name" pattern="[A-Za-zÀ-ÿ _,-]+" required>
     </div>
     <div class="admin-form__element">
         <label for="nb_places">Nombre de place</label>
@@ -60,14 +60,10 @@
         <label for="concern">Concerne</label>
         <select name="concern" id="concern">
             {foreach $promotions as $promotion}
-                {if isset($concern)}
-                    {if $promotion->id_promotion == $concern->id_promotion}
-                        <option value="{$promotion->id_promotion}" selected>{$promotion->promotion_name}</option>
-                    {else}
-                        <option value="{$promotion->id_promotion}">{$promotion->promotion_name}</option>
-                    {/if}
+                {if $promotion->promotion_name == $offer[0]->promotion_name}
+                    <option value="{$promotion->id_promotion}" selected>{$promotion->promotion_name}</option>
                 {else}
-                <option value="{$promotion->id_promotion}">{$promotion->promotion_name}</option>
+                    <option value="{$promotion->id_promotion}">{$promotion->promotion_name}</option>
                 {/if}
             {/foreach}
         </select>

@@ -13,8 +13,8 @@
             <img src="/img/company/default.webp" alt="Default logo" class="card-company__content__img">
         {/if}
         <div class="card-company__content__info">
-            <h4 class="card-company__content__info__job">{$offer_card->internship_name}</h4>
-            <h5 class="card-company__content__info__title">{$offer_card->company_name}</h5>
+            <h3 class="card-company__content__info__job">{$offer_card->internship_name}</h3>
+            <h4 class="card-company__content__info__title">{$offer_card->company_name}</h4>
             <p class="card-company__content__city">{$offer_card->city_name}</p>
             <p class="small-text">{$offer_card->offer_date}</p>
         </div>

@@ -134,7 +134,7 @@ class OfferModel extends Database {
         foreach ($skills as $skill) {
             $this->query("INSERT INTO need (id_internship, id_skill) VALUES (?, ?)", [$id, $skill]);
         }
-        $this->query("DELETE FROM concern WHERE id_internship = ? AND id_promotion = ?", [$id, $concern]);
+        $this->query("DELETE FROM concern WHERE id_internship = ?", [$id]);
         $this->query("INSERT INTO concern (id_internship, id_promotion) VALUE (?, ?)", [$id, $concern]);
     }
 

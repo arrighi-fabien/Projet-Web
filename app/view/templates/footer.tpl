@@ -29,9 +29,9 @@
                 <div class="footer__content__link__item">
                     <h3>À propos</h3>
                     <a href="/#concept">Concept</a>
-                    <a href="#">Mentions légales</a>
-                    <a href="#">Politique de confidentialité</a>
-                    <a href="#">Nous contacter</a>
+                    <a href="/legal/terms">Mentions légales</a>
+                    <a href="/legal/privacy">Politique de confidentialité</a>
+                    <a href="/aboutus">À Propos</a>
                 </div>
                 <div class="footer__content__link__item">
                     <h3>Trouver un stage</h3>

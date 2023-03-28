@@ -52,8 +52,10 @@ class UploadModel {
         if (in_array($file_extension, $allowed_extension)) {
             if ($file_error === 0) {
                 if ($file_size <= 2097152) {
-                    $file_name_new = $company_name.'.'.$file_extension;
-                    $file_destination = 'img/company/' . $file_name_new;
+                    // lower case and replace space by nothing
+                    $new_file_name = strtolower(str_replace(' ', '', $company_name));
+                    $new_file_name = $new_file_name.'.'.$file_extension;
+                    $file_destination = 'img/company/' . $new_file_name;
                     if (move_uploaded_file($file_tmp, $file_destination)) {
                         return true;
                     }
