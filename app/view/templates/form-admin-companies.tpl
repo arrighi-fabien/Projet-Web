@@ -16,7 +16,7 @@
     </div>
     <div class="admin-form__element">
         <label for="city_name">Localité (si plusieurs ville, séparer par une virgule)</label>
-        <input type="text" placeholder="Localité..." value="{if isset($company->city)}{$company->city}{/if}" name="city_name" id="city_name" pattern="[A-Za-zÀ-ÿ _-]+" required>
+        <input type="text" placeholder="Localité..." value="{if isset($company->city)}{$company->city}{/if}" name="city_name" id="city_name" pattern="[A-Za-zÀ-ÿ _,-]+" required>
     </div>
     <div class="admin-form__element">
         <label for="id_sector">Secteur</label>

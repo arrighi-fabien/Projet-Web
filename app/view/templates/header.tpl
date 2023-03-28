@@ -21,7 +21,7 @@
             }
         });
     </script>
-    <meta name="theme-color" content="#317EFB">
+    <meta name="theme-color" content="#151515">
     <link rel="apple-touch-icon" href="/img/logo-192.png">
     <link rel="icon" href="/img/logo-192.png">
     <meta name="description" content="Site de recherche de stage">
