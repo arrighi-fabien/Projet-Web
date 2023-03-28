@@ -1,5 +1,7 @@
 <?php
 
+ob_start("ob_gzhandler");
+
 require_once '../vendor/autoload.php';
 require_once '../app/autoloader.php';
 
@@ -39,6 +41,10 @@ $router->map('POST', '/api/wishlist', 'AuthController', 'api_wishlist');
 $router->map('GET', '/api/search/users', 'AdminController', 'api_users');
 $router->map('POST', '/api/rating', 'RatingController', 'api_rating');
 $router->map('POST', '/api/trusting', 'TrustingController', 'api_trusting');
+// Legal pages
+$router->map('GET', '/legal/terms', 'LegalController', 'terms');
+$router->map('GET', '/legal/privacy', 'LegalController', 'privacy');
+$router->map('GET', '/aboutus', 'LegalController', 'aboutus');
 // Error page
 $router->map('GET', '/error-[*:error_type]', 'ErrorController', 'error');
 
@@ -58,7 +64,7 @@ if ($match != null) {
     else if (substr($match['target'], 0, 5) == 'Offer' || substr($match['target'], 0, 7) == 'Company' || substr($match['target'], 0, 5) == 'Apply') {
         $controler = new $match['target']($params['id']);
     }
-    else if (substr($match['target'], 0, 4) == 'Auth' || substr($match['target'], 0, 5) == 'Admin') {
+    else if (substr($match['target'], 0, 4) == 'Auth' || substr($match['target'], 0, 5) == 'Admin' || substr($match['target'], 0, 5) == 'Legal') {
         $controler = new $match['target']($current_page);
     }
     else if (substr($match['target'], 0, 7) == 'Content') {
@@ -72,3 +78,5 @@ if ($match != null) {
 else {
 	header("Location: {$router->generate('error', ['error_type' => '404'])}");
 }
+
+ob_end_flush();

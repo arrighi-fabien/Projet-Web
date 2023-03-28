@@ -7,6 +7,11 @@
             <p class="error-message">{$errors}</p>
         </div>
     {/if}
+    {if $success}
+        <div class="alert alert--success">
+            <p class="success-message">{$success}</p>
+        </div>
+    {/if}
     <form action="" method="post" enctype="multipart/form-data" class="login-form__content" id="apply-form">
         <div class="login-form__content__input">
             <label for="email">Email :</label>

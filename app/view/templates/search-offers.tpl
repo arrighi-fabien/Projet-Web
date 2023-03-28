@@ -4,7 +4,8 @@
     <img src="/img/background1.webp" alt="" class="background-form background-form--1">
     <img src="/img/background2.webp" alt="" class="background-form background-form--2">
 
-    <div class="search-section search-section--offer m-5-0">
+    <h1 class="important-title important-title--big center-title m-2-0">Rechercher une offre</h1>
+    <div class="search-section search-section--offer m-2-0">
         <div class="card-background search-bar search-bar--offer p-1">
             {include file="form-search-offers.tpl"}
         </div>
@@ -27,7 +28,7 @@
                 <script>
                     var offers_json = {$offers_json};
                 </script>
-                <h1><a href="/offer-{$offers[0]->id_internship}" id="offer-description__title" class="important-title">{$offers[0]->internship_name}</a></h1>
+                <h2><a href="/offer-{$offers[0]->id_internship}" id="offer-description__title" class="important-title">{$offers[0]->internship_name}</a></h2>
                 <a href="/offer-{$offers[0]->id_internship}/apply" id="apply-btn"><input type="button" value="Postuler" class="btn btn--primary apply-btn"></a>
                 <input type="button" value="Fermer" class="btn btn--secondary offer-preview-close" onclick="closeOfferPreview()">
                 <div class="offer-description__company">

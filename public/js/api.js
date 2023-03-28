@@ -147,6 +147,7 @@ function search(url, type, nb_page) {
         //call the function to add the event listener on the card-link
         offers_json = data;
         displayPreviewOffer();
+        offerPreview();
       } else if (type == "user") {
         data.forEach((result) => {
           displayUserCard(result);

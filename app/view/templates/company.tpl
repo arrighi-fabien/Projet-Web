@@ -3,7 +3,11 @@
     <img src="/img/background1.webp" alt="" class="background-form background-form--1">
     <img src="/img/background2.webp" alt="" class="background-form background-form--2">
     <div class="detail-header">
-    <img src="/img/company/{$company->company_name}.webp" alt="logo" class="detail-header__logo">
+    {if file_exists("img/company/{$company->company_name}.webp")}
+        <img src="/img/company/{$company->company_name}.webp" alt="{$company->company_name} logo" class="card-company__content__img">
+    {else}
+        <img src="/img/company/default.webp" alt="Default logo" class="card-company__content__img">
+    {/if}
     <h1 class="detail-header__title">{$company->company_name}</h1>
     <div class="detail-header__description">
         <div class="text-and-svg">

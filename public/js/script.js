@@ -9,11 +9,14 @@ nav_menu.addEventListener('click', () => {
 });
 
 if (document.querySelector('.card-company')) {
-    document.querySelectorAll('.card-company').forEach((card) => {
-        card.addEventListener('click', () => {
-            document.querySelector('.offer-description').classList.toggle('offer-description--active');
+    function offerPreview() {
+        document.querySelectorAll('.card-company').forEach((card) => {
+            card.addEventListener('click', () => {
+                document.querySelector('.offer-description').classList.toggle('offer-description--active');
+            });
         });
-    });
+    }
+    offerPreview();
 }
 
 function closeOfferPreview() {

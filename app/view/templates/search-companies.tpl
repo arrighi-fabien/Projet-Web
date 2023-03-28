@@ -3,7 +3,8 @@
     <img src="/img/background1.webp" alt="" class="background-form background-form--1">
     <img src="/img/background2.webp" alt="" class="background-form background-form--2">
 
-    <div class="search-section m-5-0">
+    <h1 class="important-title important-title--big center-title m-2-0">Rechercher une entreprise</h1>
+    <div class="search-section m-2-0">
         <div class="card-background search-bar p-1">
             {include file="form-search-companies.tpl"}
         </div>
