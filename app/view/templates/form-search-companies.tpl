@@ -25,7 +25,6 @@
     </div>
     <div class="search-bar__btn">
         <input type="reset" value="Reset" class="btn btn--secondary">
-        <script src="/js/api.js"></script>
         <input type="submit" value="Rechercher" class="btn btn--primary" id="btn-search" data-btn="company">
     </div>
 </form>

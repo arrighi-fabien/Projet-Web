@@ -122,6 +122,13 @@ class ContentController {
                 exit();
             }
             else if ($this->action == 'edit') {
+                $id_user = Session::getInstance()->read('user')->id_user;
+                $auth = new AuthModel();
+                if($auth->userIsPilot($id_user) && $auth->userIsPilot($this->id)){
+                    header("Location: /admin/users");
+                    exit();
+                }
+
                 $user_model->updateUser($this->id, $first_name, $last_name, $email, $password, $is_admin, $is_pilot, $id_center, $id_promotion);
                 header('Location: /admin/users');
                 exit();
@@ -133,6 +140,12 @@ class ContentController {
             exit();
         }
         else if ($this->action == 'edit') {
+            $id_user = Session::getInstance()->read('user')->id_user;
+                $auth = new AuthModel();
+                if($auth->userIsPilot($id_user) && $auth->userIsPilot($this->id)){
+                    header("Location: /admin/users");
+                    exit();
+                }
             $result = $user_model->getUserDetails($this->id);
         }
         $centers = $user_model->getCenters();
