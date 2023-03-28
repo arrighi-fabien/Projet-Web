@@ -4,6 +4,12 @@ class ApplyController {
 
     public function __construct($id) {
         $apply_model = new ApplyModel();
+        $auth = new AuthModel();
+        $is_logged = $auth->isLogged();
+        if (!$is_logged) {
+            header('Location: /login');
+            exit();
+        }
         if ($_FILES) {
             $offer_model = new OfferModel();
             $company_model = new CompanyModel();

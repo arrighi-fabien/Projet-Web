@@ -93,8 +93,10 @@ class SearchController {
             $companies = json_decode(json_encode($companies), true);
             // foreach company check if the company has a logo
             foreach ($companies as $key => $company) {
-                if (file_exists("img/company/{$company['company_name']}.webp")) {
-                    $companies[$key]['company_logo'] = "/img/company/{$company['company_name']}.webp";
+                // string to lower case and delete all spaces
+                $img_name = strtolower(str_replace(' ', '', $company['company_name']));
+                if (file_exists("img/company/{$img_name}.webp")) {
+                    $companies[$key]['company_logo'] = "/img/company/{$img_name}.webp";
                 }
                 else {
                     $companies[$key]['company_logo'] = "/img/company/default.webp";
