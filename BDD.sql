@@ -890,4 +890,42 @@ ALTER TABLE `need`
 --
 ALTER TABLE `rate`
   ADD CONSTRAINT `rate_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
-  ADD CONSTRAINT `rate_ibfk_2` FOREIGN KEY ... (2 Ko restants)
+  ADD CONSTRAINT `rate_ibfk_2` FOREIGN KEY (`id_company`) REFERENCES `company` (`id_company`);
+
+--
+-- Contraintes pour la table `remember`
+--
+ALTER TABLE `remember`
+  ADD CONSTRAINT `remember_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `trust`
+--
+ALTER TABLE `trust`
+  ADD CONSTRAINT `trust_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
+  ADD CONSTRAINT `trust_ibfk_2` FOREIGN KEY (`id_company`) REFERENCES `company` (`id_company`);
+
+--
+-- Contraintes pour la table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`id_center`) REFERENCES `center` (`id_center`);
+
+--
+-- Contraintes pour la table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD CONSTRAINT `wishlist_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `wishlist_ibfk_2` FOREIGN KEY (`id_internship`) REFERENCES `internship` (`id_internship`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `work_at`
+--
+ALTER TABLE `work_at`
+  ADD CONSTRAINT `work_at_ibfk_1` FOREIGN KEY (`id_company`) REFERENCES `company` (`id_company`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `work_at_ibfk_2` FOREIGN KEY (`id_city`) REFERENCES `city` (`id_city`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
